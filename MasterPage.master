@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            font-size: xx-large;
+            text-align: center;
+            background-color:#f00;
+        }
+        .auto-style2 {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table align="center" style="width:1024px;">
+            <tr style="height:100px;">
+                <td class="auto-style1"><strong>Dr. Susan Tomasino<br/>
+                    Natick Eye Care<br/>
+                    Red Book<br />
+                    </strong></td>
+            </tr>
+            <tr style="height:40px;">
+                <td>
+                <ul id="menu">
+                    <li><a href="ReOrderContacts.aspx">Patients Requests To Reorder Contacts</a></li>
+                    <li><a href="ptCancelled.aspx">Patients Who Cancelled Appointments</a></li>
+                    <li><a href="CLStryFU.aspx">Patients Who Are Trying Contact Lenses</a></li>
+                    <li><a href="Referral.aspx">Patients Who Need Referrrals</a></li>
+                    <li><a href="RxRequest.aspx">Patients Requests For Rx Copy</a></li>
+                    <li><a href="ReceiptRequest.aspx">Patients Requests Detailed Receipts</a></li>
+                </ul>
+                </td>
+            </tr>
+            <tr style="height:400px; vertical-align:top;">
+                <td>
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr style="height:30px;background-color:#f00;">
+                <td class="auto-style2">&nbsp;&nbsp;&nbsp;Copyright &copy 2022 Dr. Susan Tomasino</td>
+            </tr>
+        </table>
+        
+    </div>
+    </form>
+</body>
+</html>
