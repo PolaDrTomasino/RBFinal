@@ -12,7 +12,7 @@
         }
 
         .auto-style22 {
-            width: 100%;
+            width: 76%;
             direction: ltr;
         }
 
@@ -55,43 +55,43 @@
                 <tr>
                     <td class="auto-style25">Appointment Date:</td>
                     <td class="auto-style26">
-                        <asp:TextBox ID="txtAppt_Date" runat="server" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        <asp:TextBox ID="txtAppt_Date" runat="server" placeholder="Enter Appointment Date" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style24">Patient Name:</td>
                     <td class="auto-style27">
-                        <asp:TextBox ID="txtPatient_Name" runat="server" Width="244px" OnTextChanged="txtPatient_Name_TextChanged1"></asp:TextBox>
+                        <asp:TextBox ID="txtPatient_Name" runat="server" Width="244px" placeholder="Enter Patient Name" OnTextChanged="txtPatient_Name_TextChanged1"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style25">Phone Number:</td>
                     <td class="auto-style26">
-                        <asp:TextBox ID="txtPhone_Number" runat="server" Width="245px"></asp:TextBox>
+                        <asp:TextBox ID="txtPhone_Number" runat="server" placeholder="Enter Phone Number" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style23">Email:</td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="TextBox4_TextChanged" Width="245px"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter Email" OnTextChanged="TextBox4_TextChanged" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style24">CLS Trying:</td>
                     <td class="auto-style27">
-                        <asp:TextBox ID="txtCLS_Try" runat="server" Width="245px"></asp:TextBox>
+                        <asp:TextBox ID="txtCLS_Try" placeholder="Enter CLS being tried" runat="server" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style23">Date Of Follow Up:</td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="txtFU_Date" runat="server" Width="245px"></asp:TextBox>
+                        <asp:TextBox ID="txtFU_Date" placeholder="Follow up Date" runat="server" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style23">Initials:</td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="txtInitials" runat="server" Width="245px"></asp:TextBox>
+                        <asp:TextBox ID="txtInitials" placeholder="Your Initials" runat="server" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
                 
