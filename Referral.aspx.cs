@@ -18,7 +18,7 @@ public partial class Referral : System.Web.UI.Page
         connection.Open();
         SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Referral] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtRFR.Text + "','" + txt_RefDate.Text + "','" + txtInitials.Text + "')", connection);
         cmd2.ExecuteNonQuery();
-        lblMessage.Text = "Referral Submitted Successfully";
+        ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection.Close();
 //This code is for cleaning my form
         txtDate.Text = "";

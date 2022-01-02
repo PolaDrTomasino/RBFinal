@@ -5,6 +5,16 @@
 
 <head id="Head1">
     <title></title>
+    <script src="popup.js" type="text/javascript"></script>
+    <script>
+        function alert() {
+            Swal.fire(
+  'Receipt Request Submitted Successfully!',
+  'Yeaaaaay!',
+  'success'
+)
+        }
+    </script>
     <style type="text/css">
         .auto-style2 {
             height: 23px;
@@ -48,7 +58,6 @@
 <body>
         <div style="height: 360px; width: 757px;">
 
-            <asp:Label ID="lblMessage" runat="server" Text=" " BorderStyle="None" CssClass="auto-style23" Height="40px" Style="font-weight: 700; text-align: center; margin-left: 188px; font-size: x-large;" Width="443px"></asp:Label>
             <table border="1" class="auto-style22">
                 <tr>
                     <td class="auto-style25">Date:</td>

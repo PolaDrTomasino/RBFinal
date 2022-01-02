@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeFile="ViewCancellation.aspx.cs" Inherits="ViewCancellation" MasterPageFile="" %>
+﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeFile="ViewCancellation.aspx.cs" Inherits="ViewCancellation"  %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:GridView ID="GridView1" ShowHeaderWhenEmpty="True" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="426px" Width="837px" AutoGenerateColumns="false">
+        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="426px" Width="837px" AutoGenerateColumns="false" >
            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
@@ -21,15 +21,15 @@
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
             <Columns>
-                <asp:BoundField DataField="Date" HeaderText="Date"  SortExpression="Date" />
-                <asp:BoundField DataField="Patient_Name" HeaderText="Patient_Name" SortExpression="Patient_Name" />
-                <asp:BoundField DataField="Phone_Number" HeaderText="Phone_Number" />
-                <asp:BoundField DataField="Email" HeaderText="Email" />
-                <asp:BoundField DataField="Appt_Date" HeaderText="Appt_Date" />
-                <asp:BoundField DataField="New_Date" HeaderText="New_Date" />
+                <asp:BoundField DataField="Date" HeaderText="Date"  />
+                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
+                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
+                <asp:BoundField DataField="Email" HeaderText="Email"  />
+                <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
+                <asp:BoundField DataField="New_Date" HeaderText="New Date" />
                 <asp:BoundField DataField="Initials" HeaderText="Initials" />
             </Columns>
-
+            <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
         </asp:GridView>
     </div>
     </form>

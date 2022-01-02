@@ -5,7 +5,19 @@
 
 <head id="Head1">
     <title></title>
+    <script src="popup.js" type="text/javascript"></script>
+    <script>
+        function alert() {
+            Swal.fire(
+  'Contact Lenses Trial Appointment Submitted Successfully',
+  'Yeaaaaay!',
+  'success'
+)
+        }
+    </script>
+    <link href="StyleSheet.css" rel="stylesheet" />
     <style type="text/css">
+
         .auto-style2 {
             height: 23px;
             width: 259px;
@@ -48,10 +60,13 @@
 <body>
         <div style="height: 360px; width: 757px;">
 
-            <asp:Label ID="lblMessage" runat="server" Text=" " BorderStyle="None" CssClass="auto-style23" Height="40px" Style="font-weight: 700; text-align: center; margin-left: 188px; font-size: x-large;" Width="443px"></asp:Label>
+            <h1>
+
+            <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="auto-style22" style="font-weight: 700; text-align: center; margin-left: 98px" Width="575px" Font-Bold="False"></asp:Label>
+            </h1>
 
             <br />
-            <table border="1" class="auto-style22">
+            <table border="1" class="auto-style22" aria-atomic="False" aria-busy="False" align="center">
                 <tr>
                     <td class="auto-style25">Appointment Date:</td>
                     <td class="auto-style26">
@@ -94,12 +109,9 @@
                         <asp:TextBox ID="txtInitials" placeholder="Your Initials" runat="server" Width="245px"></asp:TextBox>
                     </td>
                 </tr>
-                
             </table>
             <br />
-            <br />
             <asp:Button ID="BtnSubmit" runat="server" OnClick="Button1_Click" Style="margin-left: 360px; text-align: center;" Text="Submit" Width="259px" BorderStyle="Groove" CssClass="auto-style25" />
-            <br />
             <br />
 
         </div>

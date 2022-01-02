@@ -18,7 +18,7 @@ public partial class ReOrderContacts : System.Web.UI.Page
         connection.Open();
         SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "','" + txtStatus.Text + "','" + txtInitials.Text + "')", connection);
         cmd2.ExecuteNonQuery();
-        lblMessage.Text = "Reorder Contacts Submitted Successfully";
+        ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection.Close();
 //This is to clean my form
         txtDate.Text = "";

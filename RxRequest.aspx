@@ -5,6 +5,16 @@
 
 <head id="Head1">
     <title></title>
+    <script src="popup.js" type="text/javascript"></script>
+    <script>
+        function alert() {
+            Swal.fire(
+  'Rx Copy Request Submitted Successfully',
+  'Yeaaaaay!',
+  'success'
+)
+        }
+    </script>
     <style type="text/css">
         .auto-style2 {
             height: 23px;

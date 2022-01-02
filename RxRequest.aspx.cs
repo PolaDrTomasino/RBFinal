@@ -19,7 +19,7 @@ public partial class RxRequest : System.Web.UI.Page
         connection.Open();
         SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Rx_Request] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtRx.Text + "','" + txtReceiving_Via.Text + "','" + txtDate_Done.Text + "','" + txtInitials.Text + "')", connection);
         cmd2.ExecuteNonQuery();
-        lblMessage.Text = "Rx Copy Request Submitted Successfully";
+        ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection.Close();
     }
     protected void TextBox1_TextChanged(object sender, EventArgs e)

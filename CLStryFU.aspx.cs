@@ -20,7 +20,7 @@ public partial class CLStryFU : System.Web.UI.Page
         connection.Open();
         SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[CLSFU] values('" + txtAppt_Date.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtCLS_Try.Text + "','" + txtFU_Date.Text + "','" + txtInitials.Text + "')", connection);
         cmd2.ExecuteNonQuery();
-        lblMessage.Text = "Contact Lenses Trial Appointment Submitted Successfully";
+        ClientScript.RegisterStartupScript(this.GetType(), "", "alert()",true);
         connection.Close();
 //Clearing form after submit
         txtAppt_Date.Text="";
