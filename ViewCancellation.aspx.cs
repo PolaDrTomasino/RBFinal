@@ -9,6 +9,7 @@ using System.Data;
 using System.Configuration;
 
 
+
 public partial class ViewCancellation : System.Web.UI.Page
 {
     SqlConnection connection = new SqlConnection("Data Source=DESKTOP-R3NJ0J9; Initial catalog=TestDB1; User ID=pola; Password=pola");
@@ -18,6 +19,10 @@ public partial class ViewCancellation : System.Web.UI.Page
         {
             DisplayRecord();
         }  
+    }
+    protected void GridViewCancellation_PreRender(object sender, EventArgs e)
+    {
+        Label1.Text = "Displaying Page" + (GridViewCancellation.PageIndex + 1).ToString() + " of " + GridViewCancellation.PageCount.ToString();
     }
     public DataTable DisplayRecord()
     {
@@ -31,5 +36,14 @@ public partial class ViewCancellation : System.Web.UI.Page
     protected void Button1_Click2(object sender, EventArgs e)
         {
             }
+    protected void GridViewCancellation_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
+    protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridViewCancellation.PageIndex = e.NewPageIndex;
+        this.DisplayRecord();
+    }
+}
 

@@ -43,11 +43,11 @@
             </tr>
             <tr style="height:400px; vertical-align:top;">
                 <td>
-                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
                     </asp:ContentPlaceHolder>
                 </td>
             </tr>
-            <tr style="height:30px;background-color:#f00;">
+            <tr style="height:inherit;background-color:#f00;" >
                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;Copyright &copy 2022 Dr. Susan Tomasino</td>
             </tr>
         </table>

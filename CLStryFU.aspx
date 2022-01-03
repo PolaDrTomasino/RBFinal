@@ -3,60 +3,59 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!DOCTYPE html>
 
-<head id="Head1">
-    <title></title>
-    <script src="popup.js" type="text/javascript"></script>
-    <script>
-        function alert() {
-            Swal.fire(
-  'Contact Lenses Trial Appointment Submitted Successfully',
-  'Yeaaaaay!',
-  'success'
-)
-        }
-    </script>
-    <link href="StyleSheet.css" rel="stylesheet" />
-    <style type="text/css">
+    <head id="Head1">
+        <title></title>
+        <script src="popup.js" type="text/javascript"></script>
+        <script>
+            function alert() {
+                Swal.fire(
+      'Contact Lenses Trial Appointment Submitted Successfully',
+      'Yeaaaaay!',
+      'success'
+    )
+            }
+        </script>
+        <link href="StyleSheet.css" rel="stylesheet" />
+        <style type="text/css">
+            .auto-style2 {
+                height: 23px;
+                width: 259px;
+            }
 
-        .auto-style2 {
-            height: 23px;
-            width: 259px;
-        }
+            .auto-style22 {
+                width: 76%;
+                direction: ltr;
+            }
 
-        .auto-style22 {
-            width: 76%;
-            direction: ltr;
-        }
+            .auto-style23 {
+                font-weight: bold;
+                text-decoration: underline;
+                width: 141px;
+            }
 
-        .auto-style23 {
-            font-weight: bold;
-            text-decoration: underline;
-            width: 141px;
-        }
+            .auto-style24 {
+                font-weight: bold;
+                text-decoration: underline;
+                width: 141px;
+            }
 
-        .auto-style24 {
-            font-weight: bold;
-            text-decoration: underline;
-            width: 141px;
-        }
+            .auto-style25 {
+                font-weight: bold;
+                text-decoration: underline;
+                height: 28px;
+                width: 141px;
+            }
 
-        .auto-style25 {
-            font-weight: bold;
-            text-decoration: underline;
-            height: 28px;
-            width: 141px;
-        }
+            .auto-style26 {
+                height: 28px;
+                width: 259px;
+            }
 
-        .auto-style26 {
-            height: 28px;
-            width: 259px;
-        }
-
-        .auto-style27 {
-            width: 259px;
-        }
-    </style>
-</head>
+            .auto-style27 {
+                width: 259px;
+            }
+        </style>
+    </head>
 <body>
         <div style="height: 360px; width: 757px;">
 

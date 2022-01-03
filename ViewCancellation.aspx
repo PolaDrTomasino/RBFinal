@@ -5,12 +5,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-
+    <style type="text/css">
+        .auto-style1 {
+            font-size: xx-large;
+            text-align: center;
+            background-color:#f00;
+        }
+        .auto-style2 {
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="426px" Width="837px" AutoGenerateColumns="false" >
+    <div>
+        <table align="center" style="width:1024px;">
+            <tr style="height:100px;">
+                <td class="auto-style1"><strong>Dr. Susan Tomasino<br/>
+                    Natick Eye Care<br/>
+                    Red Book<br />
+                    </strong></td>
+            </tr>
+            </table>
+        </div>
+        
+        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="426px" Width="837px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="20" OnPageIndexChanging="OnPageIndexChanging">
            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
@@ -31,6 +51,7 @@
             </Columns>
             <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
         </asp:GridView>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>
