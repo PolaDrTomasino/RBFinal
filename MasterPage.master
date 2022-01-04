@@ -1,8 +1,9 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
-
+//My Master page, with a content place holder
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+// the place holder, along with style sheet link
 <head id="Head1" runat="server">
     <title></title>
     <link href="StyleSheet.css" rel="stylesheet" />
@@ -22,6 +23,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
+   //Header
         <table align="center" style="width:1024px;">
             <tr style="height:100px;">
                 <td class="auto-style1"><strong>Dr. Susan Tomasino<br/>
@@ -29,6 +31,7 @@
                     Red Book<br />
                     </strong></td>
             </tr>
+// menu list
             <tr style="height:40px;">
                 <td>
                 <ul id="menu">
@@ -47,6 +50,7 @@
                     </asp:ContentPlaceHolder>
                 </td>
             </tr>
+// Footer
             <tr style="height:inherit;background-color:#f00;" >
                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;Copyright &copy 2022 Dr. Susan Tomasino</td>
             </tr>
