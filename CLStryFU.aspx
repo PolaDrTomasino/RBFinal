@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CLStryFU.aspx.cs" Inherits="CLStryFU" %>
-
+// Contact Lens Follow up requests
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!DOCTYPE html>
 
     <head id="Head1">
         <title></title>
+        //Pop up message after success/fail
         <script src="popup.js" type="text/javascript"></script>
         <script>
             function alert() {
@@ -16,6 +17,7 @@
             }
         </script>
         <link href="StyleSheet.css" rel="stylesheet" />
+        //Form Style
         <style type="text/css">
             .auto-style2 {
                 height: 23px;
@@ -56,7 +58,8 @@
             }
         </style>
     </head>
-<body>
+//CLS Form
+    <body>
         <div style="height: 360px; width: 757px;">
 
             <h1>
