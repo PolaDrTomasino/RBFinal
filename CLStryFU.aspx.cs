@@ -5,11 +5,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class CLStryFU : System.Web.UI.Page
 {
 // My DB Connection
-    SqlConnection connection = new SqlConnection("Data Source=DESKTOP-R3NJ0J9; Initial catalog=TestDB1; User ID=pola; Password=pola");
+    public SqlConnection mycon;
+    public string constr;
+    public void connection()
+    {
+        constr = ConfigurationManager.ConnectionStrings["mycon"].ToString();
+        mycon = new SqlConnection(constr);
+        mycon.Open();
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -17,11 +26,11 @@ public partial class CLStryFU : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 //opening conncetion and insert then close DB
-        connection.Open();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[CLSFU] values('" + txtAppt_Date.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtCLS_Try.Text + "','" + txtFU_Date.Text + "','" + txtInitials.Text + "')", connection);
+        connection();
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[CLSFU] values('" + txtAppt_Date.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtCLS_Try.Text + "','" + txtFU_Date.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()",true);
-        connection.Close();
+        connection();
 //Clearing form after submit
         txtAppt_Date.Text="";
         txtPatient_Name.Text="";

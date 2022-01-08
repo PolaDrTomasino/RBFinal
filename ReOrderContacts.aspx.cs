@@ -5,21 +5,29 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class ReOrderContacts : System.Web.UI.Page
 {
-    SqlConnection connection = new SqlConnection("Data Source=DESKTOP-R3NJ0J9; Initial catalog=TestDB1; User ID=pola; Password=pola");
+    public SqlConnection mycon;
+    public string constr;
+    public void connection()
+    {
+        constr = ConfigurationManager.ConnectionStrings["mycon"].ToString();
+        mycon = new SqlConnection(constr);
+        mycon.Open();
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        connection.Open();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "','" + txtStatus.Text + "','" + txtInitials.Text + "')", connection);
+        connection();
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "','" + txtStatus.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
-        connection.Close();
+        connection();
 //This is to clean my form
         txtDate.Text = "";
         txtPatient_Name.Text = "";

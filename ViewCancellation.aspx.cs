@@ -18,7 +18,7 @@ public partial class ViewCancellation : System.Web.UI.Page
         mycon = new SqlConnection(constr);
         mycon.Open();
     }
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Label2.Visible = false;

@@ -1,52 +1,26 @@
-﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeFile="ViewCancellation.aspx.cs" Inherits="ViewCancellation"  %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewCancellation.aspx.cs" Inherits="ViewCancellation" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            font-size: xx-large;
-            text-align: center;
-            background-color:#f00;
-            
-        }
-        .auto-style3 {
-            text-align: center;
-            font-weight: normal;
-        }
-    </style>
-</head>
 <body>
-    
-    <form id="form1" runat="server">
     <div>
-    <div>
-        <table align="center" style="width:1350px;">
-            <tr style="height:100px;">
-                <td class="auto-style1"><strong>Dr. Susan Tomasino<br/>
-                    Natick Eye Care<br/>
-                    Red Book<br />
-                    </strong></td>
-            </tr>
-            </table>
-        </div>
         <table class="style1">
             <tr>
-                <td class="style3" style="color: #800000; font-size: large;">
+                <td class="auto-style4" style="color: #800000; font-size: large;">
                 Search</td>
-                <td class="style2">
-                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <td class="auto-style4">
+                 <asp:TextBox ID="TextBox1" runat="server" Width="216px"></asp:TextBox>
                  </td>
-                <td>
-                    <asp:Button ID="Button1" runat="server" Text="Go" onclick="Button1_Click" />
+                <td class="auto-style4">
+                    <asp:Button ID="Button1" runat="server" Text="Search" onclick="Button1_Click" Width="76px" />
                 </td>
             </tr>
            
         </table>
-
-        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="426px" Width="837px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="20" OnPageIndexChanging="OnPageIndexChanging">
+        <br />
+        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="426px" Width="837px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="20" OnPageIndexChanging="OnPageIndexChanging" style="text-align: center">
            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
@@ -69,6 +43,7 @@
         </asp:GridView>
         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     </div>
-    </form>
 </body>
-</html>
+    </html>
+</asp:Content>
+

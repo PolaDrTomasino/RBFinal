@@ -5,11 +5,19 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class ptCancelled : System.Web.UI.Page
 {
-    //My DB Connection
-    SqlConnection connection = new SqlConnection("Data Source=DESKTOP-R3NJ0J9; Initial catalog=TestDB1; User ID=pola; Password=pola");
+    public SqlConnection mycon;
+    public string constr;
+    public void connection()
+    {
+        constr = ConfigurationManager.ConnectionStrings["mycon"].ToString();
+        mycon = new SqlConnection(constr);
+        mycon.Open();
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -17,11 +25,11 @@ public partial class ptCancelled : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 //SQL Syntax
-        connection.Open();
-        SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Cancellation_List] values('" + txtDate.Text + "', '" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtAppt_Date.Text + "','" + txtNew_Date.Text + "','" + txtInitials.Text + "')", connection);
+        connection();
+        SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Cancellation_List] values('" + txtDate.Text + "', '" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtAppt_Date.Text + "','" + txtNew_Date.Text + "','" + txtInitials.Text + "')", mycon);
         cmd.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
-        connection.Close();
+        mycon.Close();
 //This code is for cleaning my form
         txtDate.Text = "";
         txtAppt_Date.Text = "";
