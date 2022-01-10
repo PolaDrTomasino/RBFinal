@@ -19,11 +19,7 @@ public partial class CLStryFU : System.Web.UI.Page
         mycon.Open();
     }
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void BtnSubmit_Click(object sender, EventArgs e)
     {
 //opening conncetion and insert then close DB
         connection();

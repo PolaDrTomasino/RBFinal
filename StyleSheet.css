@@ -1,29 +1,10 @@
 ﻿body {
+    background-image:url(img/wbsbgrd.jpg);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
-#menu {
-    width: 1024px;
-    background-color:#7dabea;
-    height:130px;
-    margin-bottom: 19px;
-}
-    #menu li {
-    width: 211px;
-    height: 48px;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size:18px;
-    float: left;
-}
-    #menu li {
-        color:#fff;
-        font-size: 20px;
-    margin-right: 14px;
-    }
-        #menu li a:hover {
-            color:#fff;
-            font-size: 20px;
-        }
+
 #alert {
             display: none;
             background-color: #F3F5F6;

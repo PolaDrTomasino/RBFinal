@@ -6,6 +6,17 @@
 
 <head id="Head1">
     <title></title>
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/templatemo-style.css" rel="stylesheet" />
+        <link href="css/owl-carousel.css" rel="stylesheet" />
+        <link href="css/light-box.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="StyleSheet.css" rel="stylesheet" />
+        <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
+        <link href="css/all.css" rel="stylesheet" />
+        <link href="css/all.min.css" rel="stylesheet" />
+        <link href="css/fontawesome.css" rel="stylesheet" />
+        <link href="css/solid.css" rel="stylesheet" />
     <script src="popup.js" type="text/javascript"></script>
     <script>
         function alert() {

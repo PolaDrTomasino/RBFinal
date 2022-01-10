@@ -85,7 +85,7 @@ public partial class ViewCancellation : System.Web.UI.Page
         {
             GridViewCancellation.Visible = false;
             Label2.Visible = true;
-            Label2.Text = "The search Term " + TextBox1.Text + " &nbsp;Is Not Available in the Records"; ;
+            Label2.Text = "The search Term " + TextBox1.Text + " &nbsp;Is Not Available in the Records"; 
 
         }
     }
