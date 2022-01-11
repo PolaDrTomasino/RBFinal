@@ -52,4 +52,8 @@ public partial class CLStryFU : System.Web.UI.Page
     {
 
     }
+    protected void Button1_Click2(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewCLS.aspx");
+    }
 }

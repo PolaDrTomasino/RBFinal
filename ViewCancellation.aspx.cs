@@ -89,4 +89,8 @@ public partial class ViewCancellation : System.Web.UI.Page
 
         }
     }
+    protected void Button1_Click2(object sender, EventArgs e)
+    {
+        Response.Redirect("ptCancelled.aspx");
+    }
 }

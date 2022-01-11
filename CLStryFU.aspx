@@ -31,12 +31,11 @@
     <body>
         <br />
         <br />
-        <h3>
-            <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
-        </h3>
         <asp:Button ID="ViewCLS" runat="server" OnClick="Button1_Click2" style="text-align: center; margin-left: 74px; font-weight: 700; font-size: large;" Text="View CLS Trials" Width="583px" />
         <div class="container">
-
+            <h3>
+            <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+        </h3>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Appointment Date:</label>
