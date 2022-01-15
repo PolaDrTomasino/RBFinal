@@ -22,7 +22,7 @@ public partial class ptCancelled : System.Web.UI.Page
     {
 
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void SubmitCan_Click(object sender, EventArgs e)
     {
 //SQL Syntax
         connection();
@@ -44,22 +44,11 @@ public partial class ptCancelled : System.Web.UI.Page
     {
 
     }
-    protected void TextBox4_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-    }
     protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
     {
 
     }
-    protected void Button1_Click2(object sender, EventArgs e)
+    protected void CanViewer_Click(object sender, EventArgs e)
     {
         Response.Redirect("ViewCancellation.aspx");
     }

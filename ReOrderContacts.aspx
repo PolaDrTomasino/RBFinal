@@ -5,6 +5,17 @@
 
 <head id="Head1">
     <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/fontawesome.min.css" rel="stylesheet" />
+    <link href="css/fontAwesome.css" rel="stylesheet" />
+    <%--theme--%>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/templatemo-style.css" rel="stylesheet" />   
+    <link href="css/owl-carousel.css" rel="stylesheet" />
+    <link href="css/light-box.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
+
     <script src="popup.js" type="text/javascript"></script>
     <script>
         function alert() {
@@ -15,128 +26,150 @@
 )
         }
     </script>
-    <style type="text/css">
-        .auto-style2 {
-            height: 23px;
-            width: 259px;
-        }
-
-        .auto-style22 {
-            width: 100%;
-            direction: ltr;
-        }
-
-        .auto-style23 {
-            font-weight: bold;
-            text-decoration: underline;
-            width: 141px;
-        }
-
-        .auto-style24 {
-            font-weight: bold;
-            text-decoration: underline;
-            width: 141px;
-        }
-
-        .auto-style25 {
-            font-weight: bold;
-            text-decoration: underline;
-            height: 28px;
-            width: 141px;
-        }
-
-        .auto-style26 {
-            height: 28px;
-            width: 259px;
-        }
-
-        .auto-style27 {
-            width: 259px;
-        }
-    </style>
 </head>
 <body>
-        <div style="height: 360px; width: 757px;">
-            <table border="1" class="auto-style22">
-                <tr>
-                    <td class="auto-style25">Date:</td>
-                    <td class="auto-style26">
-                        <asp:TextBox ID="txtDate" runat="server" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style24">Patient Name:</td>
-                    <td class="auto-style27">
-                        <asp:TextBox ID="txtPatient_Name" runat="server" Width="244px" OnTextChanged="txtPatient_Name_TextChanged1"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style25">Phone Number:</td>
-                    <td class="auto-style26">
-                        <asp:TextBox ID="txtPhone_Number" runat="server" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style23">Email:</td>
-                    <td class="auto-style2">
-                        <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="TextBox4_TextChanged" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style24">Order Description:</td>
-                    <td class="auto-style27">
-                        <asp:TextBox ID="txtOrderDescription" runat="server" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style24">Credit Card Number:</td>
-                    <td>
-                        <asp:TextBox ID="txt_CCNumber" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style23">Expiration Date:</td>
-                    <td class="auto-style2">
-                        <asp:TextBox ID="txt_Expiration" runat="server" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style23">Home/Office</td>
-                    <td class="auto-style2">
-                        <asp:TextBox ID="txtHomeOffice" runat="server" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style23">CVC:</td>
-                    <td class="auto-style2">
-                        <asp:TextBox ID="txtCVC" runat="server" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style23">Status:</td>
-                    <td class="auto-style2">
-                        <asp:DropDownList ID="txtStatus" runat="server">
+        
+       
+        <div class="container">
+            <h3>
+            <asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+        </h3>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Appointment Date:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                            <asp:TextBox ID="txtDate" class="form-control" placeholder="Enter Date" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
+						
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Patient Name:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+							<asp:TextBox ID="txtPatient_Name" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px" OnTextChanged="txtPatient_Name_TextChanged1"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Phone Number:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Email:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+
+                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Order Description:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+							<asp:TextBox ID="txtOrderDescription" class="form-control" placeholder="Enter Order Description" runat="server" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">CC Number:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+							<asp:TextBox ID="txt_CCNumber" class="form-control" placeholder="Enter CC Number" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Expiration Date:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+							<asp:TextBox ID="txt_Expiration" class="form-control" placeholder="Enter Expiration Date" runat="server" Width="185px"></asp:TextBox>
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+							<asp:TextBox ID="txtCVC" class="form-control" placeholder="CVC" runat="server" Width="60px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+			<div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Delivery Location:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-truck"></i></span>
+							<asp:DropDownList ID="txtHomeOffice" runat="server" class="form-control">
+                            <asp:ListItem>Home</asp:ListItem>
+                            <asp:ListItem>Office</asp:ListItem>
+                        </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Status:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
+							<asp:DropDownList ID="txtStatus" runat="server" class="form-control">
                             <asp:ListItem>In Cart Or Marlo</asp:ListItem>
                             <asp:ListItem>Insurance</asp:ListItem>
                             <asp:ListItem>Rebate</asp:ListItem>
                             <asp:ListItem>Charged</asp:ListItem>
                             <asp:ListItem>Done (Closed)</asp:ListItem>
                         </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style23">Initials:</td>
-                    <td class="auto-style2">
-                        <asp:TextBox ID="txtInitials" runat="server" Width="245px"></asp:TextBox>
-                    </td>
-                </tr>
-                
-            </table>
-            <br />
-            <asp:Button ID="BtnSubmit" runat="server" OnClick="Button1_Click" Style="margin-left: 360px; text-align: center;" Text="Submit" Width="259px" BorderStyle="Groove" CssClass="auto-style25" />
-            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Initials:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-star"></i></span>
+                            <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-6 control-label"></label>
+                <div class="col-md-5">
+                    <asp:Button ID="ReOrder" runat="server" CssClass="btn btn-warning" OnClick="ReOrder_Click" Style="text-align: center;" Text="Submit" />
+                </div>
+            </div>
 
+            <br />
+            <br />
         </div>
-</body>
+    </body>
 </asp:Content>
 

@@ -5,6 +5,17 @@
 
 <head id="Head1">
     <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/fontawesome.min.css" rel="stylesheet" />
+    <link href="css/fontAwesome.css" rel="stylesheet" />
+    <%--theme--%>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/templatemo-style.css" rel="stylesheet" />   
+    <link href="css/owl-carousel.css" rel="stylesheet" />
+    <link href="css/light-box.css" rel="stylesheet" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
+
     <script src="popup.js" type="text/javascript"></script>
     <script>
         function alert() {
