@@ -16,6 +16,7 @@
     <link href="StyleSheet.css" rel="stylesheet" />
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
+    <script src="https://kit.fontawesome.com/607077bda6.js"></script>
     <script src="popup.js" type="text/javascript"></script>
     <script>
         function alert() {
@@ -28,12 +29,15 @@
     </script>
 </head>
 <body>
-        
-       
+    <br />
+    <br />
         <div class="container">
+            
             <h3>
             <asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
         </h3>
+            <asp:Button ID="ViewOrd" runat="server" CssClass="btn btn-success" OnClick="OrderViewer_Click" style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View CLS Orders" Width="400px" />
+            <br />
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Appointment Date:</label>
@@ -81,13 +85,26 @@
                     </div>
                 </div>
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Order Description:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
 							<asp:TextBox ID="txtOrderDescription" class="form-control" placeholder="Enter Order Description" runat="server" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">OD/OS</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fas fa-prescription"></i></span>
+							<asp:TextBox ID="txtOD" class="form-control" placeholder="OD" runat="server" Width="80px"></asp:TextBox>
+                            <span class="input-group-addon"><i class="fas fa-prescription"></i></span>
+                            <asp:TextBox ID="txtOS" class="form-control" placeholder="OS" runat="server" Width="80px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -139,7 +156,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
 							<asp:DropDownList ID="txtStatus" runat="server" class="form-control">
-                            <asp:ListItem>In Cart Or Marlo</asp:ListItem>
                             <asp:ListItem>Insurance</asp:ListItem>
                             <asp:ListItem>Rebate</asp:ListItem>
                             <asp:ListItem>Charged</asp:ListItem>
@@ -149,6 +165,21 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Order From:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-shopping-cart"></i></span>
+							<asp:DropDownList ID="txtOrderFrom" runat="server" class="form-control">
+                            <asp:ListItem>Marlo</asp:ListItem>
+                            <asp:ListItem>ABB</asp:ListItem>
+                        </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Initials:</label>

@@ -13,7 +13,7 @@ public partial class Referral : System.Web.UI.Page
     {
 
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         connection.Open();
         SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Referral] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtRFR.Text + "','" + txt_RefDate.Text + "','" + txtInitials.Text + "')", connection);

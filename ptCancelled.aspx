@@ -32,11 +32,12 @@
 <body>
         <br />
         <br />
-        <asp:Button ID="ViewCan" runat="server" OnClick="CanViewer_Click" style="text-align: center; margin-left: 74px; font-weight: 700; font-size: large;" Text="View Cancellations" Width="583px" />
+    
         <div class="container">
-            <h3>
-            <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
-        </h3>
+            <asp:Button ID="ViewCan" runat="server" CssClass="btn btn-success" OnClick="CanViewer_Click" style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View Cancellations" Width="400px" />
+            <h2>
+            <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 100px" Width="430px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+        </h2>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Appointment Date:</label>
@@ -44,7 +45,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
                             <asp:TextBox ID="txtDate" class="form-control" placeholder="Enter Appointment Date" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
-
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,8 @@
             <div class="form-group">
                 <label class="col-md-6 control-label"></label>
                 <div class="col-md-5">
-                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="SubmitCan_Click" Style="text-align: center;" Text="Submit" />
+                    <asp:Button ID="Button1" runat="server"  CssClass="btn btn-warning"  OnClick="SubmitCan_Click" Style="text-align: center;" Text="Submit" />
+                    
                 </div>
             </div>
 

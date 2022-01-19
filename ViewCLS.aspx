@@ -7,9 +7,6 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <div>
-            <br />
-            <br />
-            <br />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/fontawesome.min.css" rel="stylesheet" />
     <link href="css/fontAwesome.css" rel="stylesheet" />
@@ -18,11 +15,10 @@
     <link href="css/templatemo-style.css" rel="stylesheet" />   
     <link href="css/owl-carousel.css" rel="stylesheet" />
     <link href="css/light-box.css" rel="stylesheet" />
-    <link href="StyleSheet.css" rel="stylesheet" />
+
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
-
-            <div class="container">
+            <div class="container2">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-15">
                         <div class="panel">
@@ -73,25 +69,9 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <ul class="pagination hidden-xs">
-                                            <li><a href="#">Prev</a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">Next</a></li>
-                                        </ul>
-                                        <br />
-                                        <br />
-                                        <br />
-                                    </div>
-                                </div>
+                          
                             </div>
-                        </div>
+    
                     </div>
                 </div>
             </div>

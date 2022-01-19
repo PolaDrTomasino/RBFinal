@@ -24,7 +24,7 @@ public partial class ReOrderContacts : System.Web.UI.Page
     protected void ReOrder_Click(object sender, EventArgs e)
     {
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "','" + txtStatus.Text + "','" + txtInitials.Text + "')", mycon);
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txtOD.Text + "','" + txtOS.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "', '" + txtStatus.Text + "', '" + txtInitials.Text + "' , '" + txtOrderFrom.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
@@ -56,5 +56,9 @@ public partial class ReOrderContacts : System.Web.UI.Page
     protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
     {
 
+    }
+    protected void OrderViewer_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewOrders.aspx");
     }
 }

@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewCancellation.aspx.cs" Inherits="ViewCancellation" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewOrders.aspx.cs" Inherits="ViewOrders" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
     <!DOCTYPE html>
     <link href="css/fontawesome.min.css" rel="stylesheet" />
 
@@ -21,6 +22,7 @@
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
             <div class="container2" style="width:1000px">
+                
                 <div class="row">
                     <div class="col-md-offset-1 col-md-15">
                         <div class="panel">
@@ -48,7 +50,7 @@
 
 
                                         </div>
-                                        <asp:LinkButton ID="AddCancellation" runat="server" OnClick="Button1_Click2" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
+                                        <asp:LinkButton ID="AddOrder" runat="server" OnClick="AddNew_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
 
                                     </div>
                                 </div>
@@ -56,15 +58,24 @@
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <tbody>
-                                        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="940px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                        <asp:GridView ID="GridViewOrders" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="940px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
                                                 <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
-                                                <asp:BoundField DataField="New_Date" HeaderText="New Date" />
+                                                <asp:BoundField DataField="OrderDescription" HeaderText="Order Description" />
+                                                <asp:BoundField DataField="OD" HeaderText="OD" />
+                                                <asp:BoundField DataField="OS" HeaderText="OS" />
+                                                <asp:BoundField DataField="OS" HeaderText="OS" />
+                                                <asp:BoundField DataField="CCNumber" HeaderText="CCNumber" />
+                                                <asp:BoundField DataField="Expiration" HeaderText="Expiration" />
+                                                <asp:BoundField DataField="CVC" HeaderText="CVC" />
+                                                <asp:BoundField DataField="HomeOffice" HeaderText="HomeOffice" />
+                                                <asp:BoundField DataField="Status" HeaderText="Status" />
+                                                <asp:BoundField DataField="OrderFrom" HeaderText="OrderFrom" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" />
+
                                             </Columns>
                                             <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
                                         </asp:GridView>
@@ -80,5 +91,6 @@
         </div>
     </body>
     </html>
+
 </asp:Content>
 
