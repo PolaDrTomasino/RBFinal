@@ -6,28 +6,30 @@
     <head id="Head1">
         <title></title>
 
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/fontawesome.min.css" rel="stylesheet" />
-    <link href="css/fontAwesome.css" rel="stylesheet" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/bootstrapValidator.css" rel="stylesheet" />
+        <link href="css/fontawesome.min.css" rel="stylesheet" />
+        <link href="css/fontAwesome.css" rel="stylesheet" />
 
-    <%--theme--%>
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="css/templatemo-style.css" rel="stylesheet" />   
-    <link href="css/owl-carousel.css" rel="stylesheet" />
-    <link href="css/light-box.css" rel="stylesheet" />
-    <link href="StyleSheet.css" rel="stylesheet" />
-    <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
+        <%--theme--%>
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/templatemo-style.css" rel="stylesheet" />
+        <link href="css/owl-carousel.css" rel="stylesheet" />
+        <link href="css/light-box.css" rel="stylesheet" />
+        <link href="StyleSheet.css" rel="stylesheet" />
+        <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
 
-    <%--jquery--%>
-    <script src="js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="js/vendor/jquery-1.11.2.js"></script>
-    <%--bootstrap js--%>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <script src="js/vendor/bootstrapValidator.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-        
+        <%--jquery--%>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/vendor/jquery-3.6.0.min.js"></script>
+        <%--bootstrap js--%>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/vendor/bootstrapValidator.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/bootstrapValidator.js"></script>
+
         <script src="popup.js" type="text/javascript"></script>
         <script>
             function alert() {
@@ -49,200 +51,135 @@
             <h3>
                 <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Appointment Date:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtAppt_Date" runat="server" class="form-control" placeholder="Enter Appointment Date" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+            <form id="defaultForm" class="form-horizontal">
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">Appointment Date:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                                <asp:TextBox ID="txtAppt_Date" runat="server" class="form-control" placeholder="Enter Appointment Date" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Patient Name:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtPatient_Name" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">Patient Name:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <asp:TextBox ID="txtPatient_Name" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Phone Number:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                            <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">Phone Number:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Email:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">Email:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">CLS Trying:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-                            <asp:TextBox ID="txtCLS_Try" runat="server" class="form-control" placeholder="Enter CLS Trying" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">CLS Trying:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
+                                <asp:TextBox ID="txtCLS_Try" runat="server" class="form-control" placeholder="Enter CLS Trying" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Date Of Follow Up:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtFU_Date" runat="server" class="form-control" placeholder="Date of Follow up" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">Date Of Follow Up:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                                <asp:TextBox ID="txtFU_Date" runat="server" class="form-control" placeholder="Date of Follow up" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Initials:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-star"></i></span>
-                            <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3 control-label">Initials:</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-star"></i></span>
+                                <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
             <div class="form-group">
                 <label class="col-md-6 control-label"></label>
                 <div class="col-md-5">
-                    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="text-align: center; Width: 200px; " Text="Submit" />
+                    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="text-align: center; Width: 200px;" Text="Submit" />
                 </div>
             </div>
         </div>
     </body>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            $('#contact_form').bootstrapValidator({
-                // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            $('#defaultForm').bootstrapValidator({
+                message: 'This value is not valid',
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    first_name: {
+                    txtAppt_Date: {
+                        container: '#firstNameMessage',
                         validators: {
-                            stringLength: {
-                                min: 2,
-                            },
                             notEmpty: {
-                                message: 'Please enter your First Name'
+                                message: 'The first name is required and cannot be empty'
                             }
                         }
                     },
-                    last_name: {
+                    lastName: {
+                        container: '.lastNameMessage',
                         validators: {
-                            stringLength: {
-                                min: 2,
-                            },
                             notEmpty: {
-                                message: 'Please enter your Last Name'
+                                message: 'The last name is required and cannot be empty'
                             }
                         }
                     },
-                    user_name: {
-                        validators: {
-                            stringLength: {
-                                min: 8,
-                            },
-                            notEmpty: {
-                                message: 'Please enter your Username'
-                            }
-                        }
-                    },
-                    user_password: {
-                        validators: {
-                            stringLength: {
-                                min: 8,
-                            },
-                            notEmpty: {
-                                message: 'Please enter your Password'
-                            }
-                        }
-                    },
-                    confirm_password: {
-                        validators: {
-                            stringLength: {
-                                min: 8,
-                            },
-                            notEmpty: {
-                                message: 'Please confirm your Password'
-                            }
-                        }
-                    },
-                    email: {
+                    username: {
+                        message: 'The username is not valid',
                         validators: {
                             notEmpty: {
-                                message: 'Please enter your Email Address'
+                                message: 'The username is required and cannot be empty'
                             },
-                            emailAddress: {
-                                message: 'Please enter a valid Email Address'
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The username must be more than 6 and less than 30 characters long'
                             }
                         }
-                    },
-                    contact_no: {
-                        validators: {
-                            stringLength: {
-                                min: 12,
-                                max: 12,
-                                notEmpty: {
-                                    message: 'Please enter your Contact No.'
-                                }
-                            }
-                        },
-                        department: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please select your Department/Office'
-                                }
-                            }
-                        },
                     }
                 }
-            })
-                .on('success.form.bv', function (e) {
-                    $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                    $('#contact_form').data('bootstrapValidator').resetForm();
-
-                    // Prevent form submission
-                    e.preventDefault();
-
-                    // Get the form instance
-                    var $form = $(e.target);
-
-                    // Get the BootstrapValidator instance
-                    var bv = $form.data('bootstrapValidator');
-
-                    // Use Ajax to submit form data
-                    $.post($form.attr('action'), $form.serialize(), function (result) {
-                        console.log(result);
-                    }, 'json');
-                });
+            });
         });
     </script>
 </asp:Content>

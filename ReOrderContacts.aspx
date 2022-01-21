@@ -21,7 +21,7 @@
     <script>
         function alert() {
             Swal.fire(
-  'Reorder Contacts Submitted Successfully!',
+  'Contact Lenses Order Submitted Successfully!',
   'Yeaaaaay!',
   'success'
 )
@@ -91,7 +91,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-							<asp:TextBox ID="txtOrderDescription" class="form-control" placeholder="Enter Order Description" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtOrderDescription" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

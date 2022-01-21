@@ -32,7 +32,7 @@
         <script>
             function alert() {
                 Swal.fire(
-      'Contact Lenses Trial Appointment Submitted Successfully',
+      'Referral Request Submitted Successfully',
       'Yeaaaaay!',
       'success'
     )

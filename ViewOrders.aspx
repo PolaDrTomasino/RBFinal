@@ -65,17 +65,9 @@
                                                 <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
                                                 <asp:BoundField DataField="OrderDescription" HeaderText="Order Description" />
-                                                <asp:BoundField DataField="OD" HeaderText="OD" />
-                                                <asp:BoundField DataField="OS" HeaderText="OS" />
-                                                <asp:BoundField DataField="OS" HeaderText="OS" />
                                                 <asp:BoundField DataField="CCNumber" HeaderText="CCNumber" />
                                                 <asp:BoundField DataField="Expiration" HeaderText="Expiration" />
                                                 <asp:BoundField DataField="CVC" HeaderText="CVC" />
-                                                <asp:BoundField DataField="HomeOffice" HeaderText="HomeOffice" />
-                                                <asp:BoundField DataField="Status" HeaderText="Status" />
-                                                <asp:BoundField DataField="OrderFrom" HeaderText="OrderFrom" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
-
                                             </Columns>
                                             <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
                                         </asp:GridView>
