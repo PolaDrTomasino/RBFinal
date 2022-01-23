@@ -29,7 +29,6 @@
                 width: 900px;
                 margin-bottom: 30px;
             }
-
             .white-bg {
                 background-color: #ffffff;
             }
@@ -270,13 +269,13 @@
         </style>
         <div class="container-def">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-13">
                     <div class="wrapper wrapper-content animated fadeInRight">
 
                         <div class="ibox-content m-b-sm border-bottom">
                             <div class="p-xs">
                                 <div class="pull-left m-r-md">
-                                    <i class="fa fa-user-md text-navy mid-icon" aria-hidden="true"></i>
+                                    <i class="fa fa-user-md text-navy mid-icon"></i>
                                 </div>
                                 <h2>Welcome to Natick EyeCare</h2>
                                 <span>&nbsp;&nbsp;Your Vision Source</span>
@@ -289,12 +288,31 @@
 
                                 <h3>RedBook Records</h3>
                             </div>
-
                             <div class="forum-item active">
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-shield"></i>
+                                            <i class="fa fa-money"></i>
+                                        </div>
+                                        <a href="ViewOrders.aspx" class="forum-item-title" ">View Patients Orders</a>
+                                        <div class="forum-sub-title">Here we can view patients contact lens orders</div>
+                                        
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="OrderViews" runat="server" Text="OrderViews"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-pause"></i>
                                         </div>
                                         <a href="ViewCancellation.aspx" class="forum-item-title" ">View Cancellations</a>
                                         <div class="forum-sub-title">Here we can view patients who are on our cancellation waiting list </div>
@@ -314,14 +332,52 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-calendar"></i>
+                                            <i class="fa fa-dot-circle-o"></i>
                                         </div>
                                         <a href="ViewCLS.aspx" class="forum-item-title">View CLS Trials</a>
                                         <div class="forum-sub-title">Here we can see patients trying CLS and needs follow up</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
                                         <span class="views-number">
-                                            <asp:Label ID="clsviews" runat="server" Text="canviews"></asp:Label>
+                                            <asp:Label ID="clsviews" runat="server" Text="clsviews"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-dot-circle-o"></i>
+                                        </div>
+                                        <a href="ViewRecReq.aspx" class="forum-item-title">View Receipt Requests</a>
+                                        <div class="forum-sub-title">Here we can see patients asking for receipts and needs follow up</div>
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="RecReq" runat="server" Text="RecReq"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-dot-circle-o"></i>
+                                        </div>
+                                        <a href="ViewRx.aspx" class="forum-item-title">View Rx Requests</a>
+                                        <div class="forum-sub-title">Here we can see patients asking for a copy of their Rx</div>
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="RxReq" runat="server" Text="RxReq"></asp:Label>
                                         </span>
                                         <div>
                                             <small>Records</small>

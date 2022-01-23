@@ -47,7 +47,7 @@
 
         <div class="container">
             <h3>
-                <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Add Referral Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
             <div class="form-group">
                 <div class="row">
@@ -55,7 +55,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate" runat="server" class="form-control" placeholder="Enter Appointment Date" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtDate" runat="server" class="form-control" placeholder="MM/DD/YYYY" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txt_RefDate" class="form-control" placeholder="Enter Referral Date" runat="server" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txt_RefDate" class="form-control" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

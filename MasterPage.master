@@ -42,9 +42,12 @@
             height: 480px;
             width: 1000px;
             margin-bottom:30px;
+        }
+        .container-def {
+            height: 400px;
+            width: 700px;
             
         }
-
         .form-control {
             height: 500px;
             width: 1000px;
@@ -107,6 +110,7 @@
 
             .panel .panel-body {
                 padding: 0;
+
             }
 
                 .panel .panel-body .table thead tr th {

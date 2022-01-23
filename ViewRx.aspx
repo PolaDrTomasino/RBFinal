@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewOrders.aspx.cs" Inherits="ViewOrders" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewRx.aspx.cs" Inherits="ViewRx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <!DOCTYPE html>
     <link href="css/fontawesome.min.css" rel="stylesheet" />
 
@@ -16,14 +15,8 @@
     <link href="css/templatemo-style.css" rel="stylesheet" />   
     <link href="css/owl-carousel.css" rel="stylesheet" />
     <link href="css/light-box.css" rel="stylesheet" />
-    <link href="StyleSheet.css" rel="stylesheet" />
-    <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
-            <style>
-                .container2 {
-                    margin-top: -40px;
-                }
 
-            </style>
+    <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
             <div class="container2">
                 <div class="row">
@@ -32,7 +25,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View <span>Patients Order</span></h4>
+                                        <h4 class="title">View <span>Contact Lenses</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -53,7 +46,7 @@
 
 
                                         </div>
-                                        <asp:LinkButton ID="AddOrder" runat="server" OnClick="AddNew_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
+                                        <asp:LinkButton ID="AddRx" runat="server" OnClick="AddRx_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
 
                                     </div>
                                 </div>
@@ -61,31 +54,31 @@
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <tbody>
-                                        <asp:GridView ID="GridViewOrders" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" AutoGenerateColumns="false" Height="400px" Width="940px" align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                        <asp:GridView ID="GridViewCLS" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="900px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCLS_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" />
+                                                <asp:BoundField DataField="Date" HeaderText="Appointment Date" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
                                                 <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="OrderDescription" HeaderText="Order Description" />
-                                                <asp:BoundField DataField="CCNumber" HeaderText="CCNumber" />
-                                                <asp:BoundField DataField="Expiration" HeaderText="Expiration" />
-                                                <asp:BoundField DataField="CVC" HeaderText="CVC" />
+                                                <asp:BoundField DataField="Service_Provider" HeaderText="CLS Under Trial" />
+                                                <asp:BoundField DataField="Receiving_Via" HeaderText="F/U Date" />
+                                                <asp:BoundField DataField="Date_Done" HeaderText="F/U Date" />
+                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
                                             </Columns>
                                             <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
                                         </asp:GridView>
                                     </tbody>
                                 </table>
                             </div>
-                            
-                        </div>
+                          
+                            </div>
+    
                     </div>
                 </div>
             </div>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label2" runat="server" class="panel-footer" Text="Label"></asp:Label>
         </div>
     </body>
     </html>
-
 </asp:Content>
 

@@ -45,8 +45,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
                             <asp:TextBox ID="txtDate" class="form-control" placeholder="Enter Date" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
-						
-
                         </div>
                     </div>
                 </div>

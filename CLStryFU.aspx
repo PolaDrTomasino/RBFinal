@@ -45,8 +45,7 @@
     <body>
         <br />
         <br />
-        <asp:Button ID="ViewCLS" runat="server" OnClick="Button1_Click2" Style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View CLS Trials" Width="400px" />
-
+        <asp:Button ID="ViewCLS" runat="server" CssClass="btn btn-success" OnClick="Button1_Click2" style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View CLS Trials" Width="400px" />
         <div class="container">
             <h3>
                 <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
@@ -58,7 +57,7 @@
                         <div class="col-md-6 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                                <asp:TextBox ID="txtAppt_Date" runat="server" class="form-control" placeholder="Enter Appointment Date" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                                <asp:TextBox ID="txtAppt_Date" runat="server" class="form-control" placeholder="MM/DD/YYYY" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -114,7 +113,7 @@
                         <div class="col-md-6 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                                <asp:TextBox ID="txtFU_Date" runat="server" class="form-control" placeholder="Date of Follow up" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                                <asp:TextBox ID="txtFU_Date" runat="server" class="form-control" placeholder="MM/DD/YYYY" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                             </div>
                         </div>
                     </div>

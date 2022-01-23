@@ -44,7 +44,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate" class="form-control" placeholder="Enter Appointment Date" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
+                            <asp:TextBox ID="txtDate" class="form-control" placeholder="MM/DD/YYYY" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-							<asp:TextBox ID="txtAppt_Date" class="form-control" placeholder="Enter Appointment Date" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtAppt_Date" class="form-control" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtNew_Date" runat="server" class="form-control" placeholder="Enter New Date" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							<asp:TextBox ID="txtNew_Date" runat="server" class="form-control" placeholder="MM/DD/YYYY" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
