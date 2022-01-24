@@ -45,12 +45,10 @@
     <body>
         <br />
         <br />
-        <asp:Button ID="ViewCLS" runat="server" CssClass="btn btn-success" OnClick="Button1_Click2" style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View CLS Trials" Width="400px" />
         <div class="container">
             <h3>
                 <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
-            <form id="defaultForm" class="form-horizontal">
                 <div class="form-group">
                     <div class="row">
                         <label class="col-md-3 control-label">Appointment Date:</label>
@@ -129,7 +127,6 @@
                         </div>
                     </div>
                 </div>
-            </form>
             <div class="form-group">
                 <label class="col-md-6 control-label"></label>
                 <div class="col-md-5">

@@ -25,7 +25,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View <span>Contact Lenses</span></h4>
+                                        <h4 class="title">View <span>Rx Requests</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -54,7 +54,7 @@
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <tbody>
-                                        <asp:GridView ID="GridViewCLS" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="900px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCLS_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                        <asp:GridView ID="GridViewRx" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="900px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewRx_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Appointment Date" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />

@@ -36,7 +36,6 @@
             <h3>
             <asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
         </h3>
-            <asp:Button ID="ViewOrd" runat="server" CssClass="btn btn-success" OnClick="OrderViewer_Click" style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View CLS Orders" Width="400px" />
             <br />
             <div class="form-group">
                 <div class="row">

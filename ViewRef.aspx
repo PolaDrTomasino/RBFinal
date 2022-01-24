@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewRecReq.aspx.cs" Inherits="ViewRecReq" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewRef.aspx.cs" Inherits="ViewRef" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!DOCTYPE html>
@@ -25,7 +25,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View <span>Receipt Requests</span></h4>
+                                        <h4 class="title">View <span>Referral Requests</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -46,7 +46,7 @@
 
 
                                         </div>
-                                        <asp:LinkButton ID="AddReq" runat="server" OnClick="Button1_Click2" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
+                                        <asp:LinkButton ID="AddRef" runat="server" OnClick="AddRef_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
 
                                     </div>
                                 </div>
@@ -54,15 +54,14 @@
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <tbody>
-                                        <asp:GridView ID="GridViewRecReq" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="900px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewRecReq_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                        <asp:GridView ID="GridViewRef" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="900px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewRef_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" />
+                                                <asp:BoundField DataField="Date" HeaderText="Appointment Date" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
                                                 <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="Service_Provider" HeaderText="Service Provider" />
-                                                <asp:BoundField DataField="Receiving_Via" HeaderText="Receiving Via" />
-                                                <asp:BoundField DataField="Date_Done" HeaderText="Date Done" />
+                                                <asp:BoundField DataField="RFR" HeaderText="CLS Under Trial" />
+                                                <asp:BoundField DataField="RefDate" HeaderText="F/U Date" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" />
                                             </Columns>
                                             <EmptyDataTemplate>No Records Available</EmptyDataTemplate>

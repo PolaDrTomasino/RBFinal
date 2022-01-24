@@ -57,8 +57,4 @@ public partial class ReOrderContacts : System.Web.UI.Page
     {
 
     }
-    protected void OrderViewer_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewOrders.aspx");
-    }
 }

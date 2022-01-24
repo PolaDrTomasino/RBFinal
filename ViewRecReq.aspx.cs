@@ -34,12 +34,12 @@ public partial class ViewRecReq : System.Web.UI.Page
         SqlDataAdapter da = new SqlDataAdapter(query, mycon);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridViewCLS.DataSource = ds;
-        GridViewCLS.DataBind();
+        GridViewRecReq.DataSource = ds;
+        GridViewRecReq.DataBind();
     }
-    protected void GridViewCLS_PreRender(object sender, EventArgs e)
+    protected void GridViewRecReq_PreRender(object sender, EventArgs e)
     {
-        Label2.Text = "Displaying Page" + (GridViewCLS.PageIndex + 1).ToString() + " of " + GridViewCLS.PageCount.ToString();
+        Label2.Text = "Displaying Page" + (GridViewRecReq.PageIndex + 1).ToString() + " of " + GridViewRecReq.PageCount.ToString();
     }
     public DataTable DisplayRecord()
     {
@@ -47,17 +47,17 @@ public partial class ViewRecReq : System.Web.UI.Page
         SqlDataAdapter Adp = new SqlDataAdapter("select [Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request]", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
-        GridViewCLS.DataSource = Dt;
-        GridViewCLS.DataBind();
+        GridViewRecReq.DataSource = Dt;
+        GridViewRecReq.DataBind();
         return Dt;
     }
-    protected void GridViewCLS_SelectedIndexChanged(object sender, EventArgs e)
+    protected void GridViewRecReq_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
     protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-        GridViewCLS.PageIndex = e.NewPageIndex;
+        GridViewRecReq.PageIndex = e.NewPageIndex;
         this.DisplayRecord();
     }
     protected void Button1_Click(object sender, EventArgs e)
@@ -75,14 +75,14 @@ public partial class ViewRecReq : System.Web.UI.Page
             dr.Read();
 
             rep_bind();
-            GridViewCLS.Visible = true;
+            GridViewRecReq.Visible = true;
 
             TextBox1.Text = "";
             Label2.Text = "";
         }
         else
         {
-            GridViewCLS.Visible = false;
+            GridViewRecReq.Visible = false;
             Label2.Visible = true;
             Label2.Text = "The search Term " + TextBox1.Text + " &nbsp;Is Not Available in the Records";
 

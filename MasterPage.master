@@ -45,8 +45,7 @@
         }
         .container-def {
             height: 400px;
-            width: 700px;
-            
+            width: 700px;            
         }
         .form-control {
             height: 500px;

@@ -34,7 +34,6 @@
         <br />
     
         <div class="container">
-            <asp:Button ID="ViewCan" runat="server" CssClass="btn btn-success" OnClick="CanViewer_Click" style="text-align: center; margin-left: 55px; font-weight: 700; font-size: large;" Text="View Cancellations" Width="400px" />
             <h2>
             <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 100px" Width="430px" Font-Bold="False" ForeColor="Blue"></asp:Label>
         </h2>

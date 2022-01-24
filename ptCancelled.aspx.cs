@@ -48,8 +48,4 @@ public partial class ptCancelled : System.Web.UI.Page
     {
 
     }
-    protected void CanViewer_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewCancellation.aspx");
-    }
 }

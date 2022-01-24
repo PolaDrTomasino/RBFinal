@@ -25,7 +25,7 @@
             }
 
             .container-def {
-                height: auto;
+                height: 400px;
                 width: 900px;
                 margin-bottom: 30px;
             }
@@ -378,6 +378,25 @@
                                     <div class="col-md-3 forum-info">
                                         <span class="views-number">
                                             <asp:Label ID="RxReq" runat="server" Text="RxReq"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-dot-circle-o"></i>
+                                        </div>
+                                        <a href="ViewRef.aspx" class="forum-item-title">View Referral Requests</a>
+                                        <div class="forum-sub-title">Here we can see patients who needs referral</div>
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="RefReq" runat="server" Text="RefReq"></asp:Label>
                                         </span>
                                         <div>
                                             <small>Records</small>
