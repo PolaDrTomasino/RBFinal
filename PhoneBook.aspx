@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Referral.aspx.cs" Inherits="Referral" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="PhoneBook.aspx.cs" Inherits="PhoneBook" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!DOCTYPE html>
 
     <head id="Head1">
@@ -47,71 +47,77 @@
 
         <div class="container">
             <h3>
-                <asp:Label ID="Label1" runat="server" Text="Add Referral Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="PhoneBook" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Appointment Date:</label>
+                    <label class="col-md-3 control-label">For:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate" runat="server" class="form-control" placeholder="MM/DD/YYYY" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtFor" runat="server" class="form-control" placeholder="MM/DD/YYYY" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Patient Name:</label>
+                    <label class="col-md-3 control-label">Date:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtPatient_Name" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtDate" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Phone Number:</label>
+                    <label class="col-md-3 control-label">Time:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <asp:TextBox ID="txtTime" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Caller Phone Number:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                            <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtCaller_Number" runat="server" class="form-control" placeholder="Enter Phone Number" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Email:</label>
+                    <label class="col-md-3 control-label">Message:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-
-                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+							<asp:TextBox ID="txtMessage" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Referral Request:</label>
+                    <label class="col-md-3 control-label">Action Needed:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-                            <asp:TextBox ID="txtRFR" class="form-control" placeholder="Enter Referral Request" runat="server" Width="245px"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Referral Date:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txt_RefDate" class="form-control" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
+                            <span class="input-group-addon"><i class="fa fa-truck"></i></span>
+							<asp:DropDownList ID="txtAction" runat="server" class="form-control">
+                            <asp:ListItem>Telephoned</asp:ListItem>
+                            <asp:ListItem>Returned Your Call</asp:ListItem>
+                            <asp:ListItem>Please Call</asp:ListItem>
+                            <asp:ListItem>Will Call Again</asp:ListItem>
+                            <asp:ListItem>Came To See You</asp:ListItem>
+                            <asp:ListItem>Wants To See You</asp:ListItem>
+                        </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -130,3 +136,4 @@
             <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
     </body>
 </asp:Content>
+

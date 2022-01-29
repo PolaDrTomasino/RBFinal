@@ -1,8 +1,12 @@
-﻿body {
+﻿:root { background-attachment: fixed; }
+
+body {
     background-image:url(img/wbsbgrd.jpg);
+    background-attachment: fixed;
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
+
 }
 
 #alert {

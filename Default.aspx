@@ -18,6 +18,7 @@
             <link href="css/light-box.css" rel="stylesheet" />
             <link href="StyleSheet.css" rel="stylesheet" />
             <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
+            <script src="https://kit.fontawesome.com/607077bda6.js"></script>
         </div>
         <style>
             body {
@@ -351,7 +352,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-dot-circle-o"></i>
+                                            <i class="fa fa-sticky-note"></i>
                                         </div>
                                         <a href="ViewRecReq.aspx" class="forum-item-title">View Receipt Requests</a>
                                         <div class="forum-sub-title">Here we can see patients asking for receipts and needs follow up</div>
@@ -370,7 +371,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-dot-circle-o"></i>
+                                            <i class="fa fa-prescription"></i>
                                         </div>
                                         <a href="ViewRx.aspx" class="forum-item-title">View Rx Requests</a>
                                         <div class="forum-sub-title">Here we can see patients asking for a copy of their Rx</div>
@@ -389,7 +390,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-dot-circle-o"></i>
+                                            <i class="fa fa-wpforms"></i>
                                         </div>
                                         <a href="ViewRef.aspx" class="forum-item-title">View Referral Requests</a>
                                         <div class="forum-sub-title">Here we can see patients who needs referral</div>

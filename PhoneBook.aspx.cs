@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 
-public partial class ReOrderContacts : System.Web.UI.Page
+public partial class PhoneBook : System.Web.UI.Page
 {
     public SqlConnection mycon;
     public string constr;
@@ -17,28 +17,22 @@ public partial class ReOrderContacts : System.Web.UI.Page
         mycon = new SqlConnection(constr);
         mycon.Open();
     }
-    protected void Page_Load(object sender, EventArgs e)
-    {
 
-    }
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
+        //opening conncetion and insert then close DB
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txtOD.Text + "','" + txtOS.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "', '" + txtStatus.Text + "', '" + txtInitials.Text + "' , '" + txtOrderFrom.Text + "')", mycon);
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtFor.Text + "','" + txtDate.Text + "','" + txtTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
-//This is to clean my form
+        //Clearing form after submit
+        txtFor.Text = "";
         txtDate.Text = "";
-        txtPatient_Name.Text = "";
-        txtPhone_Number.Text = "";
-        txtEmail.Text = "";
-        txtOrderDescription.Text = "";
-        txt_CCNumber.Text = "";
-        txt_Expiration.Text = "";
-        txtCVC.Text = "";
-        txtHomeOffice.Text = "";
-        txtStatus.Text = "";
+        txtTime.Text = "";
+        txtCaller_Number.Text = "";
+        txtMessage.Text = "";
+        txtAction.Text = "";
         txtInitials.Text = "";
     }
     protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -57,5 +51,4 @@ public partial class ReOrderContacts : System.Web.UI.Page
     {
 
     }
-
 }

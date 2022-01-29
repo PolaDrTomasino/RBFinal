@@ -13,6 +13,7 @@ public partial class _Default : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
+        //my DB connection & the queries
         SqlConnection connection = new SqlConnection("Data Source=DESKTOP-R3NJ0J9; Initial catalog=TestDB1; User ID=pola; Password=pola");
         connection.Open();
         string query1 = "SELECT COUNT(*) FROM Cancellation_List";
@@ -48,26 +49,6 @@ public partial class _Default : System.Web.UI.Page
         RecReq.Text = rows_count4.ToString();
         RxReq.Text = rows_count5.ToString();
         RefReq.Text = rows_count6.ToString();
-    
     }
-    protected void CanViewer_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewCancellation.aspx");
-    }
-    protected void Button1_Click2(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewCLS.aspx");
-    }
-    protected void RecReq_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewRecReq.aspx");
-    }
-    protected void RxReq_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewRx.aspx");
-    }
-    protected void RefReq_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewRef.aspx");
-    }
+   
 }

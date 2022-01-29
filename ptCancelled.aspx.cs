@@ -22,7 +22,7 @@ public partial class ptCancelled : System.Web.UI.Page
     {
 
     }
-    protected void SubmitCan_Click(object sender, EventArgs e)
+    protected void BtnSubmit_Click(object sender, EventArgs e)
     {
 //SQL Syntax
         connection();

@@ -115,17 +115,8 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-6 control-label"></label>
-                <div class="col-md-5">
-                    <asp:Button ID="Button1" runat="server"  CssClass="btn btn-warning"  OnClick="SubmitCan_Click" Style="text-align: center;" Text="Submit" />
-                    
-                </div>
-            </div>
-
-            <br />
-            <br />
         </div>
-    </body>
+    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 100px; text-align: center; Width: 200px;" Text="Submit" />
+</body>
 </asp:Content>
 
