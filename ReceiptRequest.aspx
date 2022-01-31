@@ -47,7 +47,7 @@
 
         <div class="container">
             <h3>
-                <asp:Label ID="Label1" runat="server" Text="Add Receipt Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Add Receipt Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
             <div class="form-group">
                 <div class="row">
@@ -55,7 +55,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtDate" runat="server" placeholder="MM/DD/YYYY" class="form-control" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtDate" runat="server" type="date" placeholder="MM/DD/YYYY" class="form-control" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
-							<asp:DropDownList ID="txtReceiving_Via" runat="server" class="form-control">
+							<asp:DropDownList ID="txtReceiving_Via" runat="server" class="form-control" Width="245px">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem>Office Pick-Up</asp:ListItem>
                             <asp:ListItem>By Email</asp:ListItem>
@@ -127,7 +127,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate_Done" runat="server" placeholder="MM/DD/YYYY" class="form-control" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                            <asp:TextBox ID="txtDate_Done" runat="server" type="date" placeholder="MM/DD/YYYY" class="form-control" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

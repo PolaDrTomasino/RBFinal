@@ -35,15 +35,15 @@
     
         <div class="container">
             <h2>
-            <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 100px" Width="430px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
         </h2>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Appointment Date:</label>
+                    <label class="col-md-3 control-label">Date:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate" class="form-control" placeholder="MM/DD/YYYY" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
+                            <asp:TextBox ID="txtDate" class="form-control" type="date" placeholder="MM/DD/YYYY" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-							<asp:TextBox ID="txtAppt_Date" class="form-control" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtAppt_Date" class="form-control" type="date" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtNew_Date" runat="server" class="form-control" placeholder="MM/DD/YYYY" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							<asp:TextBox ID="txtNew_Date" runat="server" type="date" class="form-control" placeholder="MM/DD/YYYY" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

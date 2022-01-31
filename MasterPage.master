@@ -39,25 +39,49 @@
     <meta name="msapplication-TileColor" content="#da532c"/>
     <meta name="theme-color" content="#ffffff"/>
     <style type="text/css">
+        tbody {
+            font-family: Arial;
+            font-size: 10pt;
+        }
 
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            table th {
+                font-weight: bold;
+                text-align: center;
+            }
+
+            table th, table td {
+                padding: 5px;
+            }
+
+            table, table table td {
+                border: 0px solid #ccc;
+            }
         .container {
             height: 450px;
             width: 700px;
-            margin-right:-70px;
+            
         }
+
         .container2 {
             height: 480px;
             width: 1000px;
-            margin-bottom:30px;
+            margin-bottom: 30px;
         }
+
         .container-def {
             height: 400px;
-            width: 700px;            
+            width: 700px;
         }
+
         .form-control {
             height: 500px;
-            width: 1000px;
-            
+            width: 950px;
         }
 
         .demo {
@@ -116,7 +140,6 @@
 
             .panel .panel-body {
                 padding: 0;
-
             }
 
                 .panel .panel-body .table thead tr th {
@@ -287,6 +310,13 @@
                             <span class="rect"></span>
                             <span class="circle"></span>
                             Patients Requests Detailed Receipts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="PhoneBook.aspx">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            PhoneBook
                         </a>
                     </li>
                 </ul>

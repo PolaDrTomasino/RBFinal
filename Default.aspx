@@ -239,10 +239,6 @@
                 padding: 10px 15px;
             }
 
-            .message-input {
-                height: 90px !important;
-            }
-
             .form-control, .single-line {
                 background-color: #FFFFFF;
                 background-image: none;
@@ -268,6 +264,11 @@
                 margin-bottom: 10px;
             }
         </style>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="container-def">
             <div class="row">
                 <div class="col-lg-13">
@@ -398,6 +399,25 @@
                                     <div class="col-md-3 forum-info">
                                         <span class="views-number">
                                             <asp:Label ID="RefReq" runat="server" Text="RefReq"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-wpforms"></i>
+                                        </div>
+                                        <a href="ViewPhoneBook.aspx" class="forum-item-title">View Phone Calls Received</a>
+                                        <div class="forum-sub-title">Here we can see patients who called and left a message</div>
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="PhoneBook" runat="server" Text="RefReq"></asp:Label>
                                         </span>
                                         <div>
                                             <small>Records</small>

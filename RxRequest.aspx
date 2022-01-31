@@ -45,7 +45,7 @@
 
         <div class="container">
             <h3>
-                <asp:Label ID="Label1" runat="server" Text="Add Rx Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Add Rx Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
             <div class="form-group">
                 <div class="row">

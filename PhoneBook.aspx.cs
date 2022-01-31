@@ -22,14 +22,13 @@ public partial class PhoneBook : System.Web.UI.Page
     {
         //opening conncetion and insert then close DB
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtFor.Text + "','" + txtDate.Text + "','" + txtTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtFor.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
         //Clearing form after submit
         txtFor.Text = "";
-        txtDate.Text = "";
-        txtTime.Text = "";
+        txtDateTime.Text = "";
         txtCaller_Number.Text = "";
         txtMessage.Text = "";
         txtAction.Text = "";

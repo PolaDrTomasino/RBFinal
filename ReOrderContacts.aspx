@@ -43,7 +43,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate" class="form-control" placeholder="Enter Date" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
+                            <asp:TextBox ID="txtDate" class="form-control" type="date" placeholder="Enter Date" runat="server" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-							<asp:TextBox ID="txt_Expiration" class="form-control" placeholder="Enter Expiration Date" runat="server" Width="185px"></asp:TextBox>
+							<asp:TextBox ID="txt_Expiration" class="form-control" type="month" placeholder="Enter Expiration Date" runat="server" Width="185px"></asp:TextBox>
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 							<asp:TextBox ID="txtCVC" class="form-control" placeholder="CVC" runat="server" Width="60px"></asp:TextBox>
                         </div>
@@ -138,10 +138,11 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-truck"></i></span>
-							<asp:DropDownList ID="txtHomeOffice" runat="server" class="form-control">
-                            <asp:ListItem>Home</asp:ListItem>
-                            <asp:ListItem>Office</asp:ListItem>
-                        </asp:DropDownList>
+                            <asp:DropDownList ID="txtHomeOffice" runat="server" class="form-control">
+                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem>Home</asp:ListItem>
+                                <asp:ListItem>Office</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -152,12 +153,13 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
-							<asp:DropDownList ID="txtStatus" runat="server" class="form-control">
-                            <asp:ListItem>Insurance</asp:ListItem>
-                            <asp:ListItem>Rebate</asp:ListItem>
-                            <asp:ListItem>Charged</asp:ListItem>
-                            <asp:ListItem>Done (Closed)</asp:ListItem>
-                        </asp:DropDownList>
+                            <asp:DropDownList ID="txtStatus" runat="server" class="form-control">
+                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem>Insurance</asp:ListItem>
+                                <asp:ListItem>Rebate</asp:ListItem>
+                                <asp:ListItem>Charged</asp:ListItem>
+                                <asp:ListItem>Done (Closed)</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -168,8 +170,9 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-shopping-cart"></i></span>
-							<asp:DropDownList ID="txtOrderFrom" runat="server" class="form-control">
-                            <asp:ListItem>Marlo</asp:ListItem>
+							<asp:DropDownList ID="txtOrderFrom" runat="server" class="form-control" placeholder="Select Order From">
+                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem>Marlo</asp:ListItem>
                             <asp:ListItem>ABB</asp:ListItem>
                         </asp:DropDownList>
                         </div>
@@ -188,7 +191,11 @@
                     </div>
                 </div>
             </div>
-    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
+            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
+        <br />
+            <br />    
+        
+        </div>
     </body>
 </asp:Content>
 

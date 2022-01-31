@@ -44,7 +44,7 @@ public partial class ViewOrders : System.Web.UI.Page
     {
         Label2.Text = "Displaying Page" + (GridViewOrders.PageIndex + 1).ToString() + " of " + GridViewOrders.PageCount.ToString();
     }
-    
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         connection();
@@ -214,49 +214,58 @@ public partial class ViewOrders : System.Web.UI.Page
         connection();
         string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, OD=@OD, OS=@OS, CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, OrderFrom=@OrderFrom Where OrderID=@OrderID";
         SqlCommand cmd = new SqlCommand(query, mycon);
-        
-                cmd.Parameters.Add("OrderID", SqlDbType.Int);
-                cmd.Parameters["OrderID"].Value = OrderID;
-                cmd.Parameters.Add("Date", SqlDbType.VarChar, 255);
-                cmd.Parameters["Date"].Value = newDate;
-                cmd.Parameters.Add("Patient_Name", SqlDbType.VarChar, 255);
-                cmd.Parameters["Patient_Name"].Value = newPatient_Name;
-                cmd.Parameters.Add("Phone_Number", SqlDbType.VarChar, 255);
-                cmd.Parameters["Phone_Number"].Value = newPhone_Number;
-                cmd.Parameters.Add("Email", SqlDbType.VarChar, 255);
-                cmd.Parameters["Email"].Value = newEmail;
-                cmd.Parameters.Add("OrderDescription", SqlDbType.VarChar, 255);
-                cmd.Parameters["OrderDescription"].Value = newOrderDescription;
-                cmd.Parameters.Add("OD", SqlDbType.VarChar, 255);
-                cmd.Parameters["OD"].Value = newOD;
-                cmd.Parameters.Add("OS", SqlDbType.VarChar, 255);
-                cmd.Parameters["OS"].Value = newOS;
-                cmd.Parameters.Add("CCNumber", SqlDbType.VarChar, 255);
-                cmd.Parameters["CCNumber"].Value = newCCNumber;
-                cmd.Parameters.Add("Expiration", SqlDbType.VarChar, 255);
-                cmd.Parameters["Expiration"].Value = newExpiration;
-                cmd.Parameters.Add("CVC", SqlDbType.VarChar, 255);
-                cmd.Parameters["CVC"].Value = newCVC;
-                cmd.Parameters.Add("HomeOffice", SqlDbType.VarChar, 255);
-                cmd.Parameters["HomeOffice"].Value = newHomeOffice;
-                cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
-                cmd.Parameters["Status"].Value = newStatus;
-                cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
-                cmd.Parameters["Initials"].Value = newInitials;
-                cmd.Parameters.Add("OrderFrom", SqlDbType.VarChar, 255);
-                cmd.Parameters["OrderFrom"].Value = newOrderFrom;
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                finally
-                {
-                    mycon.Close();
-                }
-                DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
-                BindGrid();
-                BindDetails();
-                DetailsView1.Visible = false;
-                GridViewOrders.Visible = true;
-            }
+
+        cmd.Parameters.Add("OrderID", SqlDbType.Int);
+        cmd.Parameters["OrderID"].Value = OrderID;
+        cmd.Parameters.Add("Date", SqlDbType.VarChar, 255);
+        cmd.Parameters["Date"].Value = newDate;
+        cmd.Parameters.Add("Patient_Name", SqlDbType.VarChar, 255);
+        cmd.Parameters["Patient_Name"].Value = newPatient_Name;
+        cmd.Parameters.Add("Phone_Number", SqlDbType.VarChar, 255);
+        cmd.Parameters["Phone_Number"].Value = newPhone_Number;
+        cmd.Parameters.Add("Email", SqlDbType.VarChar, 255);
+        cmd.Parameters["Email"].Value = newEmail;
+        cmd.Parameters.Add("OrderDescription", SqlDbType.VarChar, 255);
+        cmd.Parameters["OrderDescription"].Value = newOrderDescription;
+        cmd.Parameters.Add("OD", SqlDbType.VarChar, 255);
+        cmd.Parameters["OD"].Value = newOD;
+        cmd.Parameters.Add("OS", SqlDbType.VarChar, 255);
+        cmd.Parameters["OS"].Value = newOS;
+        cmd.Parameters.Add("CCNumber", SqlDbType.VarChar, 255);
+        cmd.Parameters["CCNumber"].Value = newCCNumber;
+        cmd.Parameters.Add("Expiration", SqlDbType.VarChar, 255);
+        cmd.Parameters["Expiration"].Value = newExpiration;
+        cmd.Parameters.Add("CVC", SqlDbType.VarChar, 255);
+        cmd.Parameters["CVC"].Value = newCVC;
+        cmd.Parameters.Add("HomeOffice", SqlDbType.VarChar, 255);
+        cmd.Parameters["HomeOffice"].Value = newHomeOffice;
+        cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
+        cmd.Parameters["Status"].Value = newStatus;
+        cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
+        cmd.Parameters["Initials"].Value = newInitials;
+        cmd.Parameters.Add("OrderFrom", SqlDbType.VarChar, 255);
+        cmd.Parameters["OrderFrom"].Value = newOrderFrom;
+        try
+        {
+            cmd.ExecuteNonQuery();
+        }
+        finally
+        {
+            mycon.Close();
+        }
+        DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
+        BindGrid();
+        BindDetails();
+        DetailsView1.Visible = false;
+        GridViewOrders.Visible = true;
+    }
+    protected void btnPrintFromCodeBehind_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "printGrid", "printGrid();", true);
+        }
+        catch { }
+    }
+
 }

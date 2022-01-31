@@ -32,7 +32,7 @@
         <script>
             function alert() {
                 Swal.fire(
-      'Referral Request Submitted Successfully',
+      'Phone Call Recorded Successfully',
       'Yeaaaaay!',
       'success'
     )
@@ -47,7 +47,7 @@
 
         <div class="container">
             <h3>
-                <asp:Label ID="Label1" runat="server" Text="PhoneBook" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: center; margin-left: 80px" Width="300px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="PhoneBook" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
             <div class="form-group">
                 <div class="row">
@@ -55,29 +55,36 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtFor" runat="server" class="form-control" placeholder="MM/DD/YYYY" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:DropDownList ID="txtFor" runat="server" class="form-control" Width="245px">
+                                <asp:ListItem>Dr T.</asp:ListItem>
+                                <asp:ListItem>Mary Alan</asp:ListItem>
+                                <asp:ListItem>Jennifer</asp:ListItem>
+                                <asp:ListItem>Pola</asp:ListItem>
+                                <asp:ListItem>Rachel</asp:ListItem>
+                                <asp:ListItem>Alexis</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Date:</label>
+                    <label class="col-md-3 control-label">Caller Name</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtDate" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtCaller_Name" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Time:</label>
+                    <label class="col-md-3 control-label">Date/Time:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtTime" runat="server" class="form-control" placeholder="Enter Patient Name" OnTextChanged="TextBox1_TextChanged" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtDateTime" type="datetime-local" runat="server" class="form-control" placeholder="Enter Date/Time" OnTextChanged="TextBox1_TextChanged"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -110,7 +117,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-truck"></i></span>
-							<asp:DropDownList ID="txtAction" runat="server" class="form-control">
+							<asp:DropDownList ID="txtAction" runat="server" class="form-control" Width="245px">
                             <asp:ListItem>Telephoned</asp:ListItem>
                             <asp:ListItem>Returned Your Call</asp:ListItem>
                             <asp:ListItem>Please Call</asp:ListItem>
@@ -132,6 +139,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
     </body>

@@ -22,24 +22,28 @@ public partial class _Default : System.Web.UI.Page
         string query4 = "SELECT COUNT(*) FROM Receipt_Request";
         string query5 = "SELECT COUNT(*) FROM Rx_Request";
         string query6 = "SELECT COUNT(*) FROM Referral";
+        string query7 = "SELECT COUNT(*) FROM NEC_MSG";
         SqlCommand cmd1 = new SqlCommand(query1, connection);
         SqlCommand cmd2 = new SqlCommand(query2, connection);
         SqlCommand cmd3 = new SqlCommand(query3, connection);
         SqlCommand cmd4 = new SqlCommand(query4, connection);
         SqlCommand cmd5 = new SqlCommand(query5, connection);
         SqlCommand cmd6 = new SqlCommand(query6, connection);
+        SqlCommand cmd7 = new SqlCommand(query7, connection);
         Int32 rows_count1 = Convert.ToInt32(cmd1.ExecuteScalar());
         Int32 rows_count2 = Convert.ToInt32(cmd2.ExecuteScalar());
         Int32 rows_count3 = Convert.ToInt32(cmd3.ExecuteScalar());
         Int32 rows_count4 = Convert.ToInt32(cmd4.ExecuteScalar());
         Int32 rows_count5 = Convert.ToInt32(cmd5.ExecuteScalar());
         Int32 rows_count6 = Convert.ToInt32(cmd6.ExecuteScalar());
+        Int32 rows_count7 = Convert.ToInt32(cmd7.ExecuteScalar());
         cmd1.Dispose();
         cmd2.Dispose();
         cmd3.Dispose();
         cmd4.Dispose();
         cmd5.Dispose();
         cmd6.Dispose();
+        cmd7.Dispose();
         connection.Close();
 
         //Display data on the page
@@ -49,6 +53,7 @@ public partial class _Default : System.Web.UI.Page
         RecReq.Text = rows_count4.ToString();
         RxReq.Text = rows_count5.ToString();
         RefReq.Text = rows_count6.ToString();
+        PhoneBook.Text = rows_count7.ToString();
     }
    
 }
