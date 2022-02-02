@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.IO;
 
 
 public partial class ViewOrders : System.Web.UI.Page
@@ -108,6 +109,11 @@ public partial class ViewOrders : System.Web.UI.Page
     protected void OnRowCancelingEdit(object sender, EventArgs e)
     {
         GridViewOrders.EditIndex = -1;
+        this.BindGrid();
+    }
+    protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridViewOrders.PageIndex = e.NewPageIndex;
         this.BindGrid();
     }
     protected void GridViewOrders_SelectedIndexChanged(object sender, EventArgs e)
@@ -259,13 +265,5 @@ public partial class ViewOrders : System.Web.UI.Page
         DetailsView1.Visible = false;
         GridViewOrders.Visible = true;
     }
-    protected void btnPrintFromCodeBehind_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "printGrid", "printGrid();", true);
-        }
-        catch { }
-    }
-
+   
 }

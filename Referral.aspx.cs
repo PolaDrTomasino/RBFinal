@@ -37,20 +37,4 @@ public partial class Referral : System.Web.UI.Page
         txtRFR.Text = "";
         txt_RefDate.Text = "";
     }
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void TextBox4_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
-    {
-
-    }
 }

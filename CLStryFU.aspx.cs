@@ -36,21 +36,4 @@ public partial class CLStryFU : System.Web.UI.Page
         txtFU_Date.Text="";
         txtInitials.Text = "";
     }
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void TextBox4_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
-    {
-
-    }
-
 }

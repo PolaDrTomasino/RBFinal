@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Configuration;
 
 public partial class ReOrderContacts : System.Web.UI.Page
 {
@@ -28,7 +31,8 @@ public partial class ReOrderContacts : System.Web.UI.Page
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
-//This is to clean my form
+        SendEmail();
+        //This is to clean my form
         txtDate.Text = "";
         txtPatient_Name.Text = "";
         txtPhone_Number.Text = "";
@@ -41,21 +45,22 @@ public partial class ReOrderContacts : System.Web.UI.Page
         txtStatus.Text = "";
         txtInitials.Text = "";
     }
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    private void SendEmail()
     {
-
+        SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+        using (MailMessage mm = new MailMessage(smtpSection.From, "pola.talaat1986@gmail.com"))
+        {
+            mm.Subject = "A new order has been added";
+            mm.Body = "Dear Dr T, <br/> A new Contact Lenses order has been added for '" + txtPatient_Name.Text + "',<br/> <br/> Order Description is '" + txtOrderDescription.Text + "', <br/> <br/> Best Regards, <br/> Natick EyeCare";
+            mm.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = smtpSection.Network.Host;
+            smtp.EnableSsl = smtpSection.Network.EnableSsl;
+            NetworkCredential networkCred = new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+            smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+            smtp.Credentials = networkCred;
+            smtp.Port = smtpSection.Network.Port;
+            smtp.Send(mm);
+        }
     }
-    protected void TextBox4_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
-    {
-
-    }
-
 }

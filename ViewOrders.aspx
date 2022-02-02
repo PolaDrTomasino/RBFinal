@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <!DOCTYPE html>
+    <head id="Head1">
     <link href="css/fontawesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrapValidator.css" rel="stylesheet" />
@@ -28,17 +29,7 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/bootstrapValidator.js"></script>
 
-    <script src="popup.js" type="text/javascript"></script>
-    <script>
-        function alert() {
-            Swal.fire(
-  'Record Deleted Successfully',
-  'Yeaaaaay!',
-  'success'
-)
-        }
-    </script>
-
+        </head>
     <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <div>
@@ -85,7 +76,7 @@
                                     </div>
                                     <div class="col-sm-7 col-xs-10 text-right">
                                         <div class="btn_group">
-                                            <asp:LinkButton ID="btnprint" runat="server" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
+                                            <asp:LinkButton ID="btnprint" runat="server" OnClientClick="doPrint()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
 
                                         </div>
                                         <asp:LinkButton ID="AddOrder" runat="server" OnClick="AddNew_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
@@ -114,12 +105,12 @@
                                         </asp:GridView>
 
 
-                                        <asp:DetailsView ID="DetailsView1" CssClass="table table-curved" runat="server" AutoGenerateRows="False" 
-                                             DataKeyNames="OrderID" OnItemDeleting="DetailsView1_ItemDeleting"
+                                        <asp:DetailsView ID="DetailsView1" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
+                                            DataKeyNames="OrderID" OnItemDeleting="DetailsView1_ItemDeleting"
                                             OnItemUpdating="DetailsView1_ItemUpdating" OnModeChanging="DetailsView1_ModeChanging">
                                             <Fields>
                                                 <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
-                                                    <ControlStyle  CssClass="btn btn-info" />
+                                                    <ControlStyle CssClass="btn btn-info" />
                                                 </asp:CommandField>
                                                 <asp:TemplateField HeaderText="Date" SortExpression="Date">
                                                     <EditItemTemplate>
@@ -233,7 +224,7 @@
                                                         <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                
+
                                             </Fields>
                                         </asp:DetailsView>
                                     </tbody>
@@ -246,6 +237,18 @@
         </div>
 
     </body>
+        <script type="text/javascript" src="../js/vendor/jquery-3.6.0.min.js">
+            function doPrint() {
+                var prtContent = document.getElementById('<%= GridViewOrders.ClientID %>');
+                prtContent.border = 0; //set no border here
+                var WinPrint = window.open('', '', 'left=100,top=100,width=1000,height=1000,toolbar=0,scrollbars=1,status=0,resizable=1');
+                WinPrint.document.write(prtContent.outerHTML);
+                WinPrint.document.close();
+                WinPrint.focus();
+                WinPrint.print();
+                WinPrint.close();
+            }
+        </script>
     </html>
 
 </asp:Content>

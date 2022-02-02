@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Configuration;
 
 public partial class PhoneBook : System.Web.UI.Page
 {
@@ -33,21 +36,5 @@ public partial class PhoneBook : System.Web.UI.Page
         txtMessage.Text = "";
         txtAction.Text = "";
         txtInitials.Text = "";
-    }
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void TextBox4_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
-    {
-
     }
 }

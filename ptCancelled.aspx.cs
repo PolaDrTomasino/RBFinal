@@ -40,12 +40,4 @@ public partial class ptCancelled : System.Web.UI.Page
         txtPatient_Name.Text = "";
 
     }
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void txtPatient_Name_TextChanged1(object sender, EventArgs e)
-    {
-
-    }
 }
