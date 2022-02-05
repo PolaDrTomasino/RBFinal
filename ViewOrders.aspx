@@ -65,10 +65,10 @@
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
                                                 <td class="auto-style4">
-                                                    <asp:TextBox ID="TextBox1" runat="server" Width="216px"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" placeholder="Enter a keyword" Width="216px"></asp:TextBox>
                                                 </td>
                                                 <td class="auto-style4">
-                                                    <asp:Button ID="Button1" class="btn add-new" runat="server" Text="Search" Font-Bold="true" OnClick="Button1_Click" Width="76px" />
+                                                    <asp:Button ID="btnSearch" class="btn add-new" runat="server" Text="Search" Font-Bold="true" OnClick="btnSearch_Click" Width="76px" />
                                                 </td>
                                             </tr>
 
@@ -91,13 +91,13 @@
                                         <asp:Label ID="Label2" runat="server" Text="Label" CssClass="alert alert-danger" Font-Size="Larger"></asp:Label>
                                         <asp:GridView ID="GridViewOrders" runat="server" Height="400px" BorderColor="Aqua"
                                             Width="940px" align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender"
-                                            PageSize="15" Style="text-align: center" ShowHeaderWhenEmpty="True"
+                                            PageSize="15" Style="text-align: center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="OrderID">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient_Name" SortExpression="Patient_Name" />
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone_Number" SortExpression="Phone_Number" />
+                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name" />
+                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials" />
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
@@ -237,18 +237,6 @@
         </div>
 
     </body>
-        <script type="text/javascript" src="../js/vendor/jquery-3.6.0.min.js">
-            function doPrint() {
-                var prtContent = document.getElementById('<%= GridViewOrders.ClientID %>');
-                prtContent.border = 0; //set no border here
-                var WinPrint = window.open('', '', 'left=100,top=100,width=1000,height=1000,toolbar=0,scrollbars=1,status=0,resizable=1');
-                WinPrint.document.write(prtContent.outerHTML);
-                WinPrint.document.close();
-                WinPrint.focus();
-                WinPrint.print();
-                WinPrint.close();
-            }
-        </script>
     </html>
 
 </asp:Content>

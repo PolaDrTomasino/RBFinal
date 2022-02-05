@@ -31,11 +31,9 @@
 <body>
     <br />
     <br />
-        <div class="container">
+        <div class="container-ins">
             
-            <h3>
-            <asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
-        </h3>
+            <h3><asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label></h3>
             <br />
             <div class="form-group">
                 <div class="row">

@@ -325,19 +325,7 @@ header {
 	text-decoration: none;
 }
 
-.Modern-Slider .info {
-  text-align: right;
-  position: absolute;
-  z-index: 10;
-  top: 917200%;
-  right: 530px;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  display: inline-block;
-}
+
 
 .Modern-Slider .info h1 {
   margin-top: 0px;

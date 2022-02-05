@@ -33,7 +33,7 @@ public partial class ViewOrders : System.Web.UI.Page
     private void rep_bind()
     {
         connection();
-        string query = "select * from [Reorder_Contacts] where Patient_Name like'%" + TextBox1.Text + "%'";
+        string query = "select * from [Reorder_Contacts] where Patient_Name like'%" + TextBox1.Text + "%' OR Phone_Number like'%" + TextBox1.Text + "%' OR [Email] like'%" + TextBox1.Text + "%'";
 
         SqlDataAdapter da = new SqlDataAdapter(query, mycon);
         DataSet ds = new DataSet();
@@ -46,10 +46,10 @@ public partial class ViewOrders : System.Web.UI.Page
         Label2.Text = "Displaying Page" + (GridViewOrders.PageIndex + 1).ToString() + " of " + GridViewOrders.PageCount.ToString();
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnSearch_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "select *  from [Reorder_Contacts] where Patient_Name like'%" + TextBox1.Text + "%'";
+        string query = "select *  from [Reorder_Contacts] where [Patient_Name] like'%" + TextBox1.Text + "%' OR [Phone_Number] like'%" + TextBox1.Text + "%' OR [Email] like'%" + TextBox1.Text + "%'";
         SqlCommand com = new SqlCommand(query, mycon);
 
         SqlDataReader dr;
@@ -71,7 +71,6 @@ public partial class ViewOrders : System.Web.UI.Page
             GridViewOrders.Visible = false;
             Label2.Visible = true;
             Label2.Text = "The search Term " + TextBox1.Text + " &nbsp;Is Not Available in the Records";
-
         }
     }
     protected void AddNew_Click(object sender, EventArgs e)

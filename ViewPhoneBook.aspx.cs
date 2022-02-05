@@ -40,6 +40,7 @@ public partial class ViewRx : System.Web.UI.Page
     protected void GridViewPB_PreRender(object sender, EventArgs e)
     {
         Label2.Text = "Displaying Page" + (GridViewPB.PageIndex + 1).ToString() + " of " + GridViewPB.PageCount.ToString();
+
     }
     public DataTable DisplayRecord()
     {

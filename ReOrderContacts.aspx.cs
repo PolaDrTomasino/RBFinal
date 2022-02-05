@@ -51,7 +51,7 @@ public partial class ReOrderContacts : System.Web.UI.Page
         using (MailMessage mm = new MailMessage(smtpSection.From, "pola.talaat1986@gmail.com"))
         {
             mm.Subject = "A new order has been added";
-            mm.Body = "Dear Dr T, <br/> A new Contact Lenses order has been added for '" + txtPatient_Name.Text + "',<br/> <br/> Order Description is '" + txtOrderDescription.Text + "', <br/> <br/> Best Regards, <br/> Natick EyeCare";
+            mm.Body = "Dear Dr T, <br/> A new Contact Lenses order has been added for '" + txtPatient_Name.Text + "',<br/> <br/> Order Description is '" + txtOrderDescription.Text + "' <br/> <br/> Best Regards, <br/> Natick EyeCare";
             mm.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = smtpSection.Network.Host;

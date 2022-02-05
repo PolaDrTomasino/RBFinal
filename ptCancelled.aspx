@@ -33,8 +33,11 @@
         <br />
         <br />
     
-        <div class="container">
+        <div class="container-ins">
             <h2>
+                <br />
+                <br />
+                <br />
             <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
         </h2>
             <div class="form-group">
@@ -116,7 +119,7 @@
                 </div>
             </div>
         </div>
-    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 100px; text-align: center; Width: 200px;" Text="Submit" />
 </body>
+    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 450px; text-align: center; Width: 200px;" Text="Submit" />
 </asp:Content>
 

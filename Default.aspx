@@ -24,12 +24,6 @@
             body {
                 margin-top: 20px;
             }
-
-            .container-def {
-                height: 400px;
-                width: 900px;
-                margin-bottom: 30px;
-            }
             .white-bg {
                 background-color: #ffffff;
             }
@@ -269,9 +263,8 @@
         <br />
         <br />
         <br />
-        <div class="container-def">
-            <div class="row">
-                <div class="col-lg-13">
+        <div class="container-main">
+                <div class="col-lg-17">
                     <div class="wrapper wrapper-content animated fadeInRight">
 
                         <div class="ibox-content m-b-sm border-bottom">
@@ -429,8 +422,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
     </body>
     </html>
 </asp:Content>

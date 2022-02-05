@@ -19,19 +19,6 @@
     <link href="css/light-box.css" rel="stylesheet" />
     <link href="StyleSheet.css" rel="stylesheet" />
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
-
-<script type="text/javascript">
-    function PrintGridData() {
-        var prtGrid = document.getElementById('<%=GridViewCancellation.ClientID %>');
-    prtGrid.border = 0;
-    var prtwin = window.open('', 'PrintGridViewData', 'left=100,top=100,width=1000,height=1000,tollbar=0,scrollbars=1,status=0,resizable=1');
-    prtwin.document.write(prtGrid.outerHTML);
-    prtwin.document.close();
-    prtwin.focus();
-    prtwin.print();
-    prtwin.close();
-}
-</script>
             <div class="container2" style="width:1000px">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-15">
@@ -44,7 +31,7 @@
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
                                                 <td class="auto-style4">
-                                                    <asp:TextBox ID="TextBox1" runat="server" Width="216px"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" placeholder="Enter a keyword" Width="216px"></asp:TextBox>
                                                 </td>
                                                 <td class="auto-style4">
 
@@ -61,12 +48,12 @@
 
                                         </div>
                                         <asp:LinkButton ID="AddCancellation" runat="server" OnClick="Button1_Click2" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
-
+                                        
                                     </div>
                                 </div>
                             </div>
                             <div class="panel-body table-responsive">
-                                <table class="table table-hover">
+                                <table id="viewcans" class="table table-hover">
                                     <tbody>
                                         <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="400px" Width="940px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
@@ -91,6 +78,7 @@
             <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         </div>
     </body>
+
     </html>
 </asp:Content>
 

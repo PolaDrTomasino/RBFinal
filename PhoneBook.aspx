@@ -43,9 +43,9 @@
     <body>
         <br />
         <br />
-        
+        <br />
 
-        <div class="container">
+        <div class="container-ins">
             <h3>
                 <asp:Label ID="Label1" runat="server" Text="PhoneBook" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
@@ -141,7 +141,7 @@
                 </div>
             </div>
             </div>
-            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
+            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:450px; text-align: center; Width: 200px; " Text="Submit" />
     </body>
 </asp:Content>
 

@@ -45,7 +45,7 @@
         <br />
         
 
-        <div class="container">
+        <div class="container-ins">
             <h3>
                 <asp:Label ID="Label1" runat="server" Text="Add Receipt Request" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
