@@ -43,18 +43,14 @@
             <link href="css/light-box.css" rel="stylesheet" />
             <link href="StyleSheet.css" rel="stylesheet" />
             <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
-            <style>
-                .container2 {
-                    margin-top: -40px;
-                }
-            </style>
+
             <script src="https://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
             <script src="js/jquery-ui-1.10.4/jquery-1.10.2.js" type="text/javascript"></script>
             <script src="js/jquery-ui.js" type="text/javascript"></script>
 
-            <div class="container2">
+            <div class="container-view">
                 <div class="row">
-                    <div class="col-md-offset-1 col-md-15">
+                    <div class="col-md-offset-1 col-md-17">
                         <div class="panel">
                             <div class="panel-heading">
                                 <div class="row">
@@ -89,9 +85,9 @@
                                     <tbody>
 
                                         <asp:Label ID="Label2" runat="server" Text="Label" CssClass="alert alert-danger" Font-Size="Larger"></asp:Label>
-                                        <asp:GridView ID="GridViewOrders" runat="server" Height="400px" BorderColor="Aqua"
+                                        <asp:GridView ID="GridViewOrders" runat="server"  CssClass="table table-responsive" Height="400px" BorderColor="Aqua"
                                             Width="940px" align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender"
-                                            PageSize="15" Style="text-align: center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
+                                            PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="OrderID">
                                             <Columns>
@@ -103,7 +99,6 @@
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
-
 
                                         <asp:DetailsView ID="DetailsView1" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
                                             DataKeyNames="OrderID" OnItemDeleting="DetailsView1_ItemDeleting"
@@ -194,7 +189,11 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Home/Office" SortExpression="HomeOffice">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editHomeOffice" runat="server" Text='<%# Bind("HomeOffice") %>' class="form-control"></asp:TextBox>
+                                                        <asp:DropDownList ID="editHomeOffice" Text='<%# Bind("HomeOffice") %>' runat="server" class="form-control">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>Home</asp:ListItem>
+                                                            <asp:ListItem>Office</asp:ListItem>
+                                                        </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="HomeOfficeLabel" runat="server" Text='<%# Bind("HomeOffice") %>'></asp:Label>
@@ -202,7 +201,13 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Status" SortExpression="Status">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editStatus" runat="server" Text='<%# Bind("Status") %>' class="form-control"></asp:TextBox>
+                                                        <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>Insurance</asp:ListItem>
+                                                            <asp:ListItem>Rebate</asp:ListItem>
+                                                            <asp:ListItem>Charged</asp:ListItem>
+                                                            <asp:ListItem>Done (Closed)</asp:ListItem>
+                                                        </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
@@ -210,7 +215,11 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Order From" SortExpression="OrderFrom">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editOrderFrom" runat="server" Text='<%# Bind("OrderFrom") %>' class="form-control"></asp:TextBox>
+                                                        <asp:DropDownList ID="editOrderFrom" runat="server" Text='<%# Bind("OrderFrom") %>' class="form-control" placeholder="Select Order From">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>Marlo</asp:ListItem>
+                                                            <asp:ListItem>ABB</asp:ListItem>
+                                                        </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="OrderFromLabel" runat="server" Text='<%# Bind("OrderFrom") %>'></asp:Label>

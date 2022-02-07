@@ -48,8 +48,7 @@
         <div class="container-ins">
             <h3>
                 <br />
-                <br />
-                <br />
+
                 <asp:Label ID="Label1" runat="server" Text="Contact Lenses Follow Up" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
             </h3>
             <div class="form-group">
@@ -165,7 +164,8 @@
                     </span>
                 </div>
             </div>
+            <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:200px; text-align: center; Width: 200px; " Text="Submit" />
         </div>
-        <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:450px; text-align: center; Width: 200px; " Text="Submit" />
+        
     </body>
 </asp:Content>

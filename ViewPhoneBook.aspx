@@ -18,7 +18,7 @@
 
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
-            <div class="container2">
+            <div class="container-view">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-15">
                         <div class="panel">
@@ -54,7 +54,7 @@
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                     <tbody>
-                                        <asp:GridView ID="GridViewPB" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="450px" Width="900px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewPB_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                        <asp:GridView ID="GridViewPB" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" CssClass="table table-responsive" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewPB_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
                                                 <asp:BoundField DataField="For" HeaderText="Message/Call For" />
                                                 <asp:BoundField DataField="Caller_Name" HeaderText="Caller Name" />

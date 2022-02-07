@@ -221,10 +221,10 @@ header {
 .sidebar-navigation ul {
   margin-left: 45px;
   list-style: none;
-  padding: 0;
+  padding: -5px;
 }
 .sidebar-navigation li{
-  padding: 10px 0;
+  padding: 7px 0;
 }
 .sidebar-navigation span{
   display: inline-block;
@@ -284,27 +284,6 @@ header {
   margin: 0;
   text-align: center;
 }
-
-.sidebar-navigation .social-icons li {
-  display: inline-block;
-  margin-right: 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.sidebar-navigation .social-icons li:last-child {
-  margin-right: 0px;
-}
-
-.sidebar-navigation .social-icons li a {
-  font-size: 18px;
-  color: #fff;
-  transition: all 0.5s;
-}
-
-.sidebar-navigation .social-icons li a:hover {
-  color: #45489a;
-}
-
 
 /* Slider Style */
 

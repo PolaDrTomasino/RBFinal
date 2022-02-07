@@ -263,7 +263,7 @@
         <br />
         <br />
         <br />
-        <div class="container-main">
+        <div class="container-def">
                 <div class="col-lg-17">
                     <div class="wrapper wrapper-content animated fadeInRight">
 
@@ -309,7 +309,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-pause"></i>
                                         </div>
-                                        <a href="ViewCancellation.aspx" class="forum-item-title" ">View Cancellations</a>
+                                        <a href="ViewCancellation.aspx" class="forum-item-title" ">View Cancellations Waiting List</a>
                                         <div class="forum-sub-title">Here we can view patients who are on our cancellation waiting list </div>
                                         
                                     </div>
@@ -329,7 +329,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-dot-circle-o"></i>
                                         </div>
-                                        <a href="ViewCLS.aspx" class="forum-item-title">View CLS Trials</a>
+                                        <a href="ViewCLS.aspx" class="forum-item-title">View Contact Lens Trials</a>
                                         <div class="forum-sub-title">Here we can see patients trying CLS and needs follow up</div>
                                     </div>
                                     <div class="col-md-3 forum-info">

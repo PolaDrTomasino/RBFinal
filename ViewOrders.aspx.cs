@@ -99,11 +99,6 @@ public partial class ViewOrders : System.Web.UI.Page
             }
         }
     }
-    protected void OnRowEditing(object sender, GridViewEditEventArgs e)
-    {
-        GridViewOrders.EditIndex = e.NewEditIndex;
-        this.BindGrid();
-    }
 
     protected void OnRowCancelingEdit(object sender, EventArgs e)
     {
@@ -195,10 +190,10 @@ public partial class ViewOrders : System.Web.UI.Page
         TextBox newCCNumberTextBox = (TextBox)DetailsView1.FindControl("editCCNumber");
         TextBox newExpirationTextBox = (TextBox)DetailsView1.FindControl("editExpiration");
         TextBox newCVCTextBox = (TextBox)DetailsView1.FindControl("editCVC");
-        TextBox newHomeOfficeTextBox = (TextBox)DetailsView1.FindControl("editHomeOffice");
-        TextBox newStatusTextBox = (TextBox)DetailsView1.FindControl("editStatus");
+        DropDownList newHomeOfficeTextBox = (DropDownList)DetailsView1.FindControl("editHomeOffice");
+        DropDownList newStatusTextBox = (DropDownList)DetailsView1.FindControl("editStatus");
         TextBox newInitialsTextBox = (TextBox)DetailsView1.FindControl("editInitials");
-        TextBox newOrderFromTextBox = (TextBox)DetailsView1.FindControl("editOrderFrom");
+        DropDownList newOrderFromTextBox = (DropDownList)DetailsView1.FindControl("editOrderFrom");
 
         string newDate = newDateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
@@ -210,10 +205,10 @@ public partial class ViewOrders : System.Web.UI.Page
         string newCCNumber = newCCNumberTextBox.Text;
         string newExpiration = newExpirationTextBox.Text;
         string newCVC = newCVCTextBox.Text;
-        string newHomeOffice = newHomeOfficeTextBox.Text;
-        string newStatus = newStatusTextBox.Text;
+        string newHomeOffice = newHomeOfficeTextBox.SelectedValue;
+        string newStatus = newStatusTextBox.SelectedValue;
         string newInitials = newInitialsTextBox.Text;
-        string newOrderFrom = newOrderFromTextBox.Text;
+        string newOrderFrom = newOrderFromTextBox.SelectedValue;
 
 
         connection();

@@ -31,15 +31,12 @@
 </head>
 <body>
         <br />
-        <br />
-    
+
         <div class="container-ins">
-            <h2>
-                <br />
-                <br />
+            <h3>
                 <br />
             <asp:Label ID="Label1" runat="server" Text="Cancellation Waiting List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
-        </h2>
+        </h3>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Date:</label>
@@ -119,7 +116,8 @@
                 </div>
             </div>
         </div>
+    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 660px; text-align: center; Width: 200px;" Text="Submit" />
 </body>
-    <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 450px; text-align: center; Width: 200px;" Text="Submit" />
+    
 </asp:Content>
 

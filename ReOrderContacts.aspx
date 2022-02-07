@@ -28,12 +28,12 @@
         }
     </script>
 </head>
-<body>
-    <br />
-    <br />
+    <body>
+        <br />
         <div class="container-ins">
-            
-            <h3><asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label></h3>
+
+            <h3>
+                <asp:Label ID="Label1" runat="server" Text="ReOrder Contact Lenses Requests" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label></h3>
             <br />
             <div class="form-group">
                 <div class="row">
@@ -52,7 +52,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							<asp:TextBox ID="txtPatient_Name" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
+                            <asp:TextBox ID="txtPatient_Name" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-							<asp:TextBox ID="txtOrderDescription" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtOrderDescription" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -97,21 +97,21 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fas fa-prescription"></i></span>
-							<asp:TextBox ID="txtOD" class="form-control" placeholder="OD" runat="server" Width="80px"></asp:TextBox>
+                            <asp:TextBox ID="txtOD" class="form-control" placeholder="OD" runat="server" Width="80px"></asp:TextBox>
                             <span class="input-group-addon"><i class="fas fa-prescription"></i></span>
                             <asp:TextBox ID="txtOS" class="form-control" placeholder="OS" runat="server" Width="80px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">CC Number:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-							<asp:TextBox ID="txt_CCNumber" class="form-control" placeholder="Enter CC Number" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
-							
+                            <asp:TextBox ID="txt_CCNumber" class="form-control" placeholder="Enter CC Number" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+
                         </div>
                     </div>
                 </div>
@@ -122,15 +122,15 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-							<asp:TextBox ID="txt_Expiration" class="form-control" type="month" placeholder="Enter Expiration Date" runat="server" Width="185px"></asp:TextBox>
+                            <asp:TextBox ID="txt_Expiration" class="form-control" type="month" placeholder="Enter Expiration Date" runat="server" Width="185px"></asp:TextBox>
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							<asp:TextBox ID="txtCVC" class="form-control" placeholder="CVC" runat="server" Width="60px"></asp:TextBox>
+                            <asp:TextBox ID="txtCVC" class="form-control" placeholder="CVC" runat="server" Width="60px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
-            
-			<div class="form-group">
+
+            <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Delivery Location:</label>
                     <div class="col-md-6 inputGroupContainer">
@@ -145,7 +145,7 @@
                     </div>
                 </div>
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Status:</label>
                     <div class="col-md-6 inputGroupContainer">
@@ -168,11 +168,11 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-shopping-cart"></i></span>
-							<asp:DropDownList ID="txtOrderFrom" runat="server" class="form-control" placeholder="Select Order From">
+                            <asp:DropDownList ID="txtOrderFrom" runat="server" class="form-control" placeholder="Select Order From">
                                 <asp:ListItem></asp:ListItem>
                                 <asp:ListItem>Marlo</asp:ListItem>
-                            <asp:ListItem>ABB</asp:ListItem>
-                        </asp:DropDownList>
+                                <asp:ListItem>ABB</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -189,10 +189,10 @@
                     </div>
                 </div>
             </div>
-            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
-        <br />
-            <br />    
-        
+            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 100px; text-align: center; Width: 200px;" Text="Submit" />
+            <br />
+            <br />
+
         </div>
     </body>
 </asp:Content>

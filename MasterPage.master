@@ -34,22 +34,32 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"/>
-
+    
     <style type="text/css">
-
-        .container-main {
-            height: 600px;
-            width: 900px;
-            margin:auto;
-            margin-left:15%;
+        .container-def {
             margin-top:-50px;
+            height: 400px;
+            width: 900px;
+            margin-left:22%;
+            margin-top:-70px;
+        }
+        .container-main {
+            margin-left:15%;
+            margin:auto;
         }
         .container-ins {
             height: auto;
-            width: 650px;
+            width: 750px;
             margin:auto;
             margin-left:35%;
         }
+        .container-view {
+            margin-bottom:130px;
+            height: 400px;
+            width: 1100px;
+            margin-left:15%; 
+        }
+
         .demo {
             background: repeat;
             font-family: 'Raleway', sans-serif;
@@ -218,8 +228,7 @@
 </head>
 <body>
            
-    <form id="form1" runat="server">
-         
+    <form id="form1" runat="server"> 
     <div class="sidebar-navigation">
 
             <div class="logo">
@@ -245,55 +254,55 @@
                         <a href="ReOrderContacts.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            Patients Requests To Reorder Contacts
+                            Add Contact Lens Orders
                         </a>
                     </li>
                     <li>
                         <a href="ptCancelled.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            Patients Who Cancelled Appointments
+                            Add Patient to Cancellation Waiting List
                         </a>
                     </li>
                     <li>
                         <a href="CLStryFU.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            Patients Who Are Trying Contact Lenses
+                            Add a Patient Trying Contact Lenses
                         </a>
                     </li>
                     <li>
                         <a href="Referral.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            Patients Who Needs Referrrals
+                            Add Patient Who Needs Referrral
                         </a>
                     </li>
                     <li>
                         <a href="RxRequest.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            Patients Requests For Rx Copy
+                            Add Patient Request For Rx Copy
                         </a>
                     </li>
                     <li>
                         <a href="ReceiptRequest.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            Patients Requests Detailed Receipts
+                            Add Patient Requesting Detailed Receipts
                         </a>
                     </li>
                     <li>
                         <a href="PhoneBook.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
-                            PhoneBook
+                            Add PhoneCalls/Messages
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-            <div class="container-main">
+            <div class="main">
                           <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
                     </asp:ContentPlaceHolder>
                 </div>

@@ -42,9 +42,6 @@
     </head>
     <body>
         <br />
-        <br />
-        <br />
-
         <div class="container-ins">
             <h3>
                 <asp:Label ID="Label1" runat="server" Text="PhoneBook" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>

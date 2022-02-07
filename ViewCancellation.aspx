@@ -5,8 +5,6 @@
     <link href="css/fontawesome.min.css" rel="stylesheet" />
 
     <html xmlns="http://www.w3.org/1999/xhtml">
-
-
     <body>
         <div>
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -19,7 +17,7 @@
     <link href="css/light-box.css" rel="stylesheet" />
     <link href="StyleSheet.css" rel="stylesheet" />
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
-            <div class="container2" style="width:1000px">
+            <div class="container-view">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-15">
                         <div class="panel">
@@ -55,7 +53,7 @@
                             <div class="panel-body table-responsive">
                                 <table id="viewcans" class="table table-hover">
                                     <tbody>
-                                        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" BorderColor="Aqua" runat="server" Height="400px" Width="940px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" CssClass="table table-responsive" BorderColor="Aqua" runat="server" Height="400px" Width="940px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
