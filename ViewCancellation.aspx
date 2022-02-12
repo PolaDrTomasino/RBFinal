@@ -17,6 +17,18 @@
     <link href="css/light-box.css" rel="stylesheet" />
     <link href="StyleSheet.css" rel="stylesheet" />
     <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
+
+            <script language="javascript" type="text/javascript">
+                function PrintPage() {
+                    var printContent = document.getElementById('<%= pnlGridView.ClientID %>');
+        var printWindow = window.open("All Records", "Print Panel", 'left=50000,top=50000,width=0,height=0');
+        printWindow.document.write(printContent.innerHTML);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+    }
+</script>
+
             <div class="container-view">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-15">
@@ -41,7 +53,7 @@
                                     </div>
                                     <div class="col-sm-7 col-xs-10 text-right">
                                         <div class="btn_group">
-                                            <asp:LinkButton ID="btnPrint" runat="server" OnClientClick="btnPrintFromCodeBehind_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
+                                            <asp:LinkButton ID="btnPrint" runat="server" OnClientClick="PrintPage()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
                                             
 
                                         </div>
@@ -50,10 +62,16 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="panel-body table-responsive">
-                                <table id="viewcans" class="table table-hover">
-                                    <tbody>
-                                        <asp:GridView ID="GridViewCancellation" ShowHeaderWhenEmpty="True" CssClass="table table-responsive" BorderColor="Aqua" runat="server" Height="400px" Width="940px" AutoGenerateColumns="false" align="center" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender" PageSize="15" OnPageIndexChanging="OnPageIndexChanging" Style="text-align: center">
+                                <table class="table table-hover" width="70%" id="pnlGridView" runat="server" align="center">
+                                    <tr>
+                                        <td colspan="2">
+                                        <asp:GridView ID="GridViewCancellation" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
+                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender"
+                                            PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
+                                            OnSelectedIndexChanged="GridViewCancellation_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            DataKeyNames="ID">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
@@ -62,18 +80,84 @@
                                                 <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
                                                 <asp:BoundField DataField="New_Date" HeaderText="New Date" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
-                                            <EmptyDataTemplate>No Records Available</EmptyDataTemplate>
                                         </asp:GridView>
-                                    </tbody>
+
+                                        <asp:DetailsView ID="dvCan" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
+                                            DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting"
+                                            OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
+                                            <Fields>
+                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
+                                                    <ControlStyle CssClass="btn btn-info" />
+                                                </asp:CommandField>
+                                                <asp:TemplateField HeaderText="Date" SortExpression="Date">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editPatient_Name" runat="server" Text='<%# Bind("Patient_Name") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="Patient_NameLabel" runat="server" Text='<%# Bind("Patient_Name") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Phone Number" SortExpression="Phone_Number">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editPhone_Number" runat="server" Text='<%# Bind("Phone_Number") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="Phone_NumberLabel" runat="server" Text='<%# Bind("Phone_Number") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Email" SortExpression="Email">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editEmail" runat="server" Text='<%# Bind("Email") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Appointment Date" SortExpression="Appt_Date">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editAppt_Date" runat="server" Type="date" Text='<%# Bind("Appt_Date") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="Appt_DateLabel" runat="server" Text='<%# Bind("Appt_Date") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="New Date" SortExpression="New_Date">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editNew_Date" runat="server" Type="date" Text='<%# Bind("New_Date") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="New_DateLabel" runat="server" Text='<%# Bind("New_Date") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Initials" SortExpression="Initials">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editInitials" runat="server" Text='<%# Bind("Initials") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Fields>
+                                        </asp:DetailsView>
+                                            <asp:Label ID="Label2" runat="server" Text="Label" class="xd-message-content"></asp:Label>
+                                        </td>
+                                    </tr>
                                 </table>
-                            </div>
-                            
+                            </div>                            
                         </div>
                     </div>
                 </div>
             </div>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         </div>
     </body>
 

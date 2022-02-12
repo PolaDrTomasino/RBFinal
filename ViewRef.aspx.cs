@@ -44,21 +44,12 @@ public partial class ViewRef : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials] FROM [Referral]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials] FROM [Referral]", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewRef.DataSource = Dt;
         GridViewRef.DataBind();
         return Dt;
-    }
-    protected void GridViewRef_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-        GridViewRef.PageIndex = e.NewPageIndex;
-        this.DisplayRecord();
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -91,5 +82,136 @@ public partial class ViewRef : System.Web.UI.Page
     protected void AddRef_Click(object sender, EventArgs e)
     {
         Response.Redirect("Referral.aspx");
+    }
+    protected void OnRowCancelingEdit(object sender, EventArgs e)
+    {
+        GridViewRef.EditIndex = -1;
+        this.DisplayRecord();
+    }
+    protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridViewRef.PageIndex = e.NewPageIndex;
+        this.DisplayRecord();
+    }
+    protected void GridViewRef_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindDetails();
+    }
+    private void BindDetails()
+    {
+        GridViewRef.Visible = false;
+        dvRef.Visible = true;
+        int selectedRowIndex = GridViewRef.SelectedIndex;
+        int ID = (int)GridViewRef.DataKeys[selectedRowIndex].Value;
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials] FROM [Referral] Where ID=@ID"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    SqlDataReader reader;
+                    string connectionString = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+                    cmd.Parameters.Add("ID", SqlDbType.Int);
+                    cmd.Parameters["ID"].Value = ID;
+                    try
+                    {
+                        con.Open();
+                        reader = cmd.ExecuteReader();
+                        dvRef.DataSource = reader;
+                        dvRef.DataKeyNames = new string[] { "ID" };
+                        dvRef.DataBind();
+                        reader.Close();
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+                }
+            }
+        }
+    }
+
+    protected void dvRef_ModeChanging(object sender, DetailsViewModeEventArgs e)
+    {
+        dvRef.ChangeMode(e.NewMode);
+        BindDetails();
+    }
+    protected void dvRef_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
+    {
+        int ID = (int)dvRef.DataKey.Value;
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM Referral WHERE ID = @ID"))
+            {
+                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        this.BindDetails();
+        DisplayRecord();
+        dvRef.Visible = false;
+        GridViewRef.Visible = true;
+    }
+
+    protected void dvRef_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+    {
+        int ID = (int)dvRef.DataKey.Value;
+        TextBox newDateTextBox = (TextBox)dvRef.FindControl("editDate");
+        TextBox newPatient_NameTextBox = (TextBox)dvRef.FindControl("editPatient_Name");
+        TextBox newPhone_NumberTextBox = (TextBox)dvRef.FindControl("editPhone_Number");
+        TextBox newEmailTextBox = (TextBox)dvRef.FindControl("editEmail");
+        TextBox newRFRTextBox = (TextBox)dvRef.FindControl("editRFR");
+        TextBox newRefDateTextBox = (TextBox)dvRef.FindControl("editRefDate");
+        TextBox newInitialsTextBox = (TextBox)dvRef.FindControl("editInitials");
+
+        string newDate = newDateTextBox.Text;
+        string newPatient_Name = newPatient_NameTextBox.Text;
+        string newPhone_Number = newPhone_NumberTextBox.Text;
+        string newEmail = newEmailTextBox.Text;
+        string newRFR = newRFRTextBox.Text;
+        string newRefDate = newRefDateTextBox.Text;
+        string newInitials = newInitialsTextBox.Text;
+
+        connection();
+        string query = "UPDATE Referral SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, RFR=@RFR, RefDate=@RefDate, Initials=@Initials Where ID=@ID";
+        SqlCommand cmd = new SqlCommand(query, mycon);
+
+        cmd.Parameters.Add("ID", SqlDbType.Int);
+        cmd.Parameters["ID"].Value = ID;
+        cmd.Parameters.Add("Date", SqlDbType.VarChar, 255);
+        cmd.Parameters["Date"].Value = newDate;
+        cmd.Parameters.Add("Patient_Name", SqlDbType.VarChar, 255);
+        cmd.Parameters["Patient_Name"].Value = newPatient_Name;
+        cmd.Parameters.Add("Phone_Number", SqlDbType.VarChar, 255);
+        cmd.Parameters["Phone_Number"].Value = newPhone_Number;
+        cmd.Parameters.Add("Email", SqlDbType.VarChar, 255);
+        cmd.Parameters["Email"].Value = newEmail;
+        cmd.Parameters.Add("RFR", SqlDbType.VarChar, 255);
+        cmd.Parameters["RFR"].Value = newRFR;
+        cmd.Parameters.Add("RefDate", SqlDbType.VarChar, 255);
+        cmd.Parameters["RefDate"].Value = newRefDate;
+        cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
+        cmd.Parameters["Initials"].Value = newInitials;
+
+        try
+        {
+            cmd.ExecuteNonQuery();
+        }
+        finally
+        {
+            mycon.Close();
+        }
+        dvRef.ChangeMode(DetailsViewMode.ReadOnly);
+        DisplayRecord();
+        BindDetails();
+        dvRef.Visible = false;
+        GridViewRef.Visible = true;
     }
 }

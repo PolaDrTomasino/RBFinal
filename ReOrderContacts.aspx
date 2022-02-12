@@ -122,7 +122,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-                            <asp:TextBox ID="txt_Expiration" class="form-control" type="month" placeholder="Enter Expiration Date" runat="server" Width="185px"></asp:TextBox>
+                            <asp:TextBox ID="txt_Expiration" class="form-control" type="month"  placeholder="MM/YYYY" runat="server" Width="185px"></asp:TextBox>
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                             <asp:TextBox ID="txtCVC" class="form-control" placeholder="CVC" runat="server" Width="60px"></asp:TextBox>
                         </div>

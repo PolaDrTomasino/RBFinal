@@ -29,7 +29,7 @@ public partial class ViewRx : System.Web.UI.Page
     private void rep_bind()
     {
         connection();
-        string query = "select * from [NEC_MSG] where For like'%" + TextBox1.Text + "%'";
+        string query = "select * from [NEC_MSG] where MSgFor like'%" + TextBox1.Text + "%'";
 
         SqlDataAdapter da = new SqlDataAdapter(query, mycon);
         DataSet ds = new DataSet();
@@ -45,16 +45,12 @@ public partial class ViewRx : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [For], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Initials] FROM [NEC_MSG]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID] ,[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Initials] FROM [NEC_MSG]", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewPB.DataSource = Dt;
         GridViewPB.DataBind();
         return Dt;
-    }
-    protected void GridViewPB_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
     }
     protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -64,7 +60,7 @@ public partial class ViewRx : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "select *  from [NEC_MSG] where For like'%" + TextBox1.Text + "%'";
+        string query = "select *  from [NEC_MSG] where MSGFor like'%" + TextBox1.Text + "%'";
         SqlCommand com = new SqlCommand(query, mycon);
 
         SqlDataReader dr;
@@ -92,5 +88,131 @@ public partial class ViewRx : System.Web.UI.Page
     protected void AddRx_Click(object sender, EventArgs e)
     {
         Response.Redirect("PhoneBook.aspx");
+    }
+    protected void OnRowCancelingEdit(object sender, EventArgs e)
+    {
+        GridViewPB.EditIndex = -1;
+        this.DisplayRecord();
+    }
+    protected void GridViewPB_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindDetails();
+    }
+    private void BindDetails()
+    {
+        GridViewPB.Visible = false;
+        dvPB.Visible = true;
+        int selectedRowIndex = GridViewPB.SelectedIndex;
+        int ID = (int)GridViewPB.DataKeys[selectedRowIndex].Value;
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID],[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Initials] FROM [NEC_MSG] Where ID=@ID"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    SqlDataReader reader;
+                    string connectionString = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+                    cmd.Parameters.Add("ID", SqlDbType.Int);
+                    cmd.Parameters["ID"].Value = ID;
+                    try
+                    {
+                        con.Open();
+                        reader = cmd.ExecuteReader();
+                        dvPB.DataSource = reader;
+                        dvPB.DataKeyNames = new string[] { "ID" };
+                        dvPB.DataBind();
+                        reader.Close();
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+                }
+            }
+        }
+    }
+
+    protected void dvPB_ModeChanging(object sender, DetailsViewModeEventArgs e)
+    {
+        dvPB.ChangeMode(e.NewMode);
+        BindDetails();
+    }
+    protected void dvPB_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
+    {
+        int ID = (int)dvPB.DataKey.Value;
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM NEC_MSG WHERE ID = @ID"))
+            {
+                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        this.BindDetails();
+        DisplayRecord();
+        dvPB.Visible = false;
+        GridViewPB.Visible = true;
+    }
+
+    protected void dvPB_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+    {
+        int ID = (int)dvPB.DataKey.Value;
+        DropDownList newMSGForTextBox = (DropDownList)dvPB.FindControl("editMSGFor");
+        TextBox newCaller_NameTextBox = (TextBox)dvPB.FindControl("editCaller_Name");
+        TextBox newDateTimeTextBox = (TextBox)dvPB.FindControl("editDateTime");
+        TextBox newCaller_NumberTextBox = (TextBox)dvPB.FindControl("editCaller_Number");
+        TextBox newMessageTextBox = (TextBox)dvPB.FindControl("editMessage");
+        DropDownList newActionTextBox = (DropDownList)dvPB.FindControl("editAction");
+        TextBox newInitialsTextBox = (TextBox)dvPB.FindControl("editInitials");
+
+        string newMSGFor = newMSGForTextBox.SelectedValue;
+        string newCaller_Name = newCaller_NameTextBox.Text;
+        string newDateTime = newDateTimeTextBox.Text;
+        string newCaller_Number = newCaller_NumberTextBox.Text;
+        string newMessage = newMessageTextBox.Text;
+        string newAction = newActionTextBox.SelectedValue;
+        string newInitials = newInitialsTextBox.Text;
+
+        connection();
+        string query = "UPDATE NEC_MSG SET MSGFor=@MSGFor, Caller_Name=@Caller_Name, DateTime=@DateTime, Caller_Number=@Caller_Number, Message=@Message, Action=@Action, Initials=@Initials Where ID=@ID";
+        SqlCommand cmd = new SqlCommand(query, mycon);
+
+        cmd.Parameters.Add("ID", SqlDbType.Int);
+        cmd.Parameters["ID"].Value = ID;
+        cmd.Parameters.Add("MSGFor", SqlDbType.VarChar, 255);
+        cmd.Parameters["MSGFor"].Value = newMSGFor;
+        cmd.Parameters.Add("Caller_Name", SqlDbType.VarChar, 255);
+        cmd.Parameters["Caller_Name"].Value = newCaller_Name;
+        cmd.Parameters.Add("DateTime", SqlDbType.VarChar, 255);
+        cmd.Parameters["DateTime"].Value = newDateTime;
+        cmd.Parameters.Add("Caller_Number", SqlDbType.VarChar, 255);
+        cmd.Parameters["Caller_Number"].Value = newCaller_Number;
+        cmd.Parameters.Add("Message", SqlDbType.VarChar, 1000);
+        cmd.Parameters["Message"].Value = newMessage;
+        cmd.Parameters.Add("Action", SqlDbType.VarChar, 255);
+        cmd.Parameters["Action"].Value = newAction;
+        cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
+        cmd.Parameters["Initials"].Value = newInitials;
+
+        try
+        {
+            cmd.ExecuteNonQuery();
+        }
+        finally
+        {
+            mycon.Close();
+        }
+        dvPB.ChangeMode(DetailsViewMode.ReadOnly);
+        DisplayRecord();
+        BindDetails();
+        dvPB.Visible = false;
+        GridViewPB.Visible = true;
     }
 }

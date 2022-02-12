@@ -48,6 +48,16 @@
             <script src="js/jquery-ui-1.10.4/jquery-1.10.2.js" type="text/javascript"></script>
             <script src="js/jquery-ui.js" type="text/javascript"></script>
 
+<script language="javascript" type="text/javascript">
+    function PrintPage() {
+        var printContent = document.getElementById('<%= pnlGridView.ClientID %>');
+        var printWindow = window.open("All Records", "Print Panel", 'left=50000,top=50000,width=0,height=0');
+        printWindow.document.write(printContent.innerHTML);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+    }
+</script>
             <div class="container-view">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-17">
@@ -72,7 +82,7 @@
                                     </div>
                                     <div class="col-sm-7 col-xs-10 text-right">
                                         <div class="btn_group">
-                                            <asp:LinkButton ID="btnprint" runat="server" OnClientClick="doPrint()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
+                                            <asp:LinkButton ID="btnprint" runat="server" OnClientClick="PrintPage()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
 
                                         </div>
                                         <asp:LinkButton ID="AddOrder" runat="server" OnClick="AddNew_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
@@ -81,12 +91,11 @@
                                 </div>
                             </div>
                             <div class="panel-body table-responsive">
-                                <table class="table table-hover">
-                                    <tbody>
-
-                                        <asp:Label ID="Label2" runat="server" Text="Label" CssClass="alert alert-danger" Font-Size="Larger"></asp:Label>
-                                        <asp:GridView ID="GridViewOrders" runat="server"  CssClass="table table-responsive" Height="400px" BorderColor="Aqua"
-                                            Width="940px" align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender"
+                                <table class="table table-hover" width="70%" id="pnlGridView" runat="server" align="center">
+                                    <tr>
+                                        <td colspan="2">
+                                        <asp:GridView ID="GridViewOrders" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
+                                            align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="OrderID">
@@ -233,10 +242,11 @@
                                                         <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-
                                             </Fields>
                                         </asp:DetailsView>
-                                    </tbody>
+                                            <asp:Label ID="Label2" runat="server" Text="Label" class="xd-message-content"></asp:Label>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>

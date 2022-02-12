@@ -52,7 +52,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:DropDownList ID="txtFor" runat="server" class="form-control" Width="245px">
+                            <asp:DropDownList ID="txtMSGFor" runat="server" class="form-control" Width="245px">
                                 <asp:ListItem>Dr T.</asp:ListItem>
                                 <asp:ListItem>Mary Alan</asp:ListItem>
                                 <asp:ListItem>Jennifer</asp:ListItem>
@@ -103,7 +103,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-							<asp:TextBox ID="txtMessage" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtMessage" class="form-control" placeholder="Enter Message Content" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

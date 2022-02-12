@@ -219,7 +219,7 @@ header {
 }
 
 .sidebar-navigation ul {
-  margin-left: 45px;
+  margin-left: -15px;
   list-style: none;
   padding: -5px;
 }

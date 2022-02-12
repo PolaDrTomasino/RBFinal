@@ -20,17 +20,21 @@ public partial class PhoneBook : System.Web.UI.Page
         mycon = new SqlConnection(constr);
         mycon.Open();
     }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
 
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         //opening conncetion and insert then close DB
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtFor.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtMSGFor.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
         //Clearing form after submit
-        txtFor.Text = "";
+        txtMSGFor.Text = "";
         txtDateTime.Text = "";
         txtCaller_Number.Text = "";
         txtMessage.Text = "";

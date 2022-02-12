@@ -24,6 +24,7 @@ public partial class ViewOrders : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Label2.Visible = false;
+
         if (!this.IsPostBack)
         {
             this.BindGrid();
