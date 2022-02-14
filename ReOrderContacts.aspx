@@ -29,7 +29,6 @@
     </script>
 </head>
     <body>
-        <br />
         <div class="container-ins">
 
             <h3>
@@ -111,7 +110,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                             <asp:TextBox ID="txt_CCNumber" class="form-control" placeholder="Enter CC Number" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
-
+                            
                         </div>
                     </div>
                 </div>

@@ -26,6 +26,13 @@
                     printWindow.focus();
                     printWindow.print();
                 }
+                function update() {
+                    Swal.fire(
+          'Order Updated Successfully!',
+          'Yeaaaaay!',
+          'success'
+        )
+                }
             </script>
             <div class="container-view">
                 <div class="row">
@@ -86,9 +93,6 @@
                                             DataKeyNames="ID" OnItemDeleting="dvRX_ItemDeleting"
                                             OnItemUpdating="dvRX_ItemUpdating" OnModeChanging="dvRX_ModeChanging">
                                             <Fields>
-                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
-                                                    <ControlStyle CssClass="btn btn-info" />
-                                                </asp:CommandField>
                                                 <asp:TemplateField HeaderText="Date"  SortExpression="Date">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editDate"  runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
@@ -161,6 +165,9 @@
                                                         <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
+                                                    <ControlStyle CssClass="btn btn-info" />
+                                                </asp:CommandField>
                                             </Fields>
                                         </asp:DetailsView>
                                             <asp:Label ID="Label2" runat="server" class="panel-footer" Text="Label"></asp:Label>

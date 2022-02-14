@@ -27,6 +27,13 @@
                     printWindow.focus();
                     printWindow.print();
                 }
+                function update() {
+                    Swal.fire(
+          'Order Updated Successfully!',
+          'Yeaaaaay!',
+          'success'
+        )
+                }
             </script>
 
             <div class="container-view">
@@ -86,9 +93,6 @@
                                                 DataKeyNames="ID" OnItemDeleting="dvCLS_ItemDeleting"
                                                 OnItemUpdating="dvCLS_ItemUpdating" OnModeChanging="dvCLS_ModeChanging">
                                                 <Fields>
-                                                    <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
-                                                        <ControlStyle CssClass="btn btn-info" />
-                                                    </asp:CommandField>
                                                     <asp:TemplateField HeaderText="Appointment Date" SortExpression="Appt_Date">
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="editAppt_Date" runat="server" Text='<%# Bind("Appt_Date") %>' type="date" class="form-control"></asp:TextBox>
@@ -145,7 +149,9 @@
                                                             <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-
+                                                    <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
+                                                        <ControlStyle CssClass="btn btn-info" />
+                                                    </asp:CommandField>
                                                 </Fields>
                                             </asp:DetailsView>
                                             <asp:Label ID="Label2" runat="server" Text="Label" class="xd-message-content"></asp:Label>

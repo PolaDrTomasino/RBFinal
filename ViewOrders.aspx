@@ -28,6 +28,18 @@
     <script src="js/vendor/bootstrapValidator.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/bootstrapValidator.js"></script>
+    <script src="popup.js" type="text/javascript"></script>
+    <script>
+        function update() {
+            Swal.fire(
+  'Order Updated Successfully!',
+  'Yeaaaaay!',
+  'success'
+)
+        }
+      
+    </script>
+
 
         </head>
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -110,12 +122,10 @@
                                         </asp:GridView>
 
                                         <asp:DetailsView ID="DetailsView1" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
-                                            DataKeyNames="OrderID" OnItemDeleting="DetailsView1_ItemDeleting"
+                                            DataKeyNames="OrderID" OnItemDeleting="DetailsView1_ItemDeleting" OnDataBound="DetailsView1_DataBound"
                                             OnItemUpdating="DetailsView1_ItemUpdating" OnModeChanging="DetailsView1_ModeChanging">
                                             <Fields>
-                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
-                                                    <ControlStyle CssClass="btn btn-info" />
-                                                </asp:CommandField>
+                                                
                                                 <asp:TemplateField HeaderText="Date" SortExpression="Date">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
@@ -242,6 +252,9 @@
                                                         <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
+                                                    <ControlStyle CssClass="btn btn-info" />
+                                                </asp:CommandField>
                                             </Fields>
                                         </asp:DetailsView>
                                             <asp:Label ID="Label2" runat="server" Text="Label" class="xd-message-content"></asp:Label>

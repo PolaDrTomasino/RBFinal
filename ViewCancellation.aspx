@@ -21,13 +21,20 @@
             <script language="javascript" type="text/javascript">
                 function PrintPage() {
                     var printContent = document.getElementById('<%= pnlGridView.ClientID %>');
-        var printWindow = window.open("All Records", "Print Panel", 'left=50000,top=50000,width=0,height=0');
-        printWindow.document.write(printContent.innerHTML);
-        printWindow.document.close();
-        printWindow.focus();
-        printWindow.print();
-    }
-</script>
+                    var printWindow = window.open("All Records", "Print Panel", 'left=50000,top=50000,width=0,height=0');
+                    printWindow.document.write(printContent.innerHTML);
+                    printWindow.document.close();
+                    printWindow.focus();
+                    printWindow.print();
+                }
+                function update() {
+                    Swal.fire(
+          'Order Updated Successfully!',
+          'Yeaaaaay!',
+          'success'
+        )
+                }
+            </script>
 
             <div class="container-view">
                 <div class="row">
@@ -88,9 +95,6 @@
                                             DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting"
                                             OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
                                             <Fields>
-                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
-                                                    <ControlStyle CssClass="btn btn-info" />
-                                                </asp:CommandField>
                                                 <asp:TemplateField HeaderText="Date" SortExpression="Date">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
@@ -147,6 +151,9 @@
                                                         <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
+                                                    <ControlStyle CssClass="btn btn-info" />
+                                                </asp:CommandField>
                                             </Fields>
                                         </asp:DetailsView>
                                             <asp:Label ID="Label2" runat="server" Text="Label" class="xd-message-content"></asp:Label>

@@ -203,6 +203,7 @@ public partial class ViewRef : System.Web.UI.Page
         try
         {
             cmd.ExecuteNonQuery();
+            ClientScript.RegisterStartupScript(this.GetType(), "", "update()", true);
         }
         finally
         {

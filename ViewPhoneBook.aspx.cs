@@ -204,6 +204,7 @@ public partial class ViewRx : System.Web.UI.Page
         try
         {
             cmd.ExecuteNonQuery();
+            ClientScript.RegisterStartupScript(this.GetType(), "", "update()", true);
         }
         finally
         {

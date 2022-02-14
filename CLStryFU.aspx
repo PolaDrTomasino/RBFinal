@@ -40,7 +40,6 @@
     )
             }
         </script>
-
     </head>
     <body>
         <br />
@@ -61,11 +60,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ControlToValidate="txtAppt_Date" ErrorMessage="Appointment Date is required." ForeColor="Red"></asp:RequiredFieldValidator>
-                    </span>
-                </div>
             </div>
             <div class="form-group">
                 <div class="row">
@@ -77,11 +71,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPatient_Name" ErrorMessage="Patient Name is required." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span>
-                </div>
             </div>
             <div class="form-group">
                 <div class="row">
@@ -92,11 +81,6 @@
                             <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPhone_Number" ErrorMessage="Phone Number is required." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span>
                 </div>
             </div>
             <div class="form-group">
@@ -110,11 +94,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is required." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span>
-                </div>
             </div>
             <div class="form-group">
                 <div class="row">
@@ -126,12 +105,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCLS_Try" ErrorMessage="CLS under trial is required." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span>
-                </div>
-            </div>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Date Of Follow Up:</label>
@@ -142,12 +115,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtFU_Date" ErrorMessage="Follow-up Date is required." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span>
-                </div>
-            </div>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Initials:</label>
@@ -157,11 +124,6 @@
                             <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-15 col-sm-10">
-                    <span class="help-inline pull-left">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtInitials" ErrorMessage="Initialsis required." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span>
                 </div>
             </div>
             <asp:Button ID="Button1" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:200px; text-align: center; Width: 200px; " Text="Submit" />

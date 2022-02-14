@@ -207,6 +207,7 @@ public partial class ViewRecReq : System.Web.UI.Page
         try
         {
             cmd.ExecuteNonQuery();
+            ClientScript.RegisterStartupScript(this.GetType(), "", "update()", true);
         }
         finally
         {

@@ -159,6 +159,7 @@ public partial class ViewOrders : System.Web.UI.Page
     }
     protected void DetailsView1_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
     {
+        
         int OrderID = (int)DetailsView1.DataKey.Value;
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
@@ -168,6 +169,7 @@ public partial class ViewOrders : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@OrderID", OrderID);
                 cmd.Connection = con;
                 con.Open();
+                ClientScript.RegisterStartupScript(this.GetType(), "", "Delete()", true);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -249,6 +251,7 @@ public partial class ViewOrders : System.Web.UI.Page
         try
         {
             cmd.ExecuteNonQuery();
+            ClientScript.RegisterStartupScript(this.GetType(), "", "update()", true);
         }
         finally
         {
@@ -260,5 +263,17 @@ public partial class ViewOrders : System.Web.UI.Page
         DetailsView1.Visible = false;
         GridViewOrders.Visible = true;
     }
-   
+    protected void DetailsView1_DataBound(object sender, EventArgs e)
+    {
+        int noRow = DetailsView1.Rows.Count - 1;//get the no of record
+
+        if (noRow > 0)
+        {
+            LinkButton button = (LinkButton)(DetailsView1.Rows[noRow].Cells[0].Controls[2]);
+
+            // Add delete confirmation
+            ((System.Web.UI.WebControls.LinkButton)(button)).OnClientClick = "if(!confirm('functionConfirm(event)')){ return false; };";
+
+        }
+    }
 }
