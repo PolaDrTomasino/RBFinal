@@ -80,7 +80,7 @@
                     <label class="col-md-3 control-label">Date/Time:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
                             <asp:TextBox ID="txtDateTime" type="datetime-local" runat="server" class="form-control" placeholder="Enter Date/Time" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <label class="col-md-3 control-label">Message:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 							<asp:TextBox ID="txtMessage" class="form-control" placeholder="Enter Message Content" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                     <label class="col-md-3 control-label">Action Needed:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-truck"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
 							<asp:DropDownList ID="txtAction" runat="server" class="form-control" Width="245px">
                             <asp:ListItem>Telephoned</asp:ListItem>
                             <asp:ListItem>Returned Your Call</asp:ListItem>
