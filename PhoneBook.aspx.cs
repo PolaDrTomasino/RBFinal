@@ -31,14 +31,31 @@ public partial class PhoneBook : System.Web.UI.Page
         connection();
         SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtMSGFor.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
-        ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
-        connection();
-        //Clearing form after submit
-        txtMSGFor.Text = "";
-        txtDateTime.Text = "";
-        txtCaller_Number.Text = "";
-        txtMessage.Text = "";
-        txtAction.Text = "";
-        txtInitials.Text = "";
+        SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+        var emailAddress = this.txtMSGFor.SelectedValue;
+        using (MailMessage mm = new MailMessage(smtpSection.From, emailAddress))
+        {
+            mm.Subject = "Call/Message Received!";
+            mm.Body = "Dear '" + txtMSGFor.SelectedItem.Text + "', <br><br> You have a new call/message received from <b>'" + txtCaller_Name.Text + "'<b>, <br><br> Best Regards,<br> Natick Eye Care ";
+            mm.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = smtpSection.Network.Host;
+            smtp.EnableSsl = smtpSection.Network.EnableSsl;
+            NetworkCredential networkCred = new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+            smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+            smtp.Credentials = networkCred;
+            smtp.Port = smtpSection.Network.Port;
+            smtp.Send(mm);
+            ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
+            connection();
+            //Clearing form after submit
+            txtMSGFor.Text = "";
+            txtDateTime.Text = "";
+            txtCaller_Number.Text = "";
+            txtMessage.Text = "";
+            txtAction.Text = "";
+            txtInitials.Text = "";
+        }
     }
-}
+
+    }

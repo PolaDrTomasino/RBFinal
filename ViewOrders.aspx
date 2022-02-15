@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="col-sm-7 col-xs-10 text-right">
                                         <div class="btn_group">
-                                            <asp:LinkButton ID="btnprint" runat="server" OnClientClick="PrintPage()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
+                                            <asp:LinkButton ID="btnprint" runat="server" OnClientClick="PrintPage();" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
 
                                         </div>
                                         <asp:LinkButton ID="AddOrder" runat="server" OnClick="AddNew_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
