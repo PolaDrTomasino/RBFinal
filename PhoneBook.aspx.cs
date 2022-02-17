@@ -29,8 +29,9 @@ public partial class PhoneBook : System.Web.UI.Page
     {
         //opening conncetion and insert then close DB
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtMSGFor.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtMSGFor.SelectedItem.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
+        connection();
         SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
         var emailAddress = this.txtMSGFor.SelectedValue;
         using (MailMessage mm = new MailMessage(smtpSection.From, emailAddress))
@@ -47,7 +48,6 @@ public partial class PhoneBook : System.Web.UI.Page
             smtp.Port = smtpSection.Network.Port;
             smtp.Send(mm);
             ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
-            connection();
             //Clearing form after submit
             txtMSGFor.Text = "";
             txtDateTime.Text = "";

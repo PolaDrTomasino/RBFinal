@@ -21,7 +21,6 @@
 
     <%--jquery--%>
     <script src="js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="js/vendor/jquery-1.11.2.js"></script>
     <%--bootstrap js--%>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>

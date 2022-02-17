@@ -93,7 +93,7 @@
                                             <Fields>
                                                 <asp:TemplateField HeaderText="MSGFor" SortExpression="MSGFor">
                                                     <EditItemTemplate>
-                                                        <asp:DropDownList ID="editMSGFor" runat="server" Text='<%# Bind("MSGFor") %>' class="form-control" Width="245px">
+                                                        <asp:DropDownList ID="editMSGFor" runat="server" Text='<%# Eval("MSGFor") %>' class="form-control" Width="245px">
                                                             <asp:ListItem>Dr T.</asp:ListItem>
                                                             <asp:ListItem>Mary Alan</asp:ListItem>
                                                             <asp:ListItem>Jennifer</asp:ListItem>
@@ -103,7 +103,7 @@
                                                         </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="MSGForLabel" runat="server" Text='<%# Bind("MSGFor") %>'></asp:Label>
+                                                        <asp:Label ID="MSGForLabel" runat="server" Text='<%# Eval("MSGFor") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Caller Name" SortExpression="Caller_Name">
