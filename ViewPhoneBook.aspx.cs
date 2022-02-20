@@ -45,7 +45,7 @@ public partial class ViewRx : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID] ,[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Initials] FROM [NEC_MSG]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID] ,[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Status], [Initials] FROM [NEC_MSG] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewPB.DataSource = Dt;
@@ -107,7 +107,7 @@ public partial class ViewRx : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Initials] FROM [NEC_MSG] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Status], [Initials] FROM [NEC_MSG] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -170,6 +170,7 @@ public partial class ViewRx : System.Web.UI.Page
         TextBox newCaller_NumberTextBox = (TextBox)dvPB.FindControl("editCaller_Number");
         TextBox newMessageTextBox = (TextBox)dvPB.FindControl("editMessage");
         DropDownList newActionTextBox = (DropDownList)dvPB.FindControl("editAction");
+        DropDownList newStatusTextBox = (DropDownList)dvPB.FindControl("editStatus");
         TextBox newInitialsTextBox = (TextBox)dvPB.FindControl("editInitials");
 
         string newMSGFor = newMSGForTextBox.SelectedValue;
@@ -178,10 +179,11 @@ public partial class ViewRx : System.Web.UI.Page
         string newCaller_Number = newCaller_NumberTextBox.Text;
         string newMessage = newMessageTextBox.Text;
         string newAction = newActionTextBox.SelectedValue;
+        string newStatus = newStatusTextBox.SelectedValue;
         string newInitials = newInitialsTextBox.Text;
 
         connection();
-        string query = "UPDATE NEC_MSG SET MSGFor=@MSGFor, Caller_Name=@Caller_Name, DateTime=@DateTime, Caller_Number=@Caller_Number, Message=@Message, Action=@Action, Initials=@Initials Where ID=@ID";
+        string query = "UPDATE NEC_MSG SET MSGFor=@MSGFor, Caller_Name=@Caller_Name, DateTime=@DateTime, Caller_Number=@Caller_Number, Message=@Message, Action=@Action, Status=@Status, Initials=@Initials Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -196,6 +198,8 @@ public partial class ViewRx : System.Web.UI.Page
         cmd.Parameters["Caller_Number"].Value = newCaller_Number;
         cmd.Parameters.Add("Message", SqlDbType.VarChar, 1000);
         cmd.Parameters["Message"].Value = newMessage;
+        cmd.Parameters.Add("Status", SqlDbType.VarChar, 1000);
+        cmd.Parameters["Status"].Value = newStatus;
         cmd.Parameters.Add("Action", SqlDbType.VarChar, 255);
         cmd.Parameters["Action"].Value = newAction;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);

@@ -29,7 +29,7 @@ public partial class PhoneBook : System.Web.UI.Page
     {
         //opening conncetion and insert then close DB
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtMSGFor.SelectedItem.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "','" + txtAction.Text + "','" + txtInitials.Text + "')", mycon);
+        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[NEC_MSG] values('" + txtMSGFor.SelectedItem.Text + "', '" + txtCaller_Name.Text + "', '" + txtDateTime.Text + "','" + txtCaller_Number.Text + "','" + txtMessage.Text + "', '" + txtAction.Text + "' , '" + txtInitials.Text + "' , '" + txtStatus.Text + "')", mycon);
         cmd2.ExecuteNonQuery();
         connection();
         SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");

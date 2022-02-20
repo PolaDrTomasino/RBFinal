@@ -154,6 +154,17 @@
                                                         <asp:Label ID="ActionLabel" runat="server" Text='<%# Bind("Action") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                                                    <EditItemTemplate>
+                                                        <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
+                                                            <asp:ListItem>Processing</asp:ListItem>
+                                                            <asp:ListItem>Done (Closed)</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials:" SortExpression="Initials">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editInitials" runat="server" Text='<%# Bind("Initials") %>' class="form-control"></asp:TextBox>
