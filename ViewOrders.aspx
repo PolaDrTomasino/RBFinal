@@ -218,30 +218,76 @@
                                                         <asp:Label ID="HomeOfficeLabel" runat="server" Text='<%# Bind("HomeOffice") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                                                <asp:TemplateField HeaderText="Ordered?" SortExpression="IsOrdered">
                                                     <EditItemTemplate>
-                                                        <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
-                                                            <asp:ListItem></asp:ListItem>
-                                                            <asp:ListItem>Insurance</asp:ListItem>
-                                                            <asp:ListItem>Rebate</asp:ListItem>
-                                                            <asp:ListItem>Charged</asp:ListItem>
-                                                            <asp:ListItem>Done (Closed)</asp:ListItem>
-                                                        </asp:DropDownList>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Order From" SortExpression="OrderFrom">
-                                                    <EditItemTemplate>
-                                                        <asp:DropDownList ID="editOrderFrom" runat="server" Text='<%# Bind("OrderFrom") %>' class="form-control" placeholder="Select Order From">
-                                                            <asp:ListItem></asp:ListItem>
+                                                        <asp:DropDownList ID="editIsOrdered" runat="server" Text='<%# Bind("IsOrdered") %>' class="form-control" placeholder="Select Order From">
+                                                            <asp:ListItem>Not Ordered Yet</asp:ListItem>
                                                             <asp:ListItem>Marlo</asp:ListItem>
                                                             <asp:ListItem>ABB</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="OrderFromLabel" runat="server" Text='<%# Bind("OrderFrom") %>'></asp:Label>
+                                                        <asp:Label ID="IsOrderedLabel" runat="server" Text='<%# Bind("IsOrdered") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Patient Charged?" SortExpression="IsCharged">
+                                                    <EditItemTemplate>
+                                                        <div class="form-inline">
+                                                            <div class="form-group">
+                                                                <asp:DropDownList ID="editCharged" runat="server" Text='<%# Bind("Charged") %>' class="form-control">
+                                                                <asp:ListItem>No</asp:ListItem>
+                                                                <asp:ListItem>Yes</asp:ListItem>
+                                                            </asp:DropDownList>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <asp:TextBox ID="editChargeAmt" Text='<%# Bind("ChargeAmt") %>' class="form-control"  placeholder="Amount" runat="server"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="ChargedLabel" runat="server" Text='<%# Bind("Charged") %>'></asp:Label>
+                                                        <asp:Label ID="ChargeAmtLabel" runat="server" Text='<%# Bind("ChargeAmt") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Insurance Billed?" SortExpression="IsInsBilled">
+                                                    <EditItemTemplate>
+                                                        <div class="form-inline">
+                                                            <div class="form-group">
+                                                                <asp:DropDownList ID="editIsInsBilled" runat="server" Text='<%# Bind("IsInsBilled") %>' class="form-control">
+                                                                <asp:ListItem>No</asp:ListItem>
+                                                                <asp:ListItem>Yes</asp:ListItem>
+                                                            </asp:DropDownList>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <asp:TextBox ID="editInsAmount" Text='<%# Bind("InsAmount") %>' class="form-control"  placeholder="Amount" runat="server"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="IsInsBilledLabel" runat="server" Text='<%# Bind("IsInsBilled") %>'></asp:Label>
+                                                        <asp:Label ID="InsAmountLabel" runat="server" Text='<%# Bind("InsAmount") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Rebate Sent?" SortExpression="Rebate">
+                                                    <EditItemTemplate>
+                                                                <asp:DropDownList ID="editRebate" runat="server" Text='<%# Bind("Rebate") %>' class="form-control">
+                                                                <asp:ListItem>No</asp:ListItem>
+                                                                <asp:ListItem>Yes</asp:ListItem>
+                                                            </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="RebateLabel" runat="server" Text='<%# Bind("Rebate") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                                                    <EditItemTemplate>
+                                                        <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
+                                                            <asp:ListItem>Processing</asp:ListItem>
+                                                            <asp:ListItem>Done (Closed)</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials" SortExpression="Initials">

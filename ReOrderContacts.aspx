@@ -36,7 +36,7 @@
             <br />
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Appointment Date:</label>
+                    <label class="col-md-3 control-label">Creation Date:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
@@ -92,7 +92,7 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">OD/OS</label>
+                    <label class="col-md-3 control-label">OD/OS:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fas fa-prescription"></i></span>
@@ -146,29 +146,12 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Status:</label>
-                    <div class="col-md-6 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
-                            <asp:DropDownList ID="txtStatus" runat="server" class="form-control">
-                                <asp:ListItem></asp:ListItem>
-                                <asp:ListItem>Insurance</asp:ListItem>
-                                <asp:ListItem>Rebate</asp:ListItem>
-                                <asp:ListItem>Charged</asp:ListItem>
-                                <asp:ListItem>Done (Closed)</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-3 control-label">Order From:</label>
+                    <label class="col-md-3 control-label">Ordered?</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-shopping-cart"></i></span>
-                            <asp:DropDownList ID="txtOrderFrom" runat="server" class="form-control" placeholder="Select Order From">
-                                <asp:ListItem></asp:ListItem>
+                            <asp:DropDownList ID="txtIsOrdered" runat="server" class="form-control">
+                                <asp:ListItem>Not Ordered Yet</asp:ListItem>
                                 <asp:ListItem>Marlo</asp:ListItem>
                                 <asp:ListItem>ABB</asp:ListItem>
                             </asp:DropDownList>
@@ -176,7 +159,66 @@
                     </div>
                 </div>
             </div>
-
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Patient Charged?</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <asp:DropDownList ID="txtCharged" runat="server" class="form-control" Width="100px">
+                                <asp:ListItem>No</asp:ListItem>
+                                <asp:ListItem>Yes</asp:ListItem>
+                            </asp:DropDownList>
+                            <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                            <asp:TextBox ID="txtChargeAmt" class="form-control"  placeholder="Amount" runat="server" Width="100px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Insurance Billed?</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <asp:DropDownList ID="txtInsBil" runat="server" class="form-control" Width="100px">
+                                <asp:ListItem>No</asp:ListItem>
+                                <asp:ListItem>Yes</asp:ListItem>
+                            </asp:DropDownList>
+                            <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                            <asp:TextBox ID="txtAmount" class="form-control"  placeholder="Amount" runat="server" Width="100px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Rebate Sent?</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <asp:DropDownList ID="txtRebate" runat="server" class="form-control" Width="100px">
+                                <asp:ListItem>No</asp:ListItem>
+                                <asp:ListItem>Yes</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Status:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
+                            <asp:DropDownList ID="txtStatus" runat="server" class="form-control">
+                                <asp:ListItem>Processing</asp:ListItem>
+                                <asp:ListItem>Done (Closed)</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Initials:</label>

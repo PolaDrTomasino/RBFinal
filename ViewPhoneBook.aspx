@@ -91,7 +91,7 @@
                                             DataKeyNames="ID" OnItemDeleting="dvPB_ItemDeleting"
                                             OnItemUpdating="dvPB_ItemUpdating" OnModeChanging="dvPB_ModeChanging">
                                             <Fields>
-                                                <asp:TemplateField HeaderText="MSGFor" SortExpression="MSGFor">
+                                                <asp:TemplateField HeaderText="Message For:" SortExpression="MSGFor">
                                                     <EditItemTemplate>
                                                         <asp:DropDownList ID="editMSGFor" runat="server" Text='<%# Eval("MSGFor") %>' class="form-control" Width="245px">
                                                             <asp:ListItem>Dr T.</asp:ListItem>
@@ -106,7 +106,7 @@
                                                         <asp:Label ID="MSGForLabel" runat="server" Text='<%# Eval("MSGFor") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Caller Name" SortExpression="Caller_Name">
+                                                <asp:TemplateField HeaderText="Caller Name:" SortExpression="Caller_Name">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editCaller_Name" runat="server" Text='<%# Bind("Caller_Name") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
@@ -114,7 +114,7 @@
                                                         <asp:Label ID="Caller_NameLabel" runat="server" Text='<%# Bind("Caller_Name") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Date/Time" SortExpression="DateTime">
+                                                <asp:TemplateField HeaderText="Date/Time:" SortExpression="DateTime">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editDateTime" type="datetime-local" runat="server" Text='<%# Bind("DateTime") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
@@ -122,7 +122,7 @@
                                                         <asp:Label ID="DateTimeLabel" runat="server" Text='<%# Bind("DateTime") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Caller Number" SortExpression="Caller_Number">
+                                                <asp:TemplateField HeaderText="Caller Number:" SortExpression="Caller_Number">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editCaller_Number" runat="server" Text='<%# Bind("Caller_Number") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
@@ -130,7 +130,7 @@
                                                         <asp:Label ID="Caller_NumberLabel" runat="server" Text='<%# Bind("Caller_Number") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Message" SortExpression="Message">
+                                                <asp:TemplateField HeaderText="Message:" SortExpression="Message">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editMessage" runat="server" Text='<%# Bind("Message") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
@@ -138,7 +138,7 @@
                                                         <asp:Label ID="MessageLabel" runat="server" Text='<%# Bind("Message") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Action" SortExpression="Action">
+                                                <asp:TemplateField HeaderText="Action:" SortExpression="Action">
                                                     <EditItemTemplate>
                                                         <asp:DropDownList ID="editAction" runat="server" Text='<%# Bind("Action") %>' class="form-control" Width="245px">
                                                             <asp:ListItem></asp:ListItem>
@@ -154,7 +154,7 @@
                                                         <asp:Label ID="ActionLabel" runat="server" Text='<%# Bind("Action") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Initials" SortExpression="Initials">
+                                                <asp:TemplateField HeaderText="Initials:" SortExpression="Initials">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editInitials" runat="server" Text='<%# Bind("Initials") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>

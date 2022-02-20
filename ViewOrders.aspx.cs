@@ -9,7 +9,6 @@ using System.Data;
 using System.Configuration;
 using System.IO;
 
-
 public partial class ViewOrders : System.Web.UI.Page
 {
     public SqlConnection mycon;
@@ -83,7 +82,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [Initials] FROM [Reorder_Contacts]"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [Initials] FROM [Reorder_Contacts] Where [Status] != 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -124,7 +123,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [OrderDescription], [OD], [OS], [CCNumber], [Expiration], [CVC], [HomeOffice], [Status], [OrderFrom], [Initials] FROM [Reorder_Contacts] Where OrderID=@OrderID"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [OrderDescription], [OD], [OS], [CCNumber], [Expiration], [CVC], [HomeOffice], [Status], [IsOrdered], [Charged], [ChargeAmt], [IsInsBilled], [InsAmount], [Rebate], [Initials] FROM [Reorder_Contacts] Where OrderID=@OrderID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -195,8 +194,13 @@ public partial class ViewOrders : System.Web.UI.Page
         TextBox newCVCTextBox = (TextBox)DetailsView1.FindControl("editCVC");
         DropDownList newHomeOfficeTextBox = (DropDownList)DetailsView1.FindControl("editHomeOffice");
         DropDownList newStatusTextBox = (DropDownList)DetailsView1.FindControl("editStatus");
+        DropDownList newChargedTextBox = (DropDownList)DetailsView1.FindControl("editCharged");
+        TextBox newChargeAmtTextBox = (TextBox)DetailsView1.FindControl("editChargeAmt");
+        DropDownList newIsInsBilledTextBox = (DropDownList)DetailsView1.FindControl("editIsInsBilled");
+        TextBox newInsAmountTextBox = (TextBox)DetailsView1.FindControl("editInsAmount");
+        DropDownList newRebateTextBox = (DropDownList)DetailsView1.FindControl("editRebate");
         TextBox newInitialsTextBox = (TextBox)DetailsView1.FindControl("editInitials");
-        DropDownList newOrderFromTextBox = (DropDownList)DetailsView1.FindControl("editOrderFrom");
+        DropDownList newIsOrderedTextBox = (DropDownList)DetailsView1.FindControl("editIsOrdered");
 
         string newDate = newDateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
@@ -210,12 +214,17 @@ public partial class ViewOrders : System.Web.UI.Page
         string newCVC = newCVCTextBox.Text;
         string newHomeOffice = newHomeOfficeTextBox.SelectedValue;
         string newStatus = newStatusTextBox.SelectedValue;
+        string newCharged = newChargedTextBox.SelectedValue;
+        string newChargeAmt = newChargeAmtTextBox.Text;
+        string newIsInsBilled = newIsInsBilledTextBox.SelectedValue;
+        string newInsAmount = newInsAmountTextBox.Text;
+        string newRebate = newRebateTextBox.SelectedValue;
         string newInitials = newInitialsTextBox.Text;
-        string newOrderFrom = newOrderFromTextBox.SelectedValue;
+        string newIsOrdered = newIsOrderedTextBox.SelectedValue;
 
 
         connection();
-        string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, OD=@OD, OS=@OS, CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, OrderFrom=@OrderFrom Where OrderID=@OrderID";
+        string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, OD=@OD, OS=@OS, CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, IsOrdered=@IsOrdered , Charged=@Charged, ChargeAmt=@ChargeAmt, InsAmount=@InsAmount, IsInsBilled=@IsInsBilled, Rebate=@Rebate Where OrderID=@OrderID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("OrderID", SqlDbType.Int);
@@ -242,12 +251,22 @@ public partial class ViewOrders : System.Web.UI.Page
         cmd.Parameters["CVC"].Value = newCVC;
         cmd.Parameters.Add("HomeOffice", SqlDbType.VarChar, 255);
         cmd.Parameters["HomeOffice"].Value = newHomeOffice;
+        cmd.Parameters.Add("Charged", SqlDbType.VarChar, 255);
+        cmd.Parameters["Charged"].Value = newCharged;
+        cmd.Parameters.Add("IsInsBilled", SqlDbType.VarChar, 255);
+        cmd.Parameters["IsInsBilled"].Value = newIsInsBilled;
+        cmd.Parameters.Add("InsAmount", SqlDbType.VarChar, 255);
+        cmd.Parameters["InsAmount"].Value = newInsAmount;
+        cmd.Parameters.Add("ChargeAmt", SqlDbType.VarChar, 255);
+        cmd.Parameters["ChargeAmt"].Value = newChargeAmt;
+        cmd.Parameters.Add("Rebate", SqlDbType.VarChar, 255);
+        cmd.Parameters["Rebate"].Value = newRebate;
         cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
         cmd.Parameters["Status"].Value = newStatus;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
-        cmd.Parameters.Add("OrderFrom", SqlDbType.VarChar, 255);
-        cmd.Parameters["OrderFrom"].Value = newOrderFrom;
+        cmd.Parameters.Add("IsOrdered", SqlDbType.VarChar, 255);
+        cmd.Parameters["IsOrdered"].Value = newIsOrdered;
         try
         {
             cmd.ExecuteNonQuery();
@@ -272,7 +291,7 @@ public partial class ViewOrders : System.Web.UI.Page
             LinkButton button = (LinkButton)(DetailsView1.Rows[noRow].Cells[0].Controls[2]);
 
             // Add delete confirmation
-            ((System.Web.UI.WebControls.LinkButton)(button)).OnClientClick = "if(!confirm('functionConfirm(event)')){ return false; };";
+            ((System.Web.UI.WebControls.LinkButton)(button)).OnClientClick = "if(!confirm('Are you sure?')){ return false; };";
 
         }
     }
