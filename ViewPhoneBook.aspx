@@ -74,7 +74,7 @@
                                             align="center" AllowPaging="true" OnPreRender="GridViewPB_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewPB_SelectedIndexChanged" AutoGenerateColumns="False"
-                                            DataKeyNames="ID">
+                                            DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
                                                 <asp:BoundField DataField="MSGFor" HeaderText="Message/Call For" />
                                                 <asp:BoundField DataField="Caller_Name" HeaderText="Caller Name" />

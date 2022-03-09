@@ -37,10 +37,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"/>
     
     <style type="text/css">
-        .container-def {
+        .container-fluid {
             margin-top:-50px;
-            height: 400px;
-            width: 900px;
+            height: 100%;
+            width: 100%;
+            max-width: 1000px;
             margin-left:22%;
             margin-top:-70px;
         }
@@ -52,12 +53,12 @@
             height: auto;
             width: 750px;
             margin:auto;
-            margin-left:35%;
+            margin-left:38%;
         }
         .container-view {
             margin-bottom:130px;
-            height: 400px;
-            width: 1100px;
+            height: 100%;
+            width: 80%;
             margin-left:15%; 
         }
 
@@ -236,10 +237,6 @@
                 <a href="#">Natick<em>EyeCare</em></a>
             </div>
             <nav>
-                <br />
-                <br />
-                <br />
-                <br />
                 <ul>
                     <li>
                         <a href="Default.aspx">

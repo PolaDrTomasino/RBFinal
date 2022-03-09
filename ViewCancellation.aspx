@@ -78,7 +78,7 @@
                                             align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewCancellation_SelectedIndexChanged" AutoGenerateColumns="False"
-                                            DataKeyNames="ID">
+                                            DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />

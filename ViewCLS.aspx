@@ -76,7 +76,7 @@
                                                 align="center" AllowPaging="true" OnPreRender="GridViewCLS_PreRender"
                                                 PageSize="15" Style="text-align: center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                                 OnSelectedIndexChanged="GridViewCLS_SelectedIndexChanged" AutoGenerateColumns="False"
-                                                DataKeyNames="ID">
+                                                DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                                 <Columns>
                                                     <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
                                                     <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />

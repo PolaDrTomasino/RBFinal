@@ -263,7 +263,7 @@
         <br />
         <br />
         <br />
-        <div class="container-def">
+        <div class="container-fluid">
                 <div class="col-lg-17">
                     <div class="wrapper wrapper-content animated fadeInRight">
 

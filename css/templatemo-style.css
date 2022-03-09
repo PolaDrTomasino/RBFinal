@@ -3,7 +3,7 @@ body {
 }
 
 p {
-  font-size: 13px;
+  font-size: 1vw;
   color: #7a7a7a;
   line-height: 24px;
 }
@@ -36,7 +36,7 @@ p {
 
 .section-heading h1 {
   margin-top: 0px;
-  font-size: 32px;
+  font-size: 1vw;
   color: #232323;
   display: inline-block;
   margin-right: 50px;
@@ -50,7 +50,7 @@ p {
 
 .section-heading p {
   display: inline-block;
-  font-size: 15px;
+  font-size: 1vw;
   line-height: 26px;
   color: #343434;
   position: absolute;
@@ -58,7 +58,7 @@ p {
 }
 
 .white-button a {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: 600;
   color: #45489a;
   text-transform: capitalize;
@@ -78,7 +78,7 @@ p {
 }
 
 .accent-button a {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: 600;
   color: #fff;
   text-transform: capitalize;
@@ -149,7 +149,7 @@ header {
   background-color: transparent;
 }
 #main-nav ul li a {
-  font-size: 15px;
+  font-size: 1vw;
   text-transform: capitalize;
   color: #fff;
   box-shadow: none;
@@ -192,7 +192,7 @@ header {
 .sidebar-navigation .logo a {
   text-decoration: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 1vw;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -235,7 +235,7 @@ header {
   color: #fff;
   margin-top: 5px;
   text-decoration: none!important;
-  font-size: 15px;
+  font-size: 1vw;
   letter-spacing: 0.5px;
   text-transform: capitalize;
 }
@@ -315,7 +315,7 @@ header {
 }
 
 .Modern-Slider .info p {
-  font-size: 15px;
+  font-size: 1vw;
   color: #fff;
 }
 
@@ -478,7 +478,7 @@ header {
   line-height: 42px;
   background-color: #eee;
   color: #232323;
-  font-size: 42px;
+  font-size: 1vw;
   transition: all 0.5s;
 }
 
@@ -503,7 +503,7 @@ header {
 }
 
 #featured .item .image .featured-button a {
-  font-size: 13px;
+  font-size: 1vw;
   font-weight: 600;
   color: #fff;
   text-align: center;
@@ -537,7 +537,7 @@ header {
 #featured .item .text-content h4 {
   margin-top: 0px;
   margin-bottom: 5px;
-  font-size: 21px;
+  font-size: 1vw;
   font-weight: 600;
   color: #232323;
   letter-spacing: 0.5px;
@@ -545,7 +545,7 @@ header {
 
 #featured .item .text-content span {
   display: inline-block;
-  font-size: 15px;
+  font-size: 1vw;
   font-weight: 600;
   color: #7a7a7a;
   letter-spacing: 0.5px;
@@ -716,7 +716,7 @@ header {
   text-transform: capitalize;
   letter-spacing: 0.5px;
   color: #232323;
-  font-size: 19px;
+  font-size: 1vw;
   line-height: 80px;
   font-weight: 600;
   transition: 0.5s;
