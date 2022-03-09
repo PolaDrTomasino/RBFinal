@@ -198,6 +198,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <asp:DropDownList ID="txtRebate" runat="server" class="form-control" Width="100px">
+                                <asp:ListItem>N/A</asp:ListItem>
                                 <asp:ListItem>No</asp:ListItem>
                                 <asp:ListItem>Yes</asp:ListItem>
                             </asp:DropDownList>

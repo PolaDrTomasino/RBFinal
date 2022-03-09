@@ -192,7 +192,7 @@ header {
 .sidebar-navigation .logo a {
   text-decoration: none;
   color: #fff;
-  font-size: 24px;
+  font-size: 1.5vw;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -235,7 +235,7 @@ header {
   color: #fff;
   margin-top: 5px;
   text-decoration: none!important;
-  font-size: 15px;
+  font-size: 1vw;
   letter-spacing: 0.5px;
   text-transform: capitalize;
 }
