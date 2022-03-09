@@ -295,4 +295,26 @@ public partial class ViewOrders : System.Web.UI.Page
 
         }
     }
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [Initials] FROM [Reorder_Contacts] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewOrders.DataSource = dt;
+                        GridViewOrders.DataKeyNames = new string[] { "OrderID" };
+                        GridViewOrders.DataBind();
+                    }
+                }
+            }
+        }
+    }
 }

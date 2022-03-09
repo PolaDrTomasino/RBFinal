@@ -97,7 +97,7 @@
 
                                         </div>
                                         <asp:LinkButton ID="AddOrder" runat="server" OnClick="AddNew_Click" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
-
+                                        <asp:LinkButton ID="Archive" runat="server" OnClick="Archive_Click" CssClass="btn add-new" Width="160px"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;Archived Records</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -270,8 +270,9 @@
                                                 <asp:TemplateField HeaderText="Rebate Sent?" SortExpression="Rebate">
                                                     <EditItemTemplate>
                                                                 <asp:DropDownList ID="editRebate" runat="server" Text='<%# Bind("Rebate") %>' class="form-control">
-                                                                <asp:ListItem>No</asp:ListItem>
-                                                                <asp:ListItem>Yes</asp:ListItem>
+                                                                    <asp:ListItem>N/A</asp:ListItem>
+                                                                    <asp:ListItem>No</asp:ListItem>
+                                                                    <asp:ListItem>Yes</asp:ListItem>
                                                             </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
