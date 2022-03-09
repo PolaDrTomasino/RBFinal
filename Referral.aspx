@@ -124,6 +124,6 @@
                     </div>
                 </div>
             </div>
-            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
+            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:200px; text-align: center; Width: 200px; " Text="Submit" />
     </body>
 </asp:Content>

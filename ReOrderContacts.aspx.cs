@@ -27,8 +27,30 @@ public partial class ReOrderContacts : System.Web.UI.Page
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         connection();
-        SqlCommand cmd2 = new SqlCommand("INSERT INTO [dbo].[Reorder_Contacts] values('" + txtDate.Text + "','" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtOrderDescription.Text + "','" + txtOD.Text + "','" + txtOS.Text + "','" + txt_CCNumber.Text + "','" + txt_Expiration.Text + "','" + txtCVC.Text + "','" + txtHomeOffice.Text + "', '" + txtStatus.Text + "', '" + txtInitials.Text + "' , '" + txtIsOrdered.Text + "' , '" + txtInsBil.Text + "' , '" + txtAmount.Text + "' , '" + txtCharged.Text + "' , '" + txtChargeAmt.Text + "', '" + txtRebate.Text + "' )", mycon);
-        cmd2.ExecuteNonQuery();
+        string query = "INSERT INTO [dbo].[Reorder_Contacts] (Date, Patient_Name, Phone_Number, Email, OrderDescription, OD, OS, CCNumber, Expiration, CVC, HomeOffice, Status, Initials, IsOrdered , Charged, ChargeAmt, InsAmount, IsInsBilled, Rebate) Values (@Date, @Patient_Name, @Phone_Number, @Email, @OrderDescription, @OD, @OS, @CCNumber, @Expiration, @CVC, @HomeOffice, @Status, @Initials, @IsOrdered , @Charged, @ChargeAmt, @InsAmount, @IsInsBilled, @Rebate) ";
+        SqlCommand cmd = new SqlCommand(query, mycon);
+
+        cmd.Parameters.AddWithValue("@Date",txtDate.Text );
+        cmd.Parameters.AddWithValue("@Patient_Name", txtPatient_Name.Text);
+        cmd.Parameters.AddWithValue("@Phone_Number",txtPhone_Number.Text);
+        cmd.Parameters.AddWithValue("@Email",txtEmail.Text);
+        cmd.Parameters.AddWithValue("@OrderDescription", txtOrderDescription.Text);
+        cmd.Parameters.AddWithValue("@OD",txtOD.Text);
+        cmd.Parameters.AddWithValue("@OS",txtOS.Text);
+        cmd.Parameters.AddWithValue("@CCNumber", txt_CCNumber.Text);
+        cmd.Parameters.AddWithValue("@Expiration", txt_Expiration.Text);
+        cmd.Parameters.AddWithValue("@CVC",txtCVC.Text);
+        cmd.Parameters.AddWithValue("@HomeOffice",txtHomeOffice.Text);
+        cmd.Parameters.AddWithValue("@Charged", txtCharged.Text);
+        cmd.Parameters.AddWithValue("@IsInsBilled", txtIsInsBil.Text);
+        cmd.Parameters.AddWithValue("@InsAmount",txtAmount.Text);
+        cmd.Parameters.AddWithValue("@ChargeAmt",txtChargeAmt.Text);
+        cmd.Parameters.AddWithValue("@Rebate",txtRebate.Text);
+        cmd.Parameters.AddWithValue("@Status",txtStatus.Text);
+        cmd.Parameters.AddWithValue("@Initials",txtInitials.Text);
+        cmd.Parameters.AddWithValue("@IsOrdered",txtIsOrdered.Text);
+        
+        cmd.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
         SendEmail();
@@ -50,7 +72,7 @@ public partial class ReOrderContacts : System.Web.UI.Page
         txtInitials.Text = "";
         txtRebate.SelectedValue = "No";
         txtIsOrdered.SelectedValue = "Not Ordered Yet";
-        txtInsBil.SelectedValue = "No";
+        txtIsInsBil.SelectedValue = "No";
         txtAmount.Text = "";
     }
     private void SendEmail()

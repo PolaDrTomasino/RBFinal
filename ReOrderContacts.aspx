@@ -181,7 +181,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                            <asp:DropDownList ID="txtInsBil" runat="server" class="form-control" Width="100px">
+                            <asp:DropDownList ID="txtIsInsBil" runat="server" class="form-control" Width="100px">
                                 <asp:ListItem>No</asp:ListItem>
                                 <asp:ListItem>Yes</asp:ListItem>
                             </asp:DropDownList>
@@ -231,7 +231,7 @@
                     </div>
                 </div>
             </div>
-            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 100px; text-align: center; Width: 200px;" Text="Submit" />
+            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left: 200px; text-align: center; Width: 200px;" Text="Submit" />
             <br />
             <br />
 

@@ -283,13 +283,13 @@
 
                                 <h3>RedBook Records</h3>
                             </div>
-                            <div class="forum-item active">
+                            <div class="forum-item active" >
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
                                             <i class="fa fa-money"></i>
                                         </div>
-                                        <a href="ViewOrders.aspx" class="forum-item-title" ">View Patients Orders</a>
+                                        <a href="ViewOrders.aspx" class="forum-item-title" style="font-size: 1.2vw">View Patients Orders</a>
                                         <div class="forum-sub-title">Here we can view patients contact lens orders</div>
                                         
                                     </div>
@@ -309,7 +309,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-pause"></i>
                                         </div>
-                                        <a href="ViewCancellation.aspx" class="forum-item-title" ">View Cancellations Waiting List</a>
+                                        <a href="ViewCancellation.aspx" class="forum-item-title" style="font-size: 1.2vw">View Cancellations Waiting List</a>
                                         <div class="forum-sub-title">Here we can view patients who are on our cancellation waiting list </div>
                                         
                                     </div>
@@ -329,7 +329,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-dot-circle-o"></i>
                                         </div>
-                                        <a href="ViewCLS.aspx" class="forum-item-title">View Contact Lens Trials</a>
+                                        <a href="ViewCLS.aspx" class="forum-item-title" style="font-size: 1.2vw">View Contact Lens Trials</a>
                                         <div class="forum-sub-title">Here we can see patients trying CLS and needs follow up</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
@@ -348,7 +348,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-sticky-note"></i>
                                         </div>
-                                        <a href="ViewRecReq.aspx" class="forum-item-title">View Receipt Requests</a>
+                                        <a href="ViewRecReq.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Receipt Requests</a>
                                         <div class="forum-sub-title">Here we can see patients asking for receipts and needs follow up</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
@@ -367,7 +367,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-prescription"></i>
                                         </div>
-                                        <a href="ViewRx.aspx" class="forum-item-title">View Rx Requests</a>
+                                        <a href="ViewRx.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Rx Requests</a>
                                         <div class="forum-sub-title">Here we can see patients asking for a copy of their Rx</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
@@ -386,7 +386,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-wpforms"></i>
                                         </div>
-                                        <a href="ViewRef.aspx" class="forum-item-title">View Referral Requests</a>
+                                        <a href="ViewRef.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Referral Requests</a>
                                         <div class="forum-sub-title">Here we can see patients who needs referral</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
@@ -405,7 +405,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-wpforms"></i>
                                         </div>
-                                        <a href="ViewPhoneBook.aspx" class="forum-item-title">View Phone Calls Received</a>
+                                        <a href="ViewPhoneBook.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Phone Calls Received</a>
                                         <div class="forum-sub-title">Here we can see patients who called and left a message</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
