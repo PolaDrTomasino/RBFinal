@@ -98,7 +98,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fas fa-prescription"></i></span>
-							<asp:DropDownList ID="txtRx" runat="server" class="form-control">
+							<asp:DropDownList ID="txtRx" runat="server" class="form-control" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem>Contacts Rx</asp:ListItem>
                             <asp:ListItem>Galsses Rx</asp:ListItem>
@@ -113,7 +113,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
-							<asp:DropDownList ID="txtReceiving_Via" runat="server" class="form-control">
+							<asp:DropDownList ID="txtReceiving_Via" runat="server" class="form-control" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px">
                             <asp:ListItem>Office Pick-Up</asp:ListItem>
                             <asp:ListItem>By Email</asp:ListItem>
                             <asp:ListItem>Mail To Home</asp:ListItem>
@@ -144,7 +144,21 @@
                     </div>
                 </div>
             </div>
-            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:100px; text-align: center; Width: 200px; " Text="Submit" />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Status:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
+                            <asp:DropDownList ID="txtStatus" runat="server" class="form-control"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px">
+                                <asp:ListItem>Processing</asp:ListItem>
+                                <asp:ListItem>Done (Closed)</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:220px; text-align: center; Width: 200px; " Text="Submit" />
     </body>
 </asp:Content>
 

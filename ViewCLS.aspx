@@ -43,7 +43,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View <span>Contact Lenses</span></h4>
+                                        <h4 class="title">View Contact<span> Lenses Trials</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -63,7 +63,7 @@
                                             <asp:LinkButton ID="btnprint" runat="server" OnClientClick="PrintPage()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
                                         </div>
                                         <asp:LinkButton ID="AddCancellation" runat="server" OnClick="Button1_Click2" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
-
+                                        <asp:LinkButton ID="Archive" runat="server" OnClick="Archive_Click" CssClass="btn add-new" Width="160px"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;Archived Records</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -149,6 +149,17 @@
                                                             <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                                                    <EditItemTemplate>
+                                                        <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
+                                                            <asp:ListItem>Processing</asp:ListItem>
+                                                            <asp:ListItem>Done (Closed)</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
                                                     <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
                                                         <ControlStyle CssClass="btn btn-info" />
                                                     </asp:CommandField>

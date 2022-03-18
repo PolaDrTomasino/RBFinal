@@ -26,7 +26,7 @@ public partial class ptCancelled : System.Web.UI.Page
     {
 //SQL Syntax
         connection();
-        SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Cancellation_List] values('" + txtDate.Text + "', '" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtAppt_Date.Text + "','" + txtNew_Date.Text + "','" + txtInitials.Text + "')", mycon);
+        SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Cancellation_List] values('" + txtDate.Text + "', '" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtAppt_Date.Text + "','" + txtNew_Date.Text + "','" + txtInitials.Text + "' ,'" + txtStatus.Text + "')", mycon);
         cmd.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         mycon.Close();

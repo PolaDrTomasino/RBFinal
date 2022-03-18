@@ -45,7 +45,7 @@ public partial class ViewCancellation : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [Cancellation_List]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [Cancellation_List] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewCancellation.DataSource = Dt;
@@ -107,7 +107,7 @@ public partial class ViewCancellation : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [Cancellation_List] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials], [Status] FROM [Cancellation_List] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -171,6 +171,8 @@ public partial class ViewCancellation : System.Web.UI.Page
         TextBox newAppt_DateTextBox = (TextBox)dvCan.FindControl("editAppt_Date");
         TextBox newNew_DateTextBox = (TextBox)dvCan.FindControl("editNew_Date");
         TextBox newInitialsTextBox = (TextBox)dvCan.FindControl("editInitials");
+        DropDownList newStatusTextBox = (DropDownList)dvCan.FindControl("editStatus");
+
 
         string newDate = newDateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
@@ -179,9 +181,10 @@ public partial class ViewCancellation : System.Web.UI.Page
         string newAppt_Date = newAppt_DateTextBox.Text;
         string newNew_Date = newNew_DateTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
+        string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE Cancellation_List SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Appt_Date=@Appt_Date, New_Date=@New_Date, Initials=@Initials Where ID=@ID";
+        string query = "UPDATE Cancellation_List SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Appt_Date=@Appt_Date, New_Date=@New_Date, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -200,6 +203,8 @@ public partial class ViewCancellation : System.Web.UI.Page
         cmd.Parameters["New_Date"].Value = newNew_Date;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
+        cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
+        cmd.Parameters["Status"].Value = newStatus;
 
         try
         {
@@ -215,5 +220,27 @@ public partial class ViewCancellation : System.Web.UI.Page
         BindDetails();
         dvCan.Visible = false;
         GridViewCancellation.Visible = true;
+    }
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [Cancellation_List] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewCancellation.DataSource = dt;
+                        GridViewCancellation.DataKeyNames = new string[] { "ID" };
+                        GridViewCancellation.DataBind();
+                    }
+                }
+            }
+        }
     }
 }

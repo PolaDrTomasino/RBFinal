@@ -44,7 +44,7 @@ public partial class ViewRecReq : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewRecReq.DataSource = Dt;
@@ -106,7 +106,7 @@ public partial class ViewRecReq : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials], [Status] FROM [Receipt_Request] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -171,6 +171,7 @@ public partial class ViewRecReq : System.Web.UI.Page
         DropDownList newReceiving_ViaTextBox = (DropDownList)dvRecReQ.FindControl("editReceiving_Via");
         TextBox newDate_DoneTextBox = (TextBox)dvRecReQ.FindControl("editDate_Done");
         TextBox newInitialsTextBox = (TextBox)dvRecReQ.FindControl("editInitials");
+        DropDownList newStatusTextBox = (DropDownList)dvRecReQ.FindControl("editStatus");
 
         string newDate = newDateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
@@ -180,9 +181,10 @@ public partial class ViewRecReq : System.Web.UI.Page
         string newReceiving_Via = newReceiving_ViaTextBox.SelectedValue;
         string newDate_Done = newDate_DoneTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
+        string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE Receipt_Request SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Service_Provider=@Service_Provider, Receiving_Via=@Receiving_Via, Date_Done=@Date_Done, Initials=@Initials Where ID=@ID";
+        string query = "UPDATE Receipt_Request SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Service_Provider=@Service_Provider, Receiving_Via=@Receiving_Via, Date_Done=@Date_Done, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -203,6 +205,8 @@ public partial class ViewRecReq : System.Web.UI.Page
         cmd.Parameters["Date_Done"].Value = newDate_Done;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
+        cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
+        cmd.Parameters["Status"].Value = newStatus;
 
         try
         {
@@ -218,5 +222,27 @@ public partial class ViewRecReq : System.Web.UI.Page
         BindDetails();
         dvRecReQ.Visible = false;
         GridViewRecReq.Visible = true;
+    }
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewRecReq.DataSource = dt;
+                        GridViewRecReq.DataKeyNames = new string[] { "ID" };
+                        GridViewRecReq.DataBind();
+                    }
+                }
+            }
+        }
     }
 }

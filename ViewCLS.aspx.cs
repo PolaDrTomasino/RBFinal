@@ -44,7 +44,7 @@ public partial class ViewCLS : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials] FROM [CLSFU]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials] FROM [CLSFU] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewCLS.DataSource = Dt;
@@ -106,7 +106,7 @@ public partial class ViewCLS : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials] FROM [CLSFU] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials], [Status] FROM [CLSFU] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -170,6 +170,7 @@ public partial class ViewCLS : System.Web.UI.Page
         TextBox newCLS_TryTextBox = (TextBox)dvCLS.FindControl("editCLS_Try");
         TextBox newFU_DateTextBox = (TextBox)dvCLS.FindControl("editFU_Date");
         TextBox newInitialsTextBox = (TextBox)dvCLS.FindControl("editInitials");
+        DropDownList newStatusTextBox = (DropDownList)dvCLS.FindControl("editStatus");
 
         string newAppt_Date = newAppt_DateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
@@ -178,9 +179,10 @@ public partial class ViewCLS : System.Web.UI.Page
         string newCLS_Try = newCLS_TryTextBox.Text;
         string newFU_Date = newFU_DateTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
+        string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE CLSFU SET Appt_Date=@Appt_Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, CLS_Try=@CLS_Try, FU_Date=@FU_Date, Initials=@Initials Where ID=@ID";
+        string query = "UPDATE CLSFU SET Appt_Date=@Appt_Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, CLS_Try=@CLS_Try, FU_Date=@FU_Date, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -199,6 +201,8 @@ public partial class ViewCLS : System.Web.UI.Page
         cmd.Parameters["FU_Date"].Value = newFU_Date;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
+        cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
+        cmd.Parameters["Status"].Value = newStatus;
 
         try
         {
@@ -214,5 +218,27 @@ public partial class ViewCLS : System.Web.UI.Page
         BindDetails();
         dvCLS.Visible = false;
         GridViewCLS.Visible = true;
+    }
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials] FROM [CLSFU] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewCLS.DataSource = dt;
+                        GridViewCLS.DataKeyNames = new string[] { "ID" };
+                        GridViewCLS.DataBind();
+                    }
+                }
+            }
+        }
     }
 }

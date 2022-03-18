@@ -124,6 +124,20 @@
                     </div>
                 </div>
             </div>
+             <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Status:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
+                            <asp:DropDownList ID="txtStatus" runat="server" class="form-control"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px">
+                                <asp:ListItem>Processing</asp:ListItem>
+                                <asp:ListItem>Done (Closed)</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <asp:Button ID="BtnSubmit" runat="server" CssClass="btn btn-warning" OnClick="BtnSubmit_Click" Style="margin-left:200px; text-align: center; Width: 200px; " Text="Submit" />
     </body>
 </asp:Content>

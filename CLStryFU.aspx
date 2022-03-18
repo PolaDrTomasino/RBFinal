@@ -105,6 +105,7 @@
                         </div>
                     </div>
                 </div>
+                    </div>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Date Of Follow Up:</label>
@@ -115,6 +116,7 @@
                         </div>
                     </div>
                 </div>
+                </div>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Initials:</label>
@@ -122,6 +124,20 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-star"></i></span>
                             <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Status:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-spinner"></i></span>
+                            <asp:DropDownList ID="txtStatus" runat="server" class="form-control"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px">
+                                <asp:ListItem>Processing</asp:ListItem>
+                                <asp:ListItem>Done (Closed)</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>

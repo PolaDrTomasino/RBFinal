@@ -44,7 +44,7 @@ public partial class ViewRef : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials] FROM [Referral]", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials], [Status] FROM[Referral] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewRef.DataSource = Dt;
@@ -106,7 +106,7 @@ public partial class ViewRef : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials] FROM [Referral] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials], [Status] FROM [Referral] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -170,6 +170,7 @@ public partial class ViewRef : System.Web.UI.Page
         TextBox newRFRTextBox = (TextBox)dvRef.FindControl("editRFR");
         TextBox newRefDateTextBox = (TextBox)dvRef.FindControl("editRefDate");
         TextBox newInitialsTextBox = (TextBox)dvRef.FindControl("editInitials");
+        DropDownList newStatusTextBox = (DropDownList)dvRef.FindControl("editStatus");
 
         string newDate = newDateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
@@ -178,9 +179,11 @@ public partial class ViewRef : System.Web.UI.Page
         string newRFR = newRFRTextBox.Text;
         string newRefDate = newRefDateTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
+        string newStatus = newStatusTextBox.SelectedValue;
+
 
         connection();
-        string query = "UPDATE Referral SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, RFR=@RFR, RefDate=@RefDate, Initials=@Initials Where ID=@ID";
+        string query = "UPDATE Referral SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, RFR=@RFR, RefDate=@RefDate, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -199,6 +202,8 @@ public partial class ViewRef : System.Web.UI.Page
         cmd.Parameters["RefDate"].Value = newRefDate;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
+        cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
+        cmd.Parameters["Status"].Value = newStatus;
 
         try
         {
@@ -214,5 +219,27 @@ public partial class ViewRef : System.Web.UI.Page
         BindDetails();
         dvRef.Visible = false;
         GridViewRef.Visible = true;
+    }
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select[ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials], [Status] FROM[Referral] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewRef.DataSource = dt;
+                        GridViewRef.DataKeyNames = new string[] { "ID" };
+                        GridViewRef.DataBind();
+                    }
+                }
+            }
+        }
     }
 }

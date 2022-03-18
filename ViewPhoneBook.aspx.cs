@@ -219,4 +219,26 @@ public partial class ViewRx : System.Web.UI.Page
         dvPB.Visible = false;
         GridViewPB.Visible = true;
     }
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID] ,[MSGFor], [Caller_Name], [DateTime], [Caller_Number], [Message], [Action], [Status], [Initials] FROM [NEC_MSG] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewPB.DataSource = dt;
+                        GridViewPB.DataKeyNames = new string[] { "ID" };
+                        GridViewPB.DataBind();
+                    }
+                }
+            }
+        }
+    }
 }
