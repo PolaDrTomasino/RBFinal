@@ -78,7 +78,7 @@ public partial class ReOrderContacts : System.Web.UI.Page
     private void SendEmail()
     {
         SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-        using (MailMessage mm = new MailMessage(smtpSection.From, "pola.talaat1986@gmail.com"))
+        using (MailMessage mm = new MailMessage(smtpSection.From, "susan@drtomasino.com"))
         {
             mm.Subject = "New Contact Lenses Order for '" + txtPatient_Name.Text + "'";
             mm.Body = "<b>Dear Dr T, <br/> A new Contact Lenses order has been added for '" + txtPatient_Name.Text + "',<br/> <br/> Order Description is '" + txtOrderDescription.Text + "' <br/> <br/> Best Regards, <br/> Natick EyeCare<b>";

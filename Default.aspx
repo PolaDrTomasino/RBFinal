@@ -309,13 +309,33 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-pause"></i>
                                         </div>
-                                        <a href="ViewCancellation.aspx" class="forum-item-title" style="font-size: 1.2vw">View Cancellations Waiting List</a>
+                                        <a href="ViewCancelWait.aspx" class="forum-item-title" style="font-size: 1.2vw">View Cancellations Waiting List</a>
                                         <div class="forum-sub-title">Here we can view patients who are on our cancellation waiting list </div>
                                         
                                     </div>
                                     <div class="col-md-3 forum-info">
                                         <span class="views-number">
                                             <asp:Label ID="canviews" runat="server" Text="canviews"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-pause"></i>
+                                        </div>
+                                        <a href="ViewptCancelled.aspx" class="forum-item-title" style="font-size: 1.2vw">View Patients Who Cancelled Appointments</a>
+                                        <div class="forum-sub-title">Here we can view patients who cancelled thier appointments</div>
+                                        
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="canviews2" runat="server" Text="canviews2"></asp:Label>
                                         </span>
                                         <div>
                                             <small>Records</small>
@@ -405,12 +425,31 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-wpforms"></i>
                                         </div>
+                                        <a href="ViewMedRecords.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Requests for Medical Records</a>
+                                        <div class="forum-sub-title">Here we can see patients who Request a release of Medical Records</div>
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="MedRecords" runat="server" Text="MedRecords"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forum-item active">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-wpforms"></i>
+                                        </div>
                                         <a href="ViewPhoneBook.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Phone Calls Received</a>
                                         <div class="forum-sub-title">Here we can see patients who called and left a message</div>
                                     </div>
                                     <div class="col-md-3 forum-info">
                                         <span class="views-number">
-                                            <asp:Label ID="PhoneBook" runat="server" Text="RefReq"></asp:Label>
+                                            <asp:Label ID="PhoneBook" runat="server" Text="PhoneBook"></asp:Label>
                                         </span>
                                         <div>
                                             <small>Records</small>

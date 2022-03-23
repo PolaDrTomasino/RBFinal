@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewCancellation.aspx.cs" Inherits="ViewCancellation" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewCancelWait.aspx.cs" Inherits="ViewCancelWait" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!DOCTYPE html>
@@ -43,7 +43,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View <span>Cancellations</span></h4>
+                                        <h4 class="title">View Cancellations <span>Waiting List</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -62,7 +62,6 @@
                                         <div class="btn_group">
                                             <asp:LinkButton ID="btnPrint" runat="server" OnClientClick="PrintPage()" CssClass="btn add-new" Width="95px"><i class="fa fa-print"></i>&nbsp;Print</asp:LinkButton>
                                             
-
                                         </div>
                                         <asp:LinkButton ID="AddCancellation" runat="server" OnClick="Button1_Click2" CssClass="btn add-new" Width="95px"><i class="fa fa-plus-circle"></i>&nbsp;Add New</asp:LinkButton>
                                         <asp:LinkButton ID="Archive" runat="server" OnClick="Archive_Click" CssClass="btn add-new" Width="160px"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;Archived Records</asp:LinkButton>
@@ -74,10 +73,10 @@
                                 <table class="table table-hover" width="70%" id="pnlGridView" runat="server" align="center">
                                     <tr>
                                         <td colspan="2">
-                                        <asp:GridView ID="GridViewCancellation" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
-                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCancellation_PreRender"
+                                        <asp:GridView ID="GridViewCancelWait" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
+                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCancelWait_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                            OnSelectedIndexChanged="GridViewCancellation_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            OnSelectedIndexChanged="GridViewCancelWait_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />

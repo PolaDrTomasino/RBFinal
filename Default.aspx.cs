@@ -17,13 +17,15 @@ public partial class _Default : System.Web.UI.Page
         //my DB connection & the queries
 
         connection();
-        string query1 = "SELECT COUNT(*) FROM Cancellation_List";
+        string query1 = "SELECT COUNT(*) FROM CancelWait";
         string query2 = "SELECT COUNT(*) FROM CLSFU";
         string query3 = "SELECT COUNT(*) FROM Reorder_Contacts";
         string query4 = "SELECT COUNT(*) FROM Receipt_Request";
         string query5 = "SELECT COUNT(*) FROM Rx_Request";
         string query6 = "SELECT COUNT(*) FROM Referral";
         string query7 = "SELECT COUNT(*) FROM NEC_MSG";
+        string query8 = "SELECT COUNT(*) FROM ptCancelled";
+        string query9 = "SELECT COUNT(*) FROM MedRecords";
         SqlCommand cmd1 = new SqlCommand(query1, mycon);
         SqlCommand cmd2 = new SqlCommand(query2, mycon);
         SqlCommand cmd3 = new SqlCommand(query3, mycon);
@@ -31,6 +33,8 @@ public partial class _Default : System.Web.UI.Page
         SqlCommand cmd5 = new SqlCommand(query5, mycon);
         SqlCommand cmd6 = new SqlCommand(query6, mycon);
         SqlCommand cmd7 = new SqlCommand(query7, mycon);
+        SqlCommand cmd8 = new SqlCommand(query8, mycon);
+        SqlCommand cmd9 = new SqlCommand(query9, mycon);
         Int32 rows_count1 = Convert.ToInt32(cmd1.ExecuteScalar());
         Int32 rows_count2 = Convert.ToInt32(cmd2.ExecuteScalar());
         Int32 rows_count3 = Convert.ToInt32(cmd3.ExecuteScalar());
@@ -38,6 +42,8 @@ public partial class _Default : System.Web.UI.Page
         Int32 rows_count5 = Convert.ToInt32(cmd5.ExecuteScalar());
         Int32 rows_count6 = Convert.ToInt32(cmd6.ExecuteScalar());
         Int32 rows_count7 = Convert.ToInt32(cmd7.ExecuteScalar());
+        Int32 rows_count8 = Convert.ToInt32(cmd8.ExecuteScalar());
+        Int32 rows_count9 = Convert.ToInt32(cmd9.ExecuteScalar());
         cmd1.Dispose();
         cmd2.Dispose();
         cmd3.Dispose();
@@ -45,6 +51,8 @@ public partial class _Default : System.Web.UI.Page
         cmd5.Dispose();
         cmd6.Dispose();
         cmd7.Dispose();
+        cmd8.Dispose();
+        cmd9.Dispose();
         mycon.Close();
 
         //Display data on the page
@@ -55,6 +63,8 @@ public partial class _Default : System.Web.UI.Page
         RxReq.Text = rows_count5.ToString();
         RefReq.Text = rows_count6.ToString();
         PhoneBook.Text = rows_count7.ToString();
+        canviews2.Text = rows_count8.ToString();
+        MedRecords.Text = rows_count9.ToString();
     }
 
 }

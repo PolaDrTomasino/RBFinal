@@ -53,7 +53,7 @@
             height: auto;
             width: 750px;
             margin:auto;
-            margin-left:38%;
+            margin-left:40%;
         }
         .container-view {
             margin-bottom:130px;
@@ -253,10 +253,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="ptCancelled.aspx">
+                        <a href="CancelWait.aspx">
                             <span class="rect"></span>
                             <span class="circle"></span>
                             <strong>Add Patient to Cancellation Waiting List</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ptCancelled.aspx">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            <strong>Add a Patient Who Cancelled</strong>
                         </a>
                     </li>
                     <li>
@@ -285,6 +292,13 @@
                             <span class="rect"></span>
                             <span class="circle"></span>
                             <strong>Add Patient Requesting Detailed Receipts</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="MedRecords.aspx">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            <strong>Request to Release Medical Records</strong>
                         </a>
                     </li>
                     <li>

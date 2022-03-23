@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ptCancelled.aspx.cs" Inherits="ptCancelled" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MedRecords.aspx.cs" Inherits="CancelWait" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -21,7 +21,7 @@
     <script>
         function alert() {
             Swal.fire(
-  'Patient Added to Cancellation list Successfully',
+  'Request for Medical Records Added Successfully',
   'Yeaaaaay!',
   'success'
 )
@@ -35,7 +35,7 @@
         <div class="container-ins">
             <h3>
                 <br />
-            <asp:Label ID="Label1" runat="server" Text="Cancellation List" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Request to Release Medical Records" BorderStyle="None" CssClass="fa fa-fontawesome" Style="font-weight: 700; text-align: left; margin-left: 150px" Width="575px" Font-Bold="False" ForeColor="Blue"></asp:Label>
         </h3>
             <div class="form-group">
                 <div class="row">
@@ -84,23 +84,55 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Cancellation Reason:</label>
+                    <label class="col-md-3 control-label">Doctor's Name:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-
-                            <asp:TextBox ID="txtReasonForCancel" runat="server" class="form-control" TextMode="MultiLine" placeholder="Enter a reason" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
+							<asp:TextBox ID="txtDrName" class="form-control" placeholder="Enter Doctor's Name" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">New Appointmnent Date:</label>
+                    <label class="col-md-3 control-label">Doctor's Practice Name:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtNewDate" runat="server" type="date" class="form-control" placeholder="MM/DD/YYYY" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							<asp:TextBox ID="txtDrPrName" runat="server" class="form-control" placeholder="Enter Doctor's Practice Name" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Doctor's Phone Number:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+							<asp:TextBox ID="txtDrPhone" runat="server" class="form-control" placeholder="Enter Doctor's Phone Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Doctor's Fax Number:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+							<asp:TextBox ID="txtDrFax" runat="server" class="form-control" placeholder="Enter Doctor's Fax Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Date Completed:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+							<asp:TextBox ID="txtDateDone" runat="server" class="form-control" type="date" placeholder="MM/DD/YYYY" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
