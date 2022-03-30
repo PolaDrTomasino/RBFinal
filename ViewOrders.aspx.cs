@@ -93,6 +93,8 @@ public partial class ViewOrders : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewOrders.DataSource = dt;
                         GridViewOrders.DataKeyNames = new string[] { "OrderID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewOrders.DataBind();
                     }
                 }
@@ -158,7 +160,7 @@ public partial class ViewOrders : System.Web.UI.Page
     }
     protected void DetailsView1_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
     {
-        
+
         int OrderID = (int)DetailsView1.DataKey.Value;
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
@@ -277,8 +279,8 @@ public partial class ViewOrders : System.Web.UI.Page
             mycon.Close();
         }
         DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
-        BindGrid();
         BindDetails();
+        BindGrid();
         DetailsView1.Visible = false;
         GridViewOrders.Visible = true;
     }
@@ -315,6 +317,25 @@ public partial class ViewOrders : System.Web.UI.Page
                     }
                 }
             }
+        }
+    }
+    protected void GridViewOrders_Sorting(object sender, GridViewSortEventArgs e)
+    {
+        DataTable dtrslt = (DataTable)ViewState["dirState"];
+        if (dtrslt.Rows.Count > 0)
+        {
+            if (Convert.ToString(ViewState["sortdr"]) == "Asc")
+            {
+                dtrslt.DefaultView.Sort = e.SortExpression + " Desc";
+                ViewState["sortdr"] = "Desc";
+            }
+            else
+            {
+                dtrslt.DefaultView.Sort = e.SortExpression + " Asc";
+                ViewState["sortdr"] = "Asc";
+            }
+            GridViewOrders.DataSource = dtrslt;
+            GridViewOrders.DataBind();
         }
     }
 }

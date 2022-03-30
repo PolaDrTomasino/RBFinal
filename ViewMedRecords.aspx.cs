@@ -228,8 +228,8 @@ public partial class ViewMedRecords : System.Web.UI.Page
             mycon.Close();
         }
         dvCan.ChangeMode(DetailsViewMode.ReadOnly);
-        DisplayRecord();
         BindDetails();
+        DisplayRecord();
         dvCan.Visible = false;
         GridViewMedRecords.Visible = true;
     }

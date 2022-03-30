@@ -214,8 +214,8 @@ public partial class ViewCLS : System.Web.UI.Page
             mycon.Close();
         }
         dvCLS.ChangeMode(DetailsViewMode.ReadOnly);
-        DisplayRecord();
         BindDetails();
+        DisplayRecord();
         dvCLS.Visible = false;
         GridViewCLS.Visible = true;
     }

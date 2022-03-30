@@ -44,7 +44,7 @@ public partial class ViewRecReq : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where [Status] != 'Done (Closed)'", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Notes], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewRecReq.DataSource = Dt;
@@ -106,7 +106,7 @@ public partial class ViewRecReq : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials], [Status] FROM [Receipt_Request] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Notes], [Receiving_Via], [Date_Done], [Initials], [Status] FROM [Receipt_Request] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -167,7 +167,7 @@ public partial class ViewRecReq : System.Web.UI.Page
         TextBox newPatient_NameTextBox = (TextBox)dvRecReQ.FindControl("editPatient_Name");
         TextBox newPhone_NumberTextBox = (TextBox)dvRecReQ.FindControl("editPhone_Number");
         TextBox newEmailTextBox = (TextBox)dvRecReQ.FindControl("editEmail");
-        TextBox newService_ProviderTextBox = (TextBox)dvRecReQ.FindControl("editService_Provider");
+        TextBox newNotesTextBox = (TextBox)dvRecReQ.FindControl("editNotes");
         DropDownList newReceiving_ViaTextBox = (DropDownList)dvRecReQ.FindControl("editReceiving_Via");
         TextBox newDate_DoneTextBox = (TextBox)dvRecReQ.FindControl("editDate_Done");
         TextBox newInitialsTextBox = (TextBox)dvRecReQ.FindControl("editInitials");
@@ -177,14 +177,14 @@ public partial class ViewRecReq : System.Web.UI.Page
         string newPatient_Name = newPatient_NameTextBox.Text;
         string newPhone_Number = newPhone_NumberTextBox.Text;
         string newEmail = newEmailTextBox.Text;
-        string newService_Provider = newService_ProviderTextBox.Text;
+        string newNotes = newNotesTextBox.Text;
         string newReceiving_Via = newReceiving_ViaTextBox.SelectedValue;
         string newDate_Done = newDate_DoneTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
         string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE Receipt_Request SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Service_Provider=@Service_Provider, Receiving_Via=@Receiving_Via, Date_Done=@Date_Done, Initials=@Initials, Status=@Status Where ID=@ID";
+        string query = "UPDATE Receipt_Request SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Notes=@Notes, Receiving_Via=@Receiving_Via, Date_Done=@Date_Done, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -197,8 +197,8 @@ public partial class ViewRecReq : System.Web.UI.Page
         cmd.Parameters["Phone_Number"].Value = newPhone_Number;
         cmd.Parameters.Add("Email", SqlDbType.VarChar, 255);
         cmd.Parameters["Email"].Value = newEmail;
-        cmd.Parameters.Add("Service_Provider", SqlDbType.VarChar, 255);
-        cmd.Parameters["Service_Provider"].Value = newService_Provider;
+        cmd.Parameters.Add("Notes", SqlDbType.VarChar, 255);
+        cmd.Parameters["Notes"].Value = newNotes;
         cmd.Parameters.Add("Receiving_Via", SqlDbType.VarChar, 255);
         cmd.Parameters["Receiving_Via"].Value = newReceiving_Via;
         cmd.Parameters.Add("Date_Done", SqlDbType.VarChar, 255);
@@ -218,8 +218,8 @@ public partial class ViewRecReq : System.Web.UI.Page
             mycon.Close();
         }
         dvRecReQ.ChangeMode(DetailsViewMode.ReadOnly);
-        DisplayRecord();
         BindDetails();
+        DisplayRecord();
         dvRecReQ.Visible = false;
         GridViewRecReq.Visible = true;
     }
@@ -228,7 +228,7 @@ public partial class ViewRecReq : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Service_Provider], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Notes], [Receiving_Via], [Date_Done], [Initials] FROM [Receipt_Request] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {

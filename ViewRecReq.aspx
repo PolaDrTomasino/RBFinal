@@ -29,7 +29,7 @@
                 }
                 function update() {
                     Swal.fire(
-          'Order Updated Successfully!',
+          'Record Updated Successfully!',
           'Yeaaaaay!',
           'success'
         )
@@ -81,7 +81,7 @@
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
                                                 <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="Service_Provider" HeaderText="Service Provider" />
+                                                <asp:BoundField DataField="Notes" HeaderText="Notes" />
                                                 <asp:BoundField DataField="Receiving_Via" HeaderText="Receiving Via" />
                                                 <asp:BoundField DataField="Date_Done" HeaderText="Date Done" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" />
@@ -125,12 +125,12 @@
                                                         <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Service Provider" SortExpression="Service_Provider">
+                                                <asp:TemplateField HeaderText="Notes" SortExpression="Notes">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editService_Provider" runat="server" Text='<%# Bind("Service_Provider") %>' class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="editNotes" runat="server" Text='<%# Bind("Notes") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="Service_ProviderLabel" runat="server" Text='<%# Bind("Service_Provider") %>'></asp:Label>
+                                                        <asp:Label ID="NotesLabel" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Receiving Via" SortExpression="Receiving_Via">

@@ -216,8 +216,8 @@ public partial class ViewCancelWait : System.Web.UI.Page
             mycon.Close();
         }
         dvCan.ChangeMode(DetailsViewMode.ReadOnly);
-        DisplayRecord();
         BindDetails();
+        DisplayRecord();
         dvCan.Visible = false;
         GridViewCancelWait.Visible = true;
     }

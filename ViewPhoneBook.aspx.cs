@@ -215,6 +215,7 @@ public partial class ViewRx : System.Web.UI.Page
             mycon.Close();
         }
         dvPB.ChangeMode(DetailsViewMode.ReadOnly);
+        BindDetails();
         DisplayRecord();
         dvPB.Visible = false;
         GridViewPB.Visible = true;

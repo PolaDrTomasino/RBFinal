@@ -106,10 +106,10 @@
                                     <tr>
                                         <td colspan="2">
                                         <asp:GridView ID="GridViewOrders" runat="server" CssClass="table table-responsive" BorderColor="Aqua"
-                                            align="center" AllowPaging="true" OnPreRender="GridViewOrders_PreRender"
+                                            align="center" AllowPaging="True" OnPreRender="GridViewOrders_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" AutoGenerateColumns="False"
-                                            DataKeyNames="OrderID" EmptyDataText="There are no data records to display.">
+                                            DataKeyNames="OrderID" EmptyDataText="There are no data records to display." AllowSorting="True" OnSorting="GridViewOrders_Sorting">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name" />

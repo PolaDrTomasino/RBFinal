@@ -220,8 +220,8 @@ public partial class ViewRx : System.Web.UI.Page
             mycon.Close();
         }
         dvRX.ChangeMode(DetailsViewMode.ReadOnly);
-        DisplayRecord();
         BindDetails();
+        DisplayRecord();
         dvRX.Visible = false;
         GridViewRx.Visible = true;
     }

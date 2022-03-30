@@ -52,7 +52,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtDate" runat="server" type="date" placeholder="MM/DD/YYYY" class="form-control" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtDate" required="" runat="server" type="date" placeholder="MM/DD/YYYY" class="form-control" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtPatient_Name" runat="server" class="form-control" placeholder="Enter Patient Name" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtPatient_Name" required="" runat="server" class="form-control" placeholder="Enter Patient Name" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -93,11 +93,11 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Service Provider:</label>
+                    <label class="col-md-3 control-label">Notes:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-                            <asp:TextBox ID="txtService_Provider" class="form-control" runat="server" placeholder="Service Provider" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtNotes" class="form-control" runat="server" placeholder="Write a note" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Referral Date:</label>
+                    <label class="col-md-3 control-label">Date Done:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
@@ -135,7 +135,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-star"></i></span>
-                            <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtInitials" required="" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

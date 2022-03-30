@@ -43,7 +43,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDate" class="form-control" type="date" placeholder="MM/DD/YYYY" runat="server" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
+                            <asp:TextBox ID="txtDate" required="" class="form-control" type="date" placeholder="MM/DD/YYYY" runat="server" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px" Visible="True"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							<asp:TextBox ID="txtPatientName" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
+							<asp:TextBox ID="txtPatientName" required="" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                            <asp:TextBox ID="txtReasonForCancel" runat="server" class="form-control" TextMode="MultiLine" placeholder="Enter a reason" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtReasonForCancel" required="" runat="server" class="form-control" TextMode="MultiLine" placeholder="Enter a reason" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-star"></i></span>
-                            <asp:TextBox ID="txtInitials" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtInitials" required="" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

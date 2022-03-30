@@ -215,8 +215,8 @@ public partial class ViewRef : System.Web.UI.Page
             mycon.Close();
         }
         dvRef.ChangeMode(DetailsViewMode.ReadOnly);
-        DisplayRecord();
         BindDetails();
+        DisplayRecord();
         dvRef.Visible = false;
         GridViewRef.Visible = true;
     }

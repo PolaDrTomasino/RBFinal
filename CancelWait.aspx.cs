@@ -26,8 +26,20 @@ public partial class CancelWait : System.Web.UI.Page
     {
 //SQL Syntax
         connection();
-        SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[CancelWait] values('" + txtDate.Text + "', '" + txtPatient_Name.Text + "','" + txtPhone_Number.Text + "','" + txtEmail.Text + "','" + txtAppt_Date.Text + "','" + txtNew_Date.Text + "','" + txtInitials.Text + "' ,'" + txtStatus.Text + "')", mycon);
+        string query = "INSERT INTO [dbo].[CancelWait] (Date, Patient_Name, Phone_Number, Email, Appt_Date, New_Date, Initials, Status) Values (@Date, @Patient_Name, @Phone_Number, @Email, @Appt_Date, @New_Date, @Initials, @Status) ";
+        SqlCommand cmd = new SqlCommand(query, mycon);
+
+        cmd.Parameters.AddWithValue("@Date", txtDate.Text);
+        cmd.Parameters.AddWithValue("@Patient_Name", txtPatient_Name.Text);
+        cmd.Parameters.AddWithValue("@Phone_Number", txtPhone_Number.Text);
+        cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+        cmd.Parameters.AddWithValue("@Appt_Date", txtAppt_Date.Text);
+        cmd.Parameters.AddWithValue("@New_Date", txtNew_Date.Text);
+        cmd.Parameters.AddWithValue("@Initials", txtInitials.Text);
+        cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+
         cmd.ExecuteNonQuery();
+
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         mycon.Close();
 //This code is for cleaning my form
