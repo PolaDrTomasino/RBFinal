@@ -82,7 +82,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [Initials] FROM [Reorder_Contacts] Where [Status] != 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [IsOrdered], [Charged], [IsInsBilled], [Rebate], [Initials] FROM [Reorder_Contacts] Where [Status] != 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -125,7 +125,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [OrderDescription], [OD], [OS], [CCNumber], [Expiration], [CVC], [HomeOffice], [Status], [IsOrdered], [Charged], [ChargeAmt], [IsInsBilled], [InsAmount], [Rebate], [Initials] FROM [Reorder_Contacts] Where OrderID=@OrderID"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID], [Date], [Patient_Name], [Phone_Number], [Email], [OrderDescription], [SupAmt], [CCName], [CCNumber], [Expiration], [CVC], [HomeOffice], [Status], [IsOrdered], [Charged], [ChargeAmt], [IsInsBilled], [InsAmount], [Rebate], [Initials] FROM [Reorder_Contacts] Where OrderID=@OrderID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -188,9 +188,9 @@ public partial class ViewOrders : System.Web.UI.Page
         TextBox newPatient_NameTextBox = (TextBox)DetailsView1.FindControl("editPatient_Name");
         TextBox newPhone_NumberTextBox = (TextBox)DetailsView1.FindControl("editPhone_Number");
         TextBox newEmailTextBox = (TextBox)DetailsView1.FindControl("editEmail");
+        DropDownList newSupAmtTextBox = (DropDownList)DetailsView1.FindControl("editSupAmt");
         TextBox newOrderDescriptionTextBox = (TextBox)DetailsView1.FindControl("editOrderDescription");
-        TextBox newODTextBox = (TextBox)DetailsView1.FindControl("editOD");
-        TextBox newOSTextBox = (TextBox)DetailsView1.FindControl("editOS");
+        TextBox newCCNameTextBox = (TextBox)DetailsView1.FindControl("editCCName");
         TextBox newCCNumberTextBox = (TextBox)DetailsView1.FindControl("editCCNumber");
         TextBox newExpirationTextBox = (TextBox)DetailsView1.FindControl("editExpiration");
         TextBox newCVCTextBox = (TextBox)DetailsView1.FindControl("editCVC");
@@ -209,8 +209,8 @@ public partial class ViewOrders : System.Web.UI.Page
         string newPhone_Number = newPhone_NumberTextBox.Text;
         string newEmail = newEmailTextBox.Text;
         string newOrderDescription = newOrderDescriptionTextBox.Text;
-        string newOD = newODTextBox.Text;
-        string newOS = newOSTextBox.Text;
+        string newSupAmt = newSupAmtTextBox.SelectedValue;
+        string newCCName = newCCNameTextBox.Text;
         string newCCNumber = newCCNumberTextBox.Text;
         string newExpiration = newExpirationTextBox.Text;
         string newCVC = newCVCTextBox.Text;
@@ -226,7 +226,7 @@ public partial class ViewOrders : System.Web.UI.Page
 
 
         connection();
-        string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, OD=@OD, OS=@OS, CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, IsOrdered=@IsOrdered , Charged=@Charged, ChargeAmt=@ChargeAmt, InsAmount=@InsAmount, IsInsBilled=@IsInsBilled, Rebate=@Rebate Where OrderID=@OrderID";
+        string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, SupAmt=@SupAmt, CCName=@CCName CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, IsOrdered=@IsOrdered , Charged=@Charged, ChargeAmt=@ChargeAmt, InsAmount=@InsAmount, IsInsBilled=@IsInsBilled, Rebate=@Rebate Where OrderID=@OrderID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("OrderID", SqlDbType.Int);
@@ -241,10 +241,10 @@ public partial class ViewOrders : System.Web.UI.Page
         cmd.Parameters["Email"].Value = newEmail;
         cmd.Parameters.Add("OrderDescription", SqlDbType.VarChar, 255);
         cmd.Parameters["OrderDescription"].Value = newOrderDescription;
-        cmd.Parameters.Add("OD", SqlDbType.VarChar, 255);
-        cmd.Parameters["OD"].Value = newOD;
-        cmd.Parameters.Add("OS", SqlDbType.VarChar, 255);
-        cmd.Parameters["OS"].Value = newOS;
+        cmd.Parameters.Add("SupAmt", SqlDbType.VarChar, 255);
+        cmd.Parameters["SupAmt"].Value = newSupAmt;
+        cmd.Parameters.Add("CCName", SqlDbType.VarChar, 255);
+        cmd.Parameters["CCName"].Value = newCCName;
         cmd.Parameters.Add("CCNumber", SqlDbType.VarChar, 255);
         cmd.Parameters["CCNumber"].Value = newCCNumber;
         cmd.Parameters.Add("Expiration", SqlDbType.VarChar, 255);
@@ -302,7 +302,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [Initials] FROM [Reorder_Contacts] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [IsOrdered], [Charged], [IsInsBilled], [Rebate], [Initials] FROM [Reorder_Contacts] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {

@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
-public partial class ViewCancelWait : System.Web.UI.Page
+public partial class ViewTrials : System.Web.UI.Page
 {
     public SqlConnection mycon;
     public string constr;
@@ -29,37 +29,37 @@ public partial class ViewCancelWait : System.Web.UI.Page
     private void rep_bind()
     {
         connection();
-        string query = "select * from [CancelWait] where Patient_Name like'" + TextBox1.Text + "%'";
+        string query = "select * from [TrialsReq] where Patient_Name like'" + TextBox1.Text + "%'";
 
         SqlDataAdapter da = new SqlDataAdapter(query, mycon);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridViewCancelWait.DataSource = ds;
-        GridViewCancelWait.DataBind();
+        GridViewTrials.DataSource = ds;
+        GridViewTrials.DataBind();
     }
-    protected void GridViewCancelWait_PreRender(object sender, EventArgs e)
+    protected void GridViewTrials_PreRender(object sender, EventArgs e)
     {
-        Label2.Text = "Displaying Page" + (GridViewCancelWait.PageIndex + 1).ToString() + " of " + GridViewCancelWait.PageCount.ToString();
+        Label2.Text = "Displaying Page" + (GridViewTrials.PageIndex + 1).ToString() + " of " + GridViewTrials.PageCount.ToString();
     }
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [CancelWait] Where [Status] != 'Done (Closed)'", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [TrialDescription], [Initials] FROM [TrialsReq] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
-        GridViewCancelWait.DataSource = Dt;
-        GridViewCancelWait.DataBind();
+        GridViewTrials.DataSource = Dt;
+        GridViewTrials.DataBind();
         return Dt;
     }
     protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-        GridViewCancelWait.PageIndex = e.NewPageIndex;
+        GridViewTrials.PageIndex = e.NewPageIndex;
         this.DisplayRecord();
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "select *  from [CancelWait] where Patient_Name like'" + TextBox1.Text + "%'";
+        string query = "select *  from [TrialsReq] where Patient_Name like'" + TextBox1.Text + "%'";
         SqlCommand com = new SqlCommand(query, mycon);
 
         SqlDataReader dr;
@@ -71,14 +71,14 @@ public partial class ViewCancelWait : System.Web.UI.Page
             dr.Read();
 
             rep_bind();
-            GridViewCancelWait.Visible = true;
+            GridViewTrials.Visible = true;
 
             TextBox1.Text = "";
             Label2.Text = "";
         }
         else
         {
-            GridViewCancelWait.Visible = false;
+            GridViewTrials.Visible = false;
             Label2.Visible = true;
             Label2.Text = "The search Term " + TextBox1.Text + " &nbsp;Is Not Available in the Records"; 
 
@@ -86,27 +86,27 @@ public partial class ViewCancelWait : System.Web.UI.Page
     }
     protected void Button1_Click2(object sender, EventArgs e)
     {
-        Response.Redirect("CancelWait.aspx");
+        Response.Redirect("trials.aspx");
     }
     protected void OnRowCancelingEdit(object sender, EventArgs e)
     {
-        GridViewCancelWait.EditIndex = -1;
+        GridViewTrials.EditIndex = -1;
         this.DisplayRecord();
     }
-    protected void GridViewCancelWait_SelectedIndexChanged(object sender, EventArgs e)
+    protected void GridViewTrials_SelectedIndexChanged(object sender, EventArgs e)
     {
         BindDetails();
     }
     private void BindDetails()
     {
-        GridViewCancelWait.Visible = false;
-        dvCan.Visible = true;
-        int selectedRowIndex = GridViewCancelWait.SelectedIndex;
-        int ID = (int)GridViewCancelWait.DataKeys[selectedRowIndex].Value;
+        GridViewTrials.Visible = false;
+        dvTrials.Visible = true;
+        int selectedRowIndex = GridViewTrials.SelectedIndex;
+        int ID = (int)GridViewTrials.DataKeys[selectedRowIndex].Value;
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [Notes], [New_Date], [Initials], [Status] FROM [CancelWait] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [TrialDescription], [Initials], [Status] FROM [TrialsReq] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -120,9 +120,9 @@ public partial class ViewCancelWait : System.Web.UI.Page
                     {
                         con.Open();
                         reader = cmd.ExecuteReader();
-                        dvCan.DataSource = reader;
-                        dvCan.DataKeyNames = new string[] { "ID" };
-                        dvCan.DataBind();
+                        dvTrials.DataSource = reader;
+                        dvTrials.DataKeyNames = new string[] { "ID" };
+                        dvTrials.DataBind();
                         reader.Close();
                     }
                     finally
@@ -134,18 +134,18 @@ public partial class ViewCancelWait : System.Web.UI.Page
         }
     }
 
-    protected void dvCan_ModeChanging(object sender, DetailsViewModeEventArgs e)
+    protected void dvTrials_ModeChanging(object sender, DetailsViewModeEventArgs e)
     {
-        dvCan.ChangeMode(e.NewMode);
+        dvTrials.ChangeMode(e.NewMode);
         BindDetails();
     }
-    protected void dvCan_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
+    protected void dvTrials_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
     {
-        int ID = (int)dvCan.DataKey.Value;
+        int ID = (int)dvTrials.DataKey.Value;
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("DELETE FROM CancelWait WHERE ID = @ID"))
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM TrialsReq WHERE ID = @ID"))
             {
                 cmd.Parameters.AddWithValue("@ID", ID);
                 cmd.Connection = con;
@@ -156,36 +156,32 @@ public partial class ViewCancelWait : System.Web.UI.Page
         }
         this.BindDetails();
         DisplayRecord();
-        dvCan.Visible = false;
-        GridViewCancelWait.Visible = true;
+        dvTrials.Visible = false;
+        GridViewTrials.Visible = true;
     }
 
-    protected void dvCan_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+    protected void dvTrials_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
     {
-        int ID = (int)dvCan.DataKey.Value;
-        TextBox newDateTextBox = (TextBox)dvCan.FindControl("editDate");
-        TextBox newPatient_NameTextBox = (TextBox)dvCan.FindControl("editPatient_Name");
-        TextBox newPhone_NumberTextBox = (TextBox)dvCan.FindControl("editPhone_Number");
-        TextBox newEmailTextBox = (TextBox)dvCan.FindControl("editEmail");
-        TextBox newAppt_DateTextBox = (TextBox)dvCan.FindControl("editAppt_Date");
-        TextBox newNotesTextBox = (TextBox)dvCan.FindControl("editNotes");
-        TextBox newNew_DateTextBox = (TextBox)dvCan.FindControl("editNew_Date");
-        TextBox newInitialsTextBox = (TextBox)dvCan.FindControl("editInitials");
-        DropDownList newStatusTextBox = (DropDownList)dvCan.FindControl("editStatus");
+        int ID = (int)dvTrials.DataKey.Value;
+        TextBox newDateTextBox = (TextBox)dvTrials.FindControl("editDate");
+        TextBox newPatient_NameTextBox = (TextBox)dvTrials.FindControl("editPatient_Name");
+        TextBox newPhone_NumberTextBox = (TextBox)dvTrials.FindControl("editPhone_Number");
+        TextBox newEmailTextBox = (TextBox)dvTrials.FindControl("editEmail");
+        TextBox newTrialDescriptionTextBox = (TextBox)dvTrials.FindControl("editTrialDescription");
+        TextBox newInitialsTextBox = (TextBox)dvTrials.FindControl("editInitials");
+        DropDownList newStatusTextBox = (DropDownList)dvTrials.FindControl("editStatus");
 
 
         string newDate = newDateTextBox.Text;
         string newPatient_Name = newPatient_NameTextBox.Text;
         string newPhone_Number = newPhone_NumberTextBox.Text;
         string newEmail = newEmailTextBox.Text;
-        string newAppt_Date = newAppt_DateTextBox.Text;
-        string newNotes = newNotesTextBox.Text;
-        string newNew_Date = newNew_DateTextBox.Text;
+        string newTrialDescription = newTrialDescriptionTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
         string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE CancelWait SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Appt_Date=@Appt_Date, Notes=@Notes, New_Date=@New_Date, Initials=@Initials, Status=@Status Where ID=@ID";
+        string query = "UPDATE TrialsReq SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, TrialDescription=@TrialDescription, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -198,12 +194,8 @@ public partial class ViewCancelWait : System.Web.UI.Page
         cmd.Parameters["Phone_Number"].Value = newPhone_Number;
         cmd.Parameters.Add("Email", SqlDbType.VarChar, 255);
         cmd.Parameters["Email"].Value = newEmail;
-        cmd.Parameters.Add("Appt_Date", SqlDbType.VarChar, 255);
-        cmd.Parameters["Appt_Date"].Value = newAppt_Date;
-        cmd.Parameters.Add("Notes", SqlDbType.VarChar, 255);
-        cmd.Parameters["Notes"].Value = newNotes;
-        cmd.Parameters.Add("New_Date", SqlDbType.VarChar, 255);
-        cmd.Parameters["New_Date"].Value = newNew_Date;
+        cmd.Parameters.Add("TrialDescription", SqlDbType.VarChar, 255);
+        cmd.Parameters["TrialDescription"].Value = newTrialDescription;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
         cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
@@ -218,18 +210,18 @@ public partial class ViewCancelWait : System.Web.UI.Page
         {
             mycon.Close();
         }
-        dvCan.ChangeMode(DetailsViewMode.ReadOnly);
+        dvTrials.ChangeMode(DetailsViewMode.ReadOnly);
         BindDetails();
         DisplayRecord();
-        dvCan.Visible = false;
-        GridViewCancelWait.Visible = true;
+        dvTrials.Visible = false;
+        GridViewTrials.Visible = true;
     }
     protected void Archive_Click(object sender, EventArgs e)
     {
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [CancelWait] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [TrialDescription], [Initials] FROM [TrialsReq] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -238,9 +230,9 @@ public partial class ViewCancelWait : System.Web.UI.Page
                     using (DataTable dt = new DataTable())
                     {
                         sda.Fill(dt);
-                        GridViewCancelWait.DataSource = dt;
-                        GridViewCancelWait.DataKeyNames = new string[] { "ID" };
-                        GridViewCancelWait.DataBind();
+                        GridViewTrials.DataSource = dt;
+                        GridViewTrials.DataKeyNames = new string[] { "ID" };
+                        GridViewTrials.DataBind();
                     }
                 }
             }

@@ -303,6 +303,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="forum-item active" >
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-money"></i>
+                                        </div>
+                                        <a href="ViewTrials.aspx" class="forum-item-title" style="font-size: 1.2vw">View Trials Requests</a>
+                                        <div class="forum-sub-title">Here we can view patients Trials requests</div>
+                                        
+                                    </div>
+                                    <div class="col-md-3 forum-info">
+                                        <span class="views-number">
+                                            <asp:Label ID="TrialsViews" runat="server" Text="TrialsViews"></asp:Label>
+                                        </span>
+                                        <div>
+                                            <small>Records</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="forum-item active">
                                 <div class="row">
                                     <div class="col-md-9">

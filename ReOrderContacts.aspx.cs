@@ -27,16 +27,16 @@ public partial class ReOrderContacts : System.Web.UI.Page
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "INSERT INTO [dbo].[Reorder_Contacts] (Date, Patient_Name, Phone_Number, Email, OrderDescription, OD, OS, CCNumber, Expiration, CVC, HomeOffice, Status, Initials, IsOrdered , Charged, ChargeAmt, InsAmount, IsInsBilled, Rebate) Values (@Date, @Patient_Name, @Phone_Number, @Email, @OrderDescription, @OD, @OS, @CCNumber, @Expiration, @CVC, @HomeOffice, @Status, @Initials, @IsOrdered , @Charged, @ChargeAmt, @InsAmount, @IsInsBilled, @Rebate) ";
+        string query = "INSERT INTO [dbo].[Reorder_Contacts] (Date, Patient_Name, Phone_Number, Email, SupAmt, OrderDescription, CCName, CCNumber, Expiration, CVC, HomeOffice, Status, Initials, IsOrdered , Charged, ChargeAmt, InsAmount, IsInsBilled, Rebate) Values (@Date, @Patient_Name, @Phone_Number, @Email, @SupAmt @OrderDescription, @CCName, @CCNumber, @Expiration, @CVC, @HomeOffice, @Status, @Initials, @IsOrdered , @Charged, @ChargeAmt, @InsAmount, @IsInsBilled, @Rebate) ";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.AddWithValue("@Date",txtDate.Text );
         cmd.Parameters.AddWithValue("@Patient_Name", txtPatient_Name.Text);
         cmd.Parameters.AddWithValue("@Phone_Number",txtPhone_Number.Text);
         cmd.Parameters.AddWithValue("@Email",txtEmail.Text);
+        cmd.Parameters.AddWithValue("@txtSupAmt", txtSupAmt.Text);
         cmd.Parameters.AddWithValue("@OrderDescription", txtOrderDescription.Text);
-        cmd.Parameters.AddWithValue("@OD",txtOD.Text);
-        cmd.Parameters.AddWithValue("@OS",txtOS.Text);
+        cmd.Parameters.AddWithValue("@txtCCName", txtCCName.Text);
         cmd.Parameters.AddWithValue("@CCNumber", txt_CCNumber.Text);
         cmd.Parameters.AddWithValue("@Expiration", txt_Expiration.Text);
         cmd.Parameters.AddWithValue("@CVC",txtCVC.Text);
@@ -62,8 +62,7 @@ public partial class ReOrderContacts : System.Web.UI.Page
         txtOrderDescription.Text = "";
         txt_CCNumber.Text = "";
         txt_Expiration.Text = "";
-        txtOD.Text = "";
-        txtOS.Text = "";
+        txtCCName.Text = "";
         txtCVC.Text = "";
         txtHomeOffice.Text = "";
         txtStatus.Text = "";
@@ -71,7 +70,8 @@ public partial class ReOrderContacts : System.Web.UI.Page
         txtChargeAmt.Text = "";
         txtInitials.Text = "";
         txtRebate.SelectedValue = "No";
-        txtIsOrdered.SelectedValue = "Not Ordered Yet";
+        txtRebate.SelectedValue = "No";
+        txtSupAmt.SelectedValue = "";
         txtIsInsBil.SelectedValue = "No";
         txtAmount.Text = "";
     }

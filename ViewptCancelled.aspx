@@ -43,7 +43,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View Cancellations <span>Waiting List</span></h4>
+                                        <h4 class="title">View Cancellations <span> List</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -128,7 +128,7 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Cancellation Reason" SortExpression="Appt_Date">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editReasonForCancel" runat="server" Type="date" Text='<%# Bind("ReasonForCancel") %>' class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="editReasonForCancel" runat="server" Text='<%# Bind("ReasonForCancel") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="ReasonForCancelLabel" runat="server" Text='<%# Bind("ReasonForCancel") %>'></asp:Label>

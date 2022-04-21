@@ -111,12 +111,21 @@
                                             OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="OrderID" EmptyDataText="There are no data records to display." AllowSorting="True" OnSorting="GridViewOrders_Sorting">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name" />
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number" />
-                                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials" />
+                                                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" HeaderStyle-Width="120px" />
+                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name"/>
+                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number" HeaderStyle-Width="130px" />
+                                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" HeaderStyle-Width="120px" />
+                                                <asp:BoundField DataField="IsOrdered" HeaderText="Ordered?" SortExpression="IsOrdered" HeaderStyle-Width="100px" />
+                                                <asp:BoundField DataField="Charged" HeaderText="Charged?" SortExpression="Charged" HeaderStyle-Width="100px" />
+                                                <asp:BoundField DataField="IsInsBilled" HeaderText="Insurance Billed?" SortExpression="IsInsBilled" HeaderStyle-Width="100px" />
+                                                <asp:BoundField DataField="Rebate" HeaderText="Rebate Sent?" SortExpression="Rebate" HeaderStyle-Width="100px" />
+                                                <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials" HeaderStyle-Width="100px" />
+
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
+
+
+
+
                                             </Columns>
                                         </asp:GridView>
 
@@ -157,28 +166,34 @@
                                                         <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Order Description" SortExpression="OrderDescription">
+                                                <asp:TemplateField HeaderText="Supply Amount" SortExpression="SupAmt">
+                                                    <EditItemTemplate>
+                                                        <asp:DropDownList ID="editSupAmt" runat="server" Text='<%# Bind("SupAmt") %>' class="form-control" placeholder="Select Order From">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>1 Month</asp:ListItem>
+                                                            <asp:ListItem>3 Months</asp:ListItem>
+                                                            <asp:ListItem>6 Months</asp:ListItem>
+                                                            <asp:ListItem>1 Year</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="SupAmtLabel" runat="server" Text='<%# Bind("SupAmt") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField> 
+                                                <asp:TemplateField HeaderText="Patient Notes" SortExpression="OrderDescription">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editOrderDescription" runat="server" Text='<%# Bind("OrderDescription") %>' TextMode="MultiLine" class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="OrderDescriptionLabel" runat="server" Text='<%# Bind("OrderDescription") %>'></asp:Label>
                                                     </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="OD" SortExpression="OD">
+                                                </asp:TemplateField> 
+                                                <asp:TemplateField HeaderText="Card Holder Name" SortExpression="CCName">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editOD" runat="server" Text='<%# Bind("OD") %>' class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="editCCName" runat="server" Text='<%# Bind("CCName") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="ODLabel" runat="server" Text='<%# Bind("OD") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="OS" SortExpression="OS">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editOS" runat="server" Text='<%# Bind("OS") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="OSLabel" runat="server" Text='<%# Bind("OS") %>'></asp:Label>
+                                                        <asp:Label ID="CCNameLabel" runat="server" Text='<%# Bind("CCName") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="CC Number" SortExpression="CCNumber">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewCancelWait.aspx.cs" Inherits="ViewCancelWait" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewTrials.aspx.cs" Inherits="ViewTrials" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!DOCTYPE html>
@@ -43,7 +43,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-sm-5 col-xs-12">
-                                        <h4 class="title">View Cancellations <span>Waiting List</span></h4>
+                                        <h4 class="title">View Trials <span>Requests</span></h4>
                                         <table class="style1">
                                             <tr>
                                                 <td class="auto-style4" style="color: #fff; font-size: large;">Search&nbsp; </td>
@@ -73,26 +73,25 @@
                                 <table class="table table-hover" width="70%" id="pnlGridView" runat="server" align="center">
                                     <tr>
                                         <td colspan="2">
-                                        <asp:GridView ID="GridViewCancelWait" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
-                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCancelWait_PreRender"
+                                        <asp:GridView ID="GridViewTrials" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
+                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewTrials_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                            OnSelectedIndexChanged="GridViewCancelWait_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            OnSelectedIndexChanged="GridViewTrials_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />
                                                 <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
                                                 <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
-                                                <asp:BoundField DataField="New_Date" HeaderText="New Date" />
+                                                <asp:BoundField DataField="TrialDescription" HeaderText="Trials Description" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" />
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
 
-                                        <asp:DetailsView ID="dvCan" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
-                                            DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting"
-                                            OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
+                                        <asp:DetailsView ID="dvTrials" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
+                                            DataKeyNames="ID" OnItemDeleting="dvTrials_ItemDeleting"
+                                            OnItemUpdating="dvTrials_ItemUpdating" OnModeChanging="dvTrials_ModeChanging">
                                             <Fields>
                                                 <asp:TemplateField HeaderText="Date" SortExpression="Date">
                                                     <EditItemTemplate>
@@ -128,26 +127,10 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Appointment Date" SortExpression="Appt_Date">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editAppt_Date" runat="server" Type="date" Text='<%# Bind("Appt_Date") %>' class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="editTrialDescription" runat="server" Text='<%# Bind("TrialDescription") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="Appt_DateLabel" runat="server" Text='<%# Bind("Appt_Date") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Notes" SortExpression="Notes">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editNotes" runat="server" Text='<%# Bind("Notes") %>' TextMode="MultiLine" class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="NotesLabel" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="New Date" SortExpression="New_Date">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editNew_Date" runat="server" Type="date" Text='<%# Bind("New_Date") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="New_DateLabel" runat="server" Text='<%# Bind("New_Date") %>'></asp:Label>
+                                                        <asp:Label ID="TrialDescriptionLabel" runat="server" Text='<%# Bind("TrialDescription") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials" SortExpression="Initials">
