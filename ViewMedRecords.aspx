@@ -76,16 +76,16 @@
                                         <asp:GridView ID="GridViewMedRecords" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
                                             align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewMedRecords_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                            OnSelectedIndexChanged="GridViewMedRecords_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            OnSelectedIndexChanged="GridViewMedRecords_SelectedIndexChanged" OnRowDataBound="GridViewMedRecords_RowDataBound" OnSorting="GridViewMedRecords_Sorting" AutoGenerateColumns="False"
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />
-                                                <asp:BoundField DataField="PatientName" HeaderText="Patient Name" />
-                                                <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" />
-                                                <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="DrName" HeaderText="Doctor's Name" />
-                                                <asp:BoundField DataField="DateDone" HeaderText="Date Completed" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" SortExpression="Date" />
+                                                <asp:BoundField DataField="PatientName" HeaderText="Patient Name" SortExpression="PatientName" />
+                                                <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" />
+                                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"/>
+                                                <asp:BoundField DataField="DrName" HeaderText="Doctor's Name" SortExpression="DrName"/>
+                                                <asp:BoundField DataField="DateDone" HeaderText="Date Completed" SortExpression="DateDone"/>
+                                                <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials"/>
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
@@ -99,7 +99,7 @@
                                                         <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>'></asp:Label>
+                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
@@ -163,7 +163,7 @@
                                                         <asp:TextBox ID="editDateDone" runat="server" Type="date" Text='<%# Bind("DateDone") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="DateDoneLabel" runat="server" Text='<%# Bind("DateDone") %>'></asp:Label>
+                                                        <asp:Label ID="DateDoneLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("DateDone").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("DateDone")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials" SortExpression="Initials">

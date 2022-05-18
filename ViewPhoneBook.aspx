@@ -28,7 +28,7 @@
                 }
                 function update() {
                     Swal.fire(
-          'Order Updated Successfully!',
+          'Record Updated Successfully!',
           'Yeaaaaay!',
           'success'
         )
@@ -71,18 +71,18 @@
                                     <tr>
                                         <td colspan="2">
                                         <asp:GridView ID="GridViewPB" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
-                                            align="center" AllowPaging="true" OnPreRender="GridViewPB_PreRender"
-                                            PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
+                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewPB_PreRender"
+                                            PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnRowDataBound="GridViewPB_RowDataBound" OnSorting="GridViewPB_Sorting" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewPB_SelectedIndexChanged" AutoGenerateColumns="False"
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
-                                                <asp:BoundField DataField="MSGFor" HeaderText="Message/Call For" />
-                                                <asp:BoundField DataField="Caller_Name" HeaderText="Caller Name" />
-                                                <asp:BoundField DataField="DateTime" HeaderText="Date/Time" />
-                                                <asp:BoundField DataField="Caller_Number" HeaderText="Caller Number" />
-                                                <asp:BoundField DataField="Message" HeaderText="Message Content" />
-                                                <asp:BoundField DataField="Action" HeaderText="Action" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                <asp:BoundField DataField="MSGFor" HeaderText="Message/Call For" SortExpression="MSGFor" />
+                                                <asp:BoundField DataField="Caller_Name" HeaderText="Caller Name" SortExpression="Caller_Name" />
+                                                <asp:BoundField DataField="DateTime" HeaderText="Date/Time" SortExpression="DateTime"/>
+                                                <asp:BoundField DataField="Caller_Number" HeaderText="Caller Number" SortExpression="Caller_Number"/>
+                                                <asp:BoundField DataField="Message" HeaderText="Message Content" SortExpression="Message"/>
+                                                <asp:BoundField DataField="Action" HeaderText="Action" SortExpression="Action"/>
+                                                <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials"/>
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
@@ -95,11 +95,12 @@
                                                     <EditItemTemplate>
                                                         <asp:DropDownList ID="editMSGFor" runat="server" Text='<%# Eval("MSGFor") %>' class="form-control" Width="245px">
                                                             <asp:ListItem>Dr T.</asp:ListItem>
-                                                            <asp:ListItem>Mary Alan</asp:ListItem>
+                                                            <asp:ListItem>Mary</asp:ListItem>
                                                             <asp:ListItem>Jennifer</asp:ListItem>
                                                             <asp:ListItem>Pola</asp:ListItem>
                                                             <asp:ListItem>Rachel</asp:ListItem>
                                                             <asp:ListItem>Alexis</asp:ListItem>
+                                                            <asp:ListItem>Melissa</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
@@ -119,7 +120,7 @@
                                                         <asp:TextBox ID="editDateTime" type="datetime-local" runat="server" Text='<%# Bind("DateTime") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="DateTimeLabel" runat="server" Text='<%# Bind("DateTime") %>'></asp:Label>
+                                                        <asp:Label ID="DateTimeLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("DateTime").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("DateTime")).ToString("MM/dd/yyyy hh:ss tt") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Caller Number:" SortExpression="Caller_Number">

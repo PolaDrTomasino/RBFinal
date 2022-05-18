@@ -53,11 +53,12 @@
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
                             <asp:DropDownList ID="txtMSGFor" runat="server" class="form-control" Width="245px">
                                 <asp:ListItem Text="Dr T." Value="susan@drtomasino.com"></asp:ListItem>
-                                <asp:ListItem Text="Mary Alan" Value="Mary@drtomasino.com"></asp:ListItem>
+                                <asp:ListItem Text="Mary" Value="Mary@drtomasino.com"></asp:ListItem>
                                 <asp:ListItem Text="Jennifer" Value="Jennifer@drtomasino.com"></asp:ListItem>
                                 <asp:ListItem Text="Pola" Value="pola@drtomasino.com"></asp:ListItem>
                                 <asp:ListItem Text="Rachel" Value="Rachel@drtomasino.com"></asp:ListItem>
                                 <asp:ListItem Text="Alexis" Value="Alexis@drtomasino.com"></asp:ListItem>
+                                <asp:ListItem Text="Melissa" Value="Melissa@drtomasino.com"></asp:ListItem>
                             </asp:DropDownList>
 
                         </div>

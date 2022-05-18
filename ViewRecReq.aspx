@@ -72,19 +72,19 @@
                                     <tr>
                                         <td colspan="2">
                                         <asp:GridView ID="GridViewRecReq" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
-                                            align="center" AllowPaging="true" OnPreRender="GridViewRecReq_PreRender"
+                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewRecReq_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                            OnSelectedIndexChanged="GridViewRecReq_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            OnSelectedIndexChanged="GridViewRecReq_SelectedIndexChanged" OnSorting="GridViewRecReq_Sorting" OnRowDataBound="GridViewRecReq_RowDataBound" AutoGenerateColumns="False"
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
-                                                <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="Notes" HeaderText="Notes" />
-                                                <asp:BoundField DataField="Receiving_Via" HeaderText="Receiving Via" />
-                                                <asp:BoundField DataField="Date_Done" HeaderText="Date Done" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name"/>
+                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number"/>
+                                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"/>
+                                                <asp:BoundField DataField="Notes" HeaderText="Notes" SortExpression="Notes"/>
+                                                <asp:BoundField DataField="Receiving_Via" HeaderText="Receiving Via" SortExpression="Receiving_Via"/>
+                                                <asp:BoundField DataField="Date_Done" HeaderText="Date Done" SortExpression="Date_Done"/>
+                                                <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials"/>
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
@@ -98,7 +98,7 @@
                                                         <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>'></asp:Label>
+                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
@@ -151,7 +151,7 @@
                                                         <asp:TextBox ID="editDate_Done" runat="server" Type="date" Text='<%# Bind("Date_Done") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="Date_DoneLabel" runat="server" Text='<%# Bind("Date_Done") %>'></asp:Label>
+                                                        <asp:Label ID="Date_DoneLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Date_Done").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Date_Done")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials" SortExpression="Initials">

@@ -49,6 +49,7 @@ public partial class CancelWait : System.Web.UI.Page
         txtAppt_Date.Text = "";
         txtEmail.Text = "";
         txtInitials.Text = "";
+        txtNotes.Text = "";
         txtNew_Date.Text = "";
         txtPhone_Number.Text = "";
         txtPatient_Name.Text = "";

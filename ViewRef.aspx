@@ -29,7 +29,7 @@
                 }
                 function update() {
                     Swal.fire(
-          'Order Updated Successfully!',
+          'Record Updated Successfully!',
           'Yeaaaaay!',
           'success'
         )
@@ -72,18 +72,18 @@
                                     <tr>
                                         <td colspan="2">
                                         <asp:GridView ID="GridViewRef" runat="server"  CssClass="table table-responsive" BorderColor="Aqua"
-                                            align="center" AllowPaging="true" OnPreRender="GridViewRef_PreRender"
+                                            align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewRef_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                            OnSelectedIndexChanged="GridViewRef_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            OnSelectedIndexChanged="GridViewRef_SelectedIndexChanged" OnSorting="GridViewRef_Sorting" OnRowDataBound="GridViewRef_RowDataBound" AutoGenerateColumns="False"
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Appointment Date" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
-                                                <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="RFR" HeaderText="Referral Request" ItemStyle-Width="100px" />
-                                                <asp:BoundField DataField="RefDate" HeaderText="Referral Date" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                <asp:BoundField DataField="Date" HeaderText="Appointment Date" SortExpression="Date" />
+                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name"/>
+                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number"/>
+                                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"/>
+                                                <asp:BoundField DataField="RFR" HeaderText="Referral Request" ItemStyle-Width="100px" SortExpression="RFR"/>
+                                                <asp:BoundField DataField="RefDate" HeaderText="Referral Date" SortExpression="RefDate"/>
+                                                <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials"/>
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
@@ -97,7 +97,7 @@
                                                         <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>'></asp:Label>
+                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
@@ -137,7 +137,7 @@
                                                         <asp:TextBox ID="editRefDate" runat="server" Text='<%# Bind("RefDate") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="RefDateLabel" runat="server" Text='<%# Bind("RefDate") %>'></asp:Label>
+                                                        <asp:Label ID="RefDateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("RefDate").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("RefDate")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials" SortExpression="Initials">

@@ -21,10 +21,10 @@
     <script>
         function alert() {
             Swal.fire(
-  'Contact Lenses Order Submitted Successfully!',
-  'Yeaaaaay!',
-  'success'
-)
+                'Contact Lenses Order Submitted Successfully!',
+                'Yeaaaaay!',
+                'success'
+            )
         }
     </script>
 </head>
@@ -87,6 +87,7 @@
                             <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <asp:DropDownList ID="txtSupAmt" runat="server" class="form-control" Width="245px">
                                 <asp:ListItem></asp:ListItem>
+                                <asp:ListItem>RGP</asp:ListItem>
                                 <asp:ListItem>1 Month</asp:ListItem>
                                 <asp:ListItem>3 Months</asp:ListItem>
                                 <asp:ListItem>6 Months</asp:ListItem>
@@ -113,7 +114,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtCCName" required="" class="form-control" placeholder="Enter Card Holder Name" runat="server" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtCCName" class="form-control" placeholder="Enter Card Holder Name" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -193,6 +194,21 @@
             </div>
             <div class="form-group">
                 <div class="row">
+                    <label class="col-md-3 control-label">Invoiced?</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <asp:DropDownList ID="txtInvoiced" runat="server" class="form-control" Width="67px">
+                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem>No</asp:ListItem>
+                                <asp:ListItem>Yes</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
                     <label class="col-md-3 control-label">Insurance Billed?</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
@@ -215,8 +231,8 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             <asp:DropDownList ID="txtRebate" runat="server" class="form-control" Width="67px">
-                                <asp:ListItem>N/A</asp:ListItem>
                                 <asp:ListItem>No</asp:ListItem>
+                                <asp:ListItem>N/A</asp:ListItem>
                                 <asp:ListItem>Yes</asp:ListItem>
                             </asp:DropDownList>
                         </div>

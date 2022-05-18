@@ -108,15 +108,17 @@
                                         <asp:GridView ID="GridViewOrders" runat="server" CssClass="table table-responsive" BorderColor="Aqua"
                                             align="center" AllowPaging="True" OnPreRender="GridViewOrders_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                            OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" AutoGenerateColumns="False"
+                                            OnSelectedIndexChanged="GridViewOrders_SelectedIndexChanged" OnRowDataBound="GridViewOrders_RowDataBound" AutoGenerateColumns="False"
                                             DataKeyNames="OrderID" EmptyDataText="There are no data records to display." AllowSorting="True" OnSorting="GridViewOrders_Sorting">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" HeaderStyle-Width="120px" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name"/>
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number" HeaderStyle-Width="130px" />
-                                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" HeaderStyle-Width="120px" />
+                                                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" HeaderStyle-Width="110px" />
+                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name" HeaderStyle-Width="250px" />
+                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number" HeaderStyle-Width="170px" />
+                                                <asp:BoundField DataField="OrderDescription" HeaderText="OrderDescription" SortExpression="OrderDescription" HeaderStyle-Width="350px" />
+                                                <asp:BoundField DataField="SupAmt" HeaderText="Supply Amount" SortExpression="SupAmt" HeaderStyle-Width="100px" />
                                                 <asp:BoundField DataField="IsOrdered" HeaderText="Ordered?" SortExpression="IsOrdered" HeaderStyle-Width="100px" />
                                                 <asp:BoundField DataField="Charged" HeaderText="Charged?" SortExpression="Charged" HeaderStyle-Width="100px" />
+                                                <asp:BoundField DataField="Invoiced" HeaderText="Invoiced?" SortExpression="Invoiced" HeaderStyle-Width="100px" />
                                                 <asp:BoundField DataField="IsInsBilled" HeaderText="Insurance Billed?" SortExpression="IsInsBilled" HeaderStyle-Width="100px" />
                                                 <asp:BoundField DataField="Rebate" HeaderText="Rebate Sent?" SortExpression="Rebate" HeaderStyle-Width="100px" />
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials" HeaderStyle-Width="100px" />
@@ -139,7 +141,7 @@
                                                         <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>'></asp:Label>
+                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
@@ -170,6 +172,7 @@
                                                     <EditItemTemplate>
                                                         <asp:DropDownList ID="editSupAmt" runat="server" Text='<%# Bind("SupAmt") %>' class="form-control" placeholder="Select Order From">
                                                             <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>RGP</asp:ListItem>
                                                             <asp:ListItem>1 Month</asp:ListItem>
                                                             <asp:ListItem>3 Months</asp:ListItem>
                                                             <asp:ListItem>6 Months</asp:ListItem>
@@ -209,7 +212,7 @@
                                                         <asp:TextBox ID="editExpiration" runat="server" type="month" Text='<%# Bind("Expiration") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="ExpirationLabel" runat="server" Text='<%# Bind("Expiration") %>'></asp:Label>
+                                                        <asp:Label ID="ExpirationLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Expiration").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Expiration")).ToString("MMMM yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="CVC" SortExpression="CVC">
@@ -236,8 +239,9 @@
                                                     <EditItemTemplate>
                                                         <asp:DropDownList ID="editIsOrdered" runat="server" Text='<%# Bind("IsOrdered") %>' class="form-control" placeholder="Select Order From">
                                                             <asp:ListItem>Not Ordered Yet</asp:ListItem>
-                                                            <asp:ListItem>Marlo</asp:ListItem>
-                                                            <asp:ListItem>ABB</asp:ListItem>
+                                                            <asp:ListItem>In ABB's Cart</asp:ListItem>
+                                                            <asp:ListItem>Ordered Through Marlo</asp:ListItem>
+                                                            <asp:ListItem>Ordered Through ABB</asp:ListItem>
                                                         </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
@@ -263,17 +267,30 @@
                                                         <asp:Label ID="ChargeAmtLabel" runat="server" Text='<%# Bind("ChargeAmt") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Invoiced?" SortExpression="Rebate">
+                                                    <EditItemTemplate>
+                                                        <asp:DropDownList ID="editInvoiced" runat="server" Text='<%# Bind("Invoiced") %>' class="form-control">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>No</asp:ListItem>
+                                                            <asp:ListItem>Yes</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="InvoicedLabel" runat="server" Text='<%# Bind("Invoiced") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Insurance Billed?" SortExpression="IsInsBilled">
                                                     <EditItemTemplate>
                                                         <div class="form-inline">
                                                             <div class="form-group">
                                                                 <asp:DropDownList ID="editIsInsBilled" runat="server" Text='<%# Bind("IsInsBilled") %>' class="form-control">
-                                                                <asp:ListItem>No</asp:ListItem>
-                                                                <asp:ListItem>Yes</asp:ListItem>
-                                                            </asp:DropDownList>
+                                                                    <asp:ListItem>No</asp:ListItem>
+                                                                    <asp:ListItem>N/A</asp:ListItem>
+                                                                    <asp:ListItem>Yes</asp:ListItem>
+                                                                </asp:DropDownList>
                                                             </div>
                                                             <div class="form-group">
-                                                                <asp:TextBox ID="editInsAmount" Text='<%# Bind("InsAmount") %>' class="form-control"  placeholder="Amount" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="editInsAmount" Text='<%# Bind("InsAmount") %>' class="form-control" placeholder="Amount" runat="server"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </EditItemTemplate>
@@ -284,11 +301,11 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Rebate Sent?" SortExpression="Rebate">
                                                     <EditItemTemplate>
-                                                                <asp:DropDownList ID="editRebate" runat="server" Text='<%# Bind("Rebate") %>' class="form-control">
-                                                                    <asp:ListItem>N/A</asp:ListItem>
-                                                                    <asp:ListItem>No</asp:ListItem>
-                                                                    <asp:ListItem>Yes</asp:ListItem>
-                                                            </asp:DropDownList>
+                                                        <asp:DropDownList ID="editRebate" runat="server" Text='<%# Bind("Rebate") %>' class="form-control">
+                                                            <asp:ListItem>No</asp:ListItem>
+                                                            <asp:ListItem>N/A</asp:ListItem>
+                                                            <asp:ListItem>Yes</asp:ListItem>
+                                                        </asp:DropDownList>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="RebateLabel" runat="server" Text='<%# Bind("Rebate") %>'></asp:Label>

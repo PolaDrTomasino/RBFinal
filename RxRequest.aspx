@@ -33,7 +33,7 @@
         <script>
             function alert() {
                 Swal.fire(
-      'Referral Request Submitted Successfully',
+      'Rx Request Submitted Successfully',
       'Yeaaaaay!',
       'success'
     )

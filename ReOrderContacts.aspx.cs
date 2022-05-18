@@ -9,7 +9,6 @@ using System.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Configuration;
-
 public partial class ReOrderContacts : System.Web.UI.Page
 {
     public SqlConnection mycon;
@@ -27,29 +26,30 @@ public partial class ReOrderContacts : System.Web.UI.Page
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "INSERT INTO [dbo].[Reorder_Contacts] (Date, Patient_Name, Phone_Number, Email, SupAmt, OrderDescription, CCName, CCNumber, Expiration, CVC, HomeOffice, Status, Initials, IsOrdered , Charged, ChargeAmt, InsAmount, IsInsBilled, Rebate) Values (@Date, @Patient_Name, @Phone_Number, @Email, @SupAmt @OrderDescription, @CCName, @CCNumber, @Expiration, @CVC, @HomeOffice, @Status, @Initials, @IsOrdered , @Charged, @ChargeAmt, @InsAmount, @IsInsBilled, @Rebate) ";
+        string query = "INSERT INTO [dbo].[Reorder_Contacts] (Date, Patient_Name, Phone_Number, Email, SupAmt, OrderDescription, CCName, CCNumber, Expiration, CVC, HomeOffice, Status, Initials, IsOrdered , Charged, ChargeAmt, Invoiced, InsAmount, IsInsBilled, Rebate) Values (@Date, @Patient_Name, @Phone_Number, @Email, @SupAmt, @OrderDescription, @CCName, @CCNumber, @Expiration, @CVC, @HomeOffice, @Status, @Initials, @IsOrdered , @Charged, @ChargeAmt, @Invoiced, @InsAmount, @IsInsBilled, @Rebate) ";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
-        cmd.Parameters.AddWithValue("@Date",txtDate.Text );
+        cmd.Parameters.AddWithValue("@Date", txtDate.Text);
         cmd.Parameters.AddWithValue("@Patient_Name", txtPatient_Name.Text);
-        cmd.Parameters.AddWithValue("@Phone_Number",txtPhone_Number.Text);
-        cmd.Parameters.AddWithValue("@Email",txtEmail.Text);
-        cmd.Parameters.AddWithValue("@txtSupAmt", txtSupAmt.Text);
+        cmd.Parameters.AddWithValue("@Phone_Number", txtPhone_Number.Text);
+        cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
         cmd.Parameters.AddWithValue("@OrderDescription", txtOrderDescription.Text);
-        cmd.Parameters.AddWithValue("@txtCCName", txtCCName.Text);
+        cmd.Parameters.AddWithValue("@CCName", txtCCName.Text);
         cmd.Parameters.AddWithValue("@CCNumber", txt_CCNumber.Text);
         cmd.Parameters.AddWithValue("@Expiration", txt_Expiration.Text);
-        cmd.Parameters.AddWithValue("@CVC",txtCVC.Text);
-        cmd.Parameters.AddWithValue("@HomeOffice",txtHomeOffice.Text);
+        cmd.Parameters.AddWithValue("@SupAmt", txtSupAmt.Text);
+        cmd.Parameters.AddWithValue("@CVC", txtCVC.Text);
+        cmd.Parameters.AddWithValue("@HomeOffice", txtHomeOffice.Text);
         cmd.Parameters.AddWithValue("@Charged", txtCharged.Text);
         cmd.Parameters.AddWithValue("@IsInsBilled", txtIsInsBil.Text);
-        cmd.Parameters.AddWithValue("@InsAmount",txtAmount.Text);
-        cmd.Parameters.AddWithValue("@ChargeAmt",txtChargeAmt.Text);
-        cmd.Parameters.AddWithValue("@Rebate",txtRebate.Text);
-        cmd.Parameters.AddWithValue("@Status",txtStatus.Text);
-        cmd.Parameters.AddWithValue("@Initials",txtInitials.Text);
-        cmd.Parameters.AddWithValue("@IsOrdered",txtIsOrdered.Text);
-        
+        cmd.Parameters.AddWithValue("@Invoiced", txtInvoiced.Text);
+        cmd.Parameters.AddWithValue("@InsAmount", txtAmount.Text);
+        cmd.Parameters.AddWithValue("@ChargeAmt", txtChargeAmt.Text);
+        cmd.Parameters.AddWithValue("@Rebate", txtRebate.Text);
+        cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+        cmd.Parameters.AddWithValue("@Initials", txtInitials.Text);
+        cmd.Parameters.AddWithValue("@IsOrdered", txtIsOrdered.Text);
+
         cmd.ExecuteNonQuery();
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert()", true);
         connection();
@@ -68,8 +68,8 @@ public partial class ReOrderContacts : System.Web.UI.Page
         txtStatus.Text = "";
         txtCharged.Text = "";
         txtChargeAmt.Text = "";
+        txtInvoiced.SelectedValue= "No";
         txtInitials.Text = "";
-        txtRebate.SelectedValue = "No";
         txtRebate.SelectedValue = "No";
         txtSupAmt.SelectedValue = "";
         txtIsInsBil.SelectedValue = "No";

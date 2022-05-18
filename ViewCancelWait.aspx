@@ -29,7 +29,7 @@
                 }
                 function update() {
                     Swal.fire(
-          'Order Updated Successfully!',
+          'Record Updated Successfully!',
           'Yeaaaaay!',
           'success'
         )
@@ -77,103 +77,103 @@
                                             align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCancelWait_PreRender"
                                             PageSize="15" Style="text-align:center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
                                             OnSelectedIndexChanged="GridViewCancelWait_SelectedIndexChanged" AutoGenerateColumns="False"
-                                            DataKeyNames="ID" EmptyDataText="There are no data records to display.">
+                                            DataKeyNames="ID" EmptyDataText="There are no data records to display." OnSorting="GridViewCancelWait_Sorting" OnRowDataBound="GridViewCancelWait_OnRowDataBound">
                                             <Columns>
-                                                <asp:BoundField DataField="Date" HeaderText="Date" HeaderStyle-HorizontalAlign="Center" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
-                                                <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
-                                                <asp:BoundField DataField="New_Date" HeaderText="New Date" />
-                                                <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                <asp:BoundField DataField="Date" SortExpression="Date" HeaderText="Date" />
+                                                <asp:BoundField DataField="Patient_Name" SortExpression="Patient_Name" HeaderText="Patient Name" />
+                                                <asp:BoundField DataField="Phone_Number" SortExpression="Phone_Number" HeaderText="Phone Number" />
+                                                <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="Email" />
+                                                <asp:BoundField DataField="Appt_Date" SortExpression="Appt_Date" HeaderText="Appt Date" />
+                                                <asp:BoundField DataField="New_Date" SortExpression="New_Date" HeaderText="New Date" />
+                                                <asp:BoundField DataField="Initials" SortExpression="Initials" HeaderText="Initials" />
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
 
-                                        <asp:DetailsView ID="dvCan" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
-                                            DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting"
-                                            OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
-                                            <Fields>
-                                                <asp:TemplateField HeaderText="Date" SortExpression="Date">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editPatient_Name" runat="server" Text='<%# Bind("Patient_Name") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="Patient_NameLabel" runat="server" Text='<%# Bind("Patient_Name") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Phone Number" SortExpression="Phone_Number">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editPhone_Number" runat="server" Text='<%# Bind("Phone_Number") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="Phone_NumberLabel" runat="server" Text='<%# Bind("Phone_Number") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Email" SortExpression="Email">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editEmail" runat="server" Text='<%# Bind("Email") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Appointment Date" SortExpression="Appt_Date">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editAppt_Date" runat="server" Type="date" Text='<%# Bind("Appt_Date") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="Appt_DateLabel" runat="server" Text='<%# Bind("Appt_Date") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Notes" SortExpression="Notes">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editNotes" runat="server" Text='<%# Bind("Notes") %>' TextMode="MultiLine" class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="NotesLabel" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="New Date" SortExpression="New_Date">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editNew_Date" runat="server" Type="date" Text='<%# Bind("New_Date") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="New_DateLabel" runat="server" Text='<%# Bind("New_Date") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Initials" SortExpression="Initials">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editInitials" runat="server" Text='<%# Bind("Initials") %>' class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Status" SortExpression="Status">
-                                                    <EditItemTemplate>
-                                                        <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
-                                                            <asp:ListItem>Processing</asp:ListItem>
-                                                            <asp:ListItem>Done (Closed)</asp:ListItem>
-                                                        </asp:DropDownList>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
-                                                    <ControlStyle CssClass="btn btn-info" />
-                                                </asp:CommandField>
-                                            </Fields>
-                                        </asp:DetailsView>
+                                            <asp:DetailsView ID="dvCan" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
+                                                DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting"
+                                                OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
+                                                <Fields>
+                                                    <asp:TemplateField HeaderText="Date" SortExpression="Date">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editDate" runat="server" Text='<%# Bind("Date") %>' type="date" class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editPatient_Name" runat="server" Text='<%# Bind("Patient_Name") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Patient_NameLabel" runat="server" Text='<%# Bind("Patient_Name") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Phone Number" SortExpression="Phone_Number">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editPhone_Number" runat="server" Text='<%# Bind("Phone_Number") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Phone_NumberLabel" runat="server" Text='<%# Bind("Phone_Number") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Email" SortExpression="Email">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editEmail" runat="server" Text='<%# Bind("Email") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Appointment Date" SortExpression="Appt_Date">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editAppt_Date" runat="server" Type="date" Text='<%# Bind("Appt_Date") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Appt_DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("Appt_Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("Appt_Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Notes" SortExpression="Notes">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editNotes" runat="server" Text='<%# Bind("Notes") %>' TextMode="MultiLine" class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="NotesLabel" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="New Date" SortExpression="New_Date">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editNew_Date" runat="server" Type="date" Text='<%# Bind("New_Date") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="New_DateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("New_Date").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("New_Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Initials" SortExpression="Initials">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editInitials" runat="server" Text='<%# Bind("Initials") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="InitialsLabel" runat="server" Text='<%# Bind("Initials") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                                                        <EditItemTemplate>
+                                                            <asp:DropDownList ID="editStatus" Text='<%# Bind("Status") %>' runat="server" class="form-control">
+                                                                <asp:ListItem>Processing</asp:ListItem>
+                                                                <asp:ListItem>Done (Closed)</asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="StatusLabel" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ShowEditButton="true" ShowCancelButton="true" ShowDeleteButton="true">
+                                                        <ControlStyle CssClass="btn btn-info" />
+                                                    </asp:CommandField>
+                                                </Fields>
+                                            </asp:DetailsView>
                                             <asp:Label ID="Label2" runat="server" Text="Label" class="xd-message-content"></asp:Label>
                                         </td>
                                     </tr>
@@ -188,4 +188,3 @@
 
     </html>
 </asp:Content>
-

@@ -48,6 +48,8 @@ public partial class ViewRx : System.Web.UI.Page
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewRx.DataSource = Dt;
+        ViewState["dirState"] = Dt;
+        ViewState["sortdr"] = "Asc";
         GridViewRx.DataBind();
         return Dt;
     }
@@ -245,6 +247,39 @@ public partial class ViewRx : System.Web.UI.Page
                     }
                 }
             }
+        }
+    }
+
+    protected void GridViewRx_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Cells[0].Text = Convert.ToDateTime(e.Row.Cells[0].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
+
+            if (e.Row.Cells[6].Text != "&nbsp;")
+            {
+                e.Row.Cells[6].Text = Convert.ToDateTime(e.Row.Cells[6].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
+            }
+        }
+    }
+
+    protected void GridViewRx_Sorting(object sender, GridViewSortEventArgs e)
+    {
+        DataTable dtrslt = (DataTable)ViewState["dirState"];
+        if (dtrslt.Rows.Count > 0)
+        {
+            if (Convert.ToString(ViewState["sortdr"]) == "Asc")
+            {
+                dtrslt.DefaultView.Sort = e.SortExpression + " Desc";
+                ViewState["sortdr"] = "Desc";
+            }
+            else
+            {
+                dtrslt.DefaultView.Sort = e.SortExpression + " Asc";
+                ViewState["sortdr"] = "Asc";
+            }
+            GridViewRx.DataSource = dtrslt;
+            GridViewRx.DataBind();
         }
     }
 }

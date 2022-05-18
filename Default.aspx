@@ -166,7 +166,6 @@
             @media (max-width: 992px) {
                 .forum-info {
                     margin: 15px 0 10px 0;
-                    /* Comment this is you want to show forum info in small devices */
                     display: none;
                 }
 
@@ -484,5 +483,3 @@
     </body>
     </html>
 </asp:Content>
-
-

@@ -15,7 +15,7 @@
             <link href="css/templatemo-style.css" rel="stylesheet" />
             <link href="css/owl-carousel.css" rel="stylesheet" />
             <link href="css/light-box.css" rel="stylesheet" />
-
+            <link href="StyleSheet.css" rel="stylesheet" />
             <link href="css/bootstrapValidator.min.css" rel="stylesheet" />
 
             <script language="javascript" type="text/javascript">
@@ -29,7 +29,7 @@
                 }
                 function update() {
                     Swal.fire(
-          'Order Updated Successfully!',
+          'Record Updated Successfully!',
           'Yeaaaaay!',
           'success'
         )
@@ -73,18 +73,18 @@
                                     <tr>
                                         <td colspan="2">
                                             <asp:GridView ID="GridViewCLS" runat="server" CssClass="table table-responsive" BorderColor="Aqua"
-                                                align="center" AllowPaging="true" OnPreRender="GridViewCLS_PreRender"
+                                                align="center" AllowSorting="true" AllowPaging="true" OnPreRender="GridViewCLS_PreRender"
                                                 PageSize="15" Style="text-align: center" ShowHeaderWhenEmpty="True" OnPageIndexChanging="OnPageIndexChanging"
-                                                OnSelectedIndexChanged="GridViewCLS_SelectedIndexChanged" AutoGenerateColumns="False"
+                                                OnSelectedIndexChanged="GridViewCLS_SelectedIndexChanged" OnRowDataBound="GridViewCLS_RowDataBound" OnSorting="GridViewCLS_Sorting" AutoGenerateColumns="False"
                                                 DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                                 <Columns>
-                                                    <asp:BoundField DataField="Appt_Date" HeaderText="Appointment Date" />
-                                                    <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" />
-                                                    <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" />
-                                                    <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                    <asp:BoundField DataField="CLS_Try" HeaderText="CLS Under Trial" />
-                                                    <asp:BoundField DataField="FU_Date" HeaderText="F/U Date" />
-                                                    <asp:BoundField DataField="Initials" HeaderText="Initials" />
+                                                    <asp:BoundField DataField="Appt_Date" SortExpression="Appt_Date" HeaderText="Appointment Date" />
+                                                    <asp:BoundField DataField="Patient_Name" SortExpression="Patient_Name" HeaderText="Patient Name" />
+                                                    <asp:BoundField DataField="Phone_Number" SortExpression="Phone_Number" HeaderText="Phone Number" />
+                                                    <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="Email" />
+                                                    <asp:BoundField DataField="CLS_Try" SortExpression="CLS_Try" HeaderText="CLS Under Trial" />
+                                                    <asp:BoundField DataField="FU_Date" SortExpression="FU_Date" HeaderText="F/U Date" />
+                                                    <asp:BoundField DataField="Initials" SortExpression="Initials" HeaderText="Initials" />
                                                     <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                                 </Columns>
                                             </asp:GridView>
@@ -98,7 +98,7 @@
                                                             <asp:TextBox ID="editAppt_Date" runat="server" Text='<%# Bind("Appt_Date") %>' type="date" class="form-control"></asp:TextBox>
                                                         </EditItemTemplate>
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Appt_DateLabel" runat="server" Text='<%# Bind("Appt_Date") %>'></asp:Label>
+                                                            <asp:Label ID="Appt_DateLabel" runat="server" Text='<%# Convert.ToDateTime(Eval("Appt_Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
@@ -138,7 +138,7 @@
                                                             <asp:TextBox ID="editFU_Date" runat="server" Type="date" Text='<%# Bind("FU_Date") %>' class="form-control"></asp:TextBox>
                                                         </EditItemTemplate>
                                                         <ItemTemplate>
-                                                            <asp:Label ID="FU_DateLabel" runat="server" Text='<%# Bind("FU_Date") %>'></asp:Label>
+                                                            <asp:Label ID="FU_DateLabel" runat="server" Text='<%# Convert.ToDateTime(Eval("FU_Date")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Initials" SortExpression="Initials">

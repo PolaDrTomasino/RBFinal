@@ -82,7 +82,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [IsOrdered], [Charged], [IsInsBilled], [Rebate], [Initials] FROM [Reorder_Contacts] Where [Status] != 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email],[OrderDescription] ,[SupAmt], [IsOrdered], [Charged], [Invoiced], [IsInsBilled], [Rebate], [Initials] FROM [Reorder_Contacts] Where [Status] != 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -125,7 +125,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID], [Date], [Patient_Name], [Phone_Number], [Email], [OrderDescription], [SupAmt], [CCName], [CCNumber], [Expiration], [CVC], [HomeOffice], [Status], [IsOrdered], [Charged], [ChargeAmt], [IsInsBilled], [InsAmount], [Rebate], [Initials] FROM [Reorder_Contacts] Where OrderID=@OrderID"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID], [Date], [Patient_Name], [Phone_Number], [Email], [OrderDescription], [SupAmt], [CCName], [CCNumber], [Expiration], [CVC], [HomeOffice], [Status], [IsOrdered], [Charged], [Invoiced], [ChargeAmt], [IsInsBilled], [InsAmount], [Rebate], [Initials] FROM [Reorder_Contacts] Where OrderID=@OrderID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -197,6 +197,7 @@ public partial class ViewOrders : System.Web.UI.Page
         DropDownList newHomeOfficeTextBox = (DropDownList)DetailsView1.FindControl("editHomeOffice");
         DropDownList newStatusTextBox = (DropDownList)DetailsView1.FindControl("editStatus");
         DropDownList newChargedTextBox = (DropDownList)DetailsView1.FindControl("editCharged");
+        DropDownList newInvoicedTextBox = (DropDownList)DetailsView1.FindControl("editInvoiced");
         TextBox newChargeAmtTextBox = (TextBox)DetailsView1.FindControl("editChargeAmt");
         DropDownList newIsInsBilledTextBox = (DropDownList)DetailsView1.FindControl("editIsInsBilled");
         TextBox newInsAmountTextBox = (TextBox)DetailsView1.FindControl("editInsAmount");
@@ -217,6 +218,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string newHomeOffice = newHomeOfficeTextBox.SelectedValue;
         string newStatus = newStatusTextBox.SelectedValue;
         string newCharged = newChargedTextBox.SelectedValue;
+        string newInvoiced = newInvoicedTextBox.SelectedValue;
         string newChargeAmt = newChargeAmtTextBox.Text;
         string newIsInsBilled = newIsInsBilledTextBox.SelectedValue;
         string newInsAmount = newInsAmountTextBox.Text;
@@ -226,7 +228,7 @@ public partial class ViewOrders : System.Web.UI.Page
 
 
         connection();
-        string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, SupAmt=@SupAmt, CCName=@CCName CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, IsOrdered=@IsOrdered , Charged=@Charged, ChargeAmt=@ChargeAmt, InsAmount=@InsAmount, IsInsBilled=@IsInsBilled, Rebate=@Rebate Where OrderID=@OrderID";
+        string query = "UPDATE ReOrder_Contacts SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, OrderDescription=@OrderDescription, SupAmt=@SupAmt, CCName=@CCName, CCNumber=@CCNumber, Expiration=@Expiration, CVC=@CVC, HomeOffice=@HomeOffice, Status=@Status, Initials=@Initials, IsOrdered=@IsOrdered, Invoiced=@Invoiced , Charged=@Charged, ChargeAmt=@ChargeAmt, InsAmount=@InsAmount, IsInsBilled=@IsInsBilled, Rebate=@Rebate Where OrderID=@OrderID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("OrderID", SqlDbType.Int);
@@ -255,6 +257,8 @@ public partial class ViewOrders : System.Web.UI.Page
         cmd.Parameters["HomeOffice"].Value = newHomeOffice;
         cmd.Parameters.Add("Charged", SqlDbType.VarChar, 255);
         cmd.Parameters["Charged"].Value = newCharged;
+        cmd.Parameters.Add("Invoiced", SqlDbType.VarChar, 255);
+        cmd.Parameters["Invoiced"].Value = newInvoiced;
         cmd.Parameters.Add("IsInsBilled", SqlDbType.VarChar, 255);
         cmd.Parameters["IsInsBilled"].Value = newIsInsBilled;
         cmd.Parameters.Add("InsAmount", SqlDbType.VarChar, 255);
@@ -302,7 +306,7 @@ public partial class ViewOrders : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [IsOrdered], [Charged], [IsInsBilled], [Rebate], [Initials] FROM [Reorder_Contacts] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [OrderID],[Date], [Patient_Name], [Phone_Number], [Email], [IsOrdered], [Invoiced], [Charged], [OrderDescription], [IsInsBilled], [Rebate], [SupAmt], [Initials] FROM [Reorder_Contacts] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -336,6 +340,14 @@ public partial class ViewOrders : System.Web.UI.Page
             }
             GridViewOrders.DataSource = dtrslt;
             GridViewOrders.DataBind();
+        }
+    }
+
+    protected void GridViewOrders_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Cells[0].Text = Convert.ToDateTime(e.Row.Cells[0].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
         }
     }
 }

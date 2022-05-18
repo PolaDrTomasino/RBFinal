@@ -49,6 +49,8 @@ public partial class ViewRx : System.Web.UI.Page
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewPB.DataSource = Dt;
+        ViewState["dirState"] = Dt;
+        ViewState["sortdr"] = "Asc";
         GridViewPB.DataBind();
         return Dt;
     }
@@ -240,6 +242,34 @@ public partial class ViewRx : System.Web.UI.Page
                     }
                 }
             }
+        }
+    }
+
+    protected void GridViewPB_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Cells[2].Text = Convert.ToDateTime(e.Row.Cells[2].Text.Replace("T", " ")).ToString("MM/dd/yyyy hh:ss tt");
+        }
+    }
+
+    protected void GridViewPB_Sorting(object sender, GridViewSortEventArgs e)
+    {
+        DataTable dtrslt = (DataTable)ViewState["dirState"];
+        if (dtrslt.Rows.Count > 0)
+        {
+            if (Convert.ToString(ViewState["sortdr"]) == "Asc")
+            {
+                dtrslt.DefaultView.Sort = e.SortExpression + " Desc";
+                ViewState["sortdr"] = "Desc";
+            }
+            else
+            {
+                dtrslt.DefaultView.Sort = e.SortExpression + " Asc";
+                ViewState["sortdr"] = "Asc";
+            }
+            GridViewPB.DataSource = dtrslt;
+            GridViewPB.DataBind();
         }
     }
 }
