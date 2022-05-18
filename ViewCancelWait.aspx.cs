@@ -44,7 +44,7 @@ public partial class ViewCancelWait : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [CancelWait] Where [Status] != 'Done (Closed)'", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [Notes], [New_Date], [Initials] FROM [CancelWait] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewCancelWait.DataSource = Dt;
@@ -246,7 +246,7 @@ public partial class ViewCancelWait : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Initials] FROM [CancelWait] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [Patient_Name], [Phone_Number], [Email], [Appt_Date], [New_Date], [Notes], [Initials] FROM [CancelWait] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {

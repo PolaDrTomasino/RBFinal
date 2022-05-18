@@ -54,7 +54,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							<asp:TextBox ID="txtPatientName" required="" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
+							<asp:TextBox ID="txtPatientName" required="" autocomplete="off" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" autocomplete="off" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" runat="server" class="form-control"  autocomplete="off" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-							<asp:TextBox ID="txtDrName" class="form-control" placeholder="Enter Doctor's Name" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtDrName" class="form-control"  autocomplete="off" placeholder="Enter Doctor's Name" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtDrPrName" runat="server" class="form-control" placeholder="Enter Doctor's Practice Name" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							<asp:TextBox ID="txtDrPrName" runat="server" class="form-control"  autocomplete="off" placeholder="Enter Doctor's Practice Name" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtDrPhone" runat="server" class="form-control" placeholder="Enter Doctor's Phone Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							<asp:TextBox ID="txtDrPhone" runat="server" class="form-control"  autocomplete="off" placeholder="Enter Doctor's Phone Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtDrFax" required="" runat="server" class="form-control" placeholder="Enter Doctor's Fax Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+							<asp:TextBox ID="txtDrFax" required="" runat="server" class="form-control" autocomplete="off" placeholder="Enter Doctor's Fax Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-star"></i></span>
-                            <asp:TextBox ID="txtInitials" required="" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtInitials" required="" runat="server" class="form-control" autocomplete="off" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

@@ -63,7 +63,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtPatient_Name" required="" runat="server" class="form-control" placeholder="Enter Patient Name" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtPatient_Name" required="" autocomplete="off" runat="server" class="form-control" placeholder="Enter Patient Name" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                            <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtPhone_Number" runat="server" autocomplete="off" class="form-control" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" runat="server" autocomplete="off" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-                            <asp:TextBox ID="txtRFR" required="" class="form-control" placeholder="Enter Referral Request" runat="server" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtRFR" required="" autocomplete="off" class="form-control" placeholder="Enter Referral Request" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-star"></i></span>
-                            <asp:TextBox ID="txtInitials" required="" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtInitials" autocomplete="off" required="" runat="server" class="form-control" placeholder="Your Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

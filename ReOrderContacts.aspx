@@ -51,7 +51,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtPatient_Name" required="" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
+                            <asp:TextBox ID="txtPatient_Name" required="" autocomplete="off" class="form-control" placeholder="Enter Patient Name" runat="server" Width="244px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                            <asp:TextBox ID="txtPhone_Number" runat="server" class="form-control" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtPhone_Number" runat="server" autocomplete="off" class="form-control" placeholder="Enter Phone Number" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
-                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" runat="server" autocomplete="off" class="form-control" placeholder="Enter Email" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
-                            <asp:TextBox ID="txtOrderDescription" required="" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtOrderDescription" autocomplete="off" required="" class="form-control" placeholder="Enter Order Description" TextMode="MultiLine" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtCCName" class="form-control" placeholder="Enter Card Holder Name" runat="server" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtCCName" autocomplete="off" class="form-control" placeholder="Enter Card Holder Name" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                            <asp:TextBox ID="txt_CCNumber" class="form-control" placeholder="Enter CC Number" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                            <asp:TextBox ID="txt_CCNumber" autocomplete="off" class="form-control" placeholder="Enter CC Number" runat="server" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                             
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                             <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
                             <asp:TextBox ID="txt_Expiration" class="form-control" type="month"  placeholder="MM/YYYY" runat="server" Width="150px"></asp:TextBox>
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <asp:TextBox ID="txtCVC" class="form-control" placeholder="CVC" runat="server" Width="60px" CausesValidation="True" AutoCompleteType="None"></asp:TextBox>
+                            <asp:TextBox ID="txtCVC" autocomplete="off" class="form-control" placeholder="CVC" runat="server" Width="60px" CausesValidation="True" AutoCompleteType="None"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
                                 <asp:ListItem>Yes</asp:ListItem>
                             </asp:DropDownList>
                             <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                            <asp:TextBox ID="txtChargeAmt" class="form-control"  placeholder="Amount" runat="server" Width="75px"></asp:TextBox>
+                            <asp:TextBox ID="txtChargeAmt" autocomplete="off" class="form-control"  placeholder="Amount" runat="server" Width="75px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                                 <asp:ListItem>Yes</asp:ListItem>
                             </asp:DropDownList>
                             <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                            <asp:TextBox ID="txtAmount" class="form-control"  placeholder="Amount" runat="server" Width="75px"></asp:TextBox>
+                            <asp:TextBox ID="txtAmount" class="form-control" autocomplete="off" placeholder="Amount" runat="server" Width="75px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-star"></i></span>
-                            <asp:TextBox ID="txtInitials" required="" runat="server" class="form-control" placeholder="Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="90px"></asp:TextBox>
+                            <asp:TextBox ID="txtInitials" autocomplete="off" required="" runat="server" class="form-control" placeholder="Initials" Style="margin-bottom: 0px; margin-left: 0px;" Width="90px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

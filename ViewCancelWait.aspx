@@ -85,14 +85,14 @@
                                                 <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="Email" />
                                                 <asp:BoundField DataField="Appt_Date" SortExpression="Appt_Date" HeaderText="Appt Date" />
                                                 <asp:BoundField DataField="New_Date" SortExpression="New_Date" HeaderText="New Date" />
+                                                <asp:BoundField DataField="Notes" SortExpression="Notes" HeaderText="Notes" HeaderStyle-Width="350px"/>
                                                 <asp:BoundField DataField="Initials" SortExpression="Initials" HeaderText="Initials" />
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                             </Columns>
                                         </asp:GridView>
 
                                             <asp:DetailsView ID="dvCan" CssClass="table table-curved" runat="server" AutoGenerateRows="False"
-                                                DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting"
-                                                OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
+                                                DataKeyNames="ID" OnItemDeleting="dvCan_ItemDeleting" OnItemUpdating="dvCan_ItemUpdating" OnModeChanging="dvCan_ModeChanging">
                                                 <Fields>
                                                     <asp:TemplateField HeaderText="Date" SortExpression="Date">
                                                         <EditItemTemplate>
