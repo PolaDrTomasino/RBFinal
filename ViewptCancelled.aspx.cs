@@ -63,7 +63,7 @@ public partial class ViewptCancelled : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "select *  from [ptCancelled] where Patient_Name like'" + TextBox1.Text + "%'";
+        string query = "select *  from [ptCancelled] where PatientName like'" + TextBox1.Text + "%'";
         SqlCommand com = new SqlCommand(query, mycon);
 
         SqlDataReader dr;
