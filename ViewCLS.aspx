@@ -78,13 +78,14 @@
                                                 OnSelectedIndexChanged="GridViewCLS_SelectedIndexChanged" OnRowDataBound="GridViewCLS_RowDataBound" OnSorting="GridViewCLS_Sorting" AutoGenerateColumns="False"
                                                 DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                                 <Columns>
-                                                    <asp:BoundField DataField="Appt_Date" SortExpression="Appt_Date" HeaderText="Appointment Date" />
-                                                    <asp:BoundField DataField="Patient_Name" SortExpression="Patient_Name" HeaderText="Patient Name" />
-                                                    <asp:BoundField DataField="Phone_Number" SortExpression="Phone_Number" HeaderText="Phone Number" />
-                                                    <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="Email" />
-                                                    <asp:BoundField DataField="CLS_Try" SortExpression="CLS_Try" HeaderText="CLS Under Trial" />
-                                                    <asp:BoundField DataField="FU_Date" SortExpression="FU_Date" HeaderText="F/U Date" />
-                                                    <asp:BoundField DataField="Initials" SortExpression="Initials" HeaderText="Initials" />
+                                                    <asp:BoundField DataField="Appt_Date" SortExpression="Appt_Date" HeaderText="Appointment Date" HeaderStyle-Width="100px" />
+                                                    <asp:BoundField DataField="Patient_Name" SortExpression="Patient_Name" HeaderText="Patient Name" HeaderStyle-Width="100px" />
+                                                    <asp:BoundField DataField="Phone_Number" SortExpression="Phone_Number" HeaderText="Phone Number" HeaderStyle-Width="100px" />
+                                                    <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="Email" HeaderStyle-Width="100px" />
+                                                    <asp:BoundField DataField="CLS_Try" SortExpression="CLS_Try" HeaderText="CLS Under Trial" HeaderStyle-Width="200px" />
+                                                    <asp:BoundField DataField="Notes" SortExpression="Notes" HeaderText="Notes" HeaderStyle-Width="350px" />
+                                                    <asp:BoundField DataField="FU_Date" SortExpression="FU_Date" HeaderText="F/U Date" HeaderStyle-Width="100px" />
+                                                    <asp:BoundField DataField="Initials" SortExpression="Initials" HeaderText="Initials" HeaderStyle-Width="100px" />
                                                     <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
                                                 </Columns>
                                             </asp:GridView>
@@ -131,6 +132,14 @@
                                                         </EditItemTemplate>
                                                         <ItemTemplate>
                                                             <asp:Label ID="CLS_TryLabel" runat="server" Text='<%# Bind("CLS_Try") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Notes" SortExpression="Notes">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="editNotes" runat="server" Text='<%# Bind("Notes") %>' class="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Notes_Label" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Follow Up Date" SortExpression="FU_Date">

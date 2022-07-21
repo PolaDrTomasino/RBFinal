@@ -91,24 +91,68 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+                        <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Referral Request:</label>
+                    <label class="col-md-3 control-label">Referral Date:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                            <asp:TextBox ID="txtRef_Date" class="form-control" type="date" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">PCP Name:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
-                            <asp:TextBox ID="txtRFR" required="" autocomplete="off" class="form-control" placeholder="Enter Referral Request" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtDrName" class="form-control"  autocomplete="off" placeholder="Enter Doctor's Name" runat="server" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
-                    <label class="col-md-3 control-label">Referral Date:</label>
+                    <label class="col-md-3 control-label">PCP Practice Name:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txt_RefDate" class="form-control" type="date" placeholder="MM/DD/YYYY" runat="server" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtDrPrName" runat="server" class="form-control"  autocomplete="off" placeholder="Enter Doctor's Practice Name" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">PCP Phone Number:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+							<asp:TextBox ID="txtDrPhone" runat="server" class="form-control"  autocomplete="off" placeholder="Enter Doctor's Phone Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">PCP Fax Number:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+							<asp:TextBox ID="txtDrFax" required="" runat="server" class="form-control" autocomplete="off" placeholder="Enter Doctor's Fax Number" Width="245px" Style="margin-left: 0px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Date Completed:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+							<asp:TextBox ID="txtDateDone" runat="server" class="form-control" type="date" placeholder="MM/DD/YYYY" Width="245px" Style="margin-left: 0px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

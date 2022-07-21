@@ -43,7 +43,7 @@ public partial class ViewOrders : System.Web.UI.Page
     }
     protected void GridViewOrders_PreRender(object sender, EventArgs e)
     {
-        Label2.Text = "Displaying Page" + (GridViewOrders.PageIndex + 1).ToString() + " of " + GridViewOrders.PageCount.ToString();
+
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)

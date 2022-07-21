@@ -78,10 +78,9 @@
                                             DataKeyNames="ID" EmptyDataText="There are no data records to display.">
                                             <Columns>
                                                 <asp:BoundField DataField="Date" HeaderText="Appointment Date" SortExpression="Date" />
-                                                <asp:BoundField DataField="Patient_Name" HeaderText="Patient Name" SortExpression="Patient_Name"/>
-                                                <asp:BoundField DataField="Phone_Number" HeaderText="Phone Number" SortExpression="Phone_Number"/>
+                                                <asp:BoundField DataField="PatientName" HeaderText="Patient Name" SortExpression="PatientName"/>
+                                                <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber"/>
                                                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"/>
-                                                <asp:BoundField DataField="RFR" HeaderText="Referral Request" ItemStyle-Width="100px" SortExpression="RFR"/>
                                                 <asp:BoundField DataField="RefDate" HeaderText="Referral Date" SortExpression="RefDate"/>
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials"/>
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
@@ -102,18 +101,18 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Patient Name" SortExpression="Patient_Name">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editPatient_Name" runat="server" Text='<%# Bind("Patient_Name") %>' class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="editPatientName" runat="server" Text='<%# Bind("PatientName") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="Patient_NameLabel" runat="server" Text='<%# Bind("Patient_Name") %>'></asp:Label>
+                                                        <asp:Label ID="PatientNameLabel" runat="server" Text='<%# Bind("PatientName") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Phone Number" SortExpression="Phone_Number">
                                                     <EditItemTemplate>
-                                                        <asp:TextBox ID="editPhone_Number" runat="server" Text='<%# Bind("Phone_Number") %>' class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="editPhoneNumber" runat="server" Text='<%# Bind("PhoneNumber") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="Phone_NumberLabel" runat="server" Text='<%# Bind("Phone_Number") %>'></asp:Label>
+                                                        <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Bind("PhoneNumber") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Email" SortExpression="Email">
@@ -124,20 +123,52 @@
                                                         <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Referral Request" SortExpression="RFR">
-                                                    <EditItemTemplate>
-                                                        <asp:TextBox ID="editRFR" runat="server" Text='<%# Bind("RFR") %>' TextMode="MultiLine" class="form-control"></asp:TextBox>
-                                                    </EditItemTemplate>
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="RFRLabel" runat="server" Text='<%# Bind("RFR") %>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Referral Date" SortExpression="Referral Date">
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="editRefDate" runat="server" Text='<%# Bind("RefDate") %>' class="form-control"></asp:TextBox>
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="RefDateLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("RefDate").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("RefDate")).ToString("MM/dd/yyyy") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="PCP Name" SortExpression="DrName">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editDrName" runat="server" Text='<%# Bind("DrName") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="DrNameLabel" runat="server" Text='<%# Bind("DrName") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="PCP Practice Name" SortExpression="DrPrName">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editDrPRName" runat="server"  Text='<%# Bind("DrPrName") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="DrPrNameLabel" runat="server" Text='<%# Bind("DrPrName") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="PCP Phone Number" SortExpression="DrPhone">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editDrPhone" runat="server" Text='<%# Bind("DrPhone") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="DrPhoneLabel" runat="server" Text='<%# Bind("DrPhone") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="PCP Fax Number" SortExpression="DrFax">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editDrFax" runat="server" Text='<%# Bind("DrFax") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="DrFaxLabel" runat="server" Text='<%# Bind("DrFax") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Date Completed" SortExpression="DateDone">
+                                                    <EditItemTemplate>
+                                                        <asp:TextBox ID="editDateDone" runat="server" Type="date" Text='<%# Bind("DateDone") %>' class="form-control"></asp:TextBox>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="DateDoneLabel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("DateDone").ToString())) ? "&nbsp" : Convert.ToDateTime(Eval("DateDone")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Initials" SortExpression="Initials">

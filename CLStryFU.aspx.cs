@@ -24,7 +24,7 @@ public partial class CLStryFU : System.Web.UI.Page
         //opening conncetion and insert then close DB
 
         connection();
-        string query = "INSERT INTO [dbo].[CLSFU] (Appt_Date, Patient_Name, Phone_Number, Email, CLS_Try, FU_Date, Initials, Status) Values ( @Appt_Date, @Patient_Name, @Phone_Number, @Email, @CLS_Try, @FU_Date, @Initials, @Status) ";
+        string query = "INSERT INTO [dbo].[CLSFU] (Appt_Date, Patient_Name, Phone_Number, Email, CLS_Try, Notes, FU_Date, Initials, Status) Values ( @Appt_Date, @Patient_Name, @Phone_Number, @Email, @CLS_Try, @Notes, @FU_Date, @Initials, @Status) ";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.AddWithValue("@Appt_Date", txtAppt_Date.Text);
@@ -32,6 +32,7 @@ public partial class CLStryFU : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@Phone_Number", txtPhone_Number.Text);
         cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
         cmd.Parameters.AddWithValue("@CLS_Try", txtCLS_Try.Text);
+        cmd.Parameters.AddWithValue("@Notes", txt_Notes.Text);
         cmd.Parameters.AddWithValue("@FU_Date", txtFU_Date.Text);
         cmd.Parameters.AddWithValue("@Initials", txtInitials.Text);
         cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
@@ -47,6 +48,7 @@ public partial class CLStryFU : System.Web.UI.Page
         txtEmail.Text="";
         txtCLS_Try.Text="";
         txtFU_Date.Text="";
+        txt_Notes.Text = "";
         txtInitials.Text = "";
         txtStatus.SelectedValue = "";
     }

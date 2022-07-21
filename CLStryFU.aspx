@@ -106,6 +106,17 @@
                     </div>
                 </div>
                     </div>
+                        <div class="form-group">
+                <div class="row">
+                    <label class="col-md-3 control-label">Notes:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
+                            <asp:TextBox ID="txt_Notes" runat="server" class="form-control"  autocomplete="off" placeholder="Enter Your Notes" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                    </div>
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-3 control-label">Date Of Follow Up:</label>

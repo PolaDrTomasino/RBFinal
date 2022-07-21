@@ -44,7 +44,7 @@ public partial class ViewCLS : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials] FROM [CLSFU] Where [Status] != 'Done (Closed)'", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [Notes], [FU_Date], [Initials] FROM [CLSFU] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewCLS.DataSource = Dt;
@@ -59,9 +59,9 @@ public partial class ViewCLS : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Cells[0].Text = Convert.ToDateTime(e.Row.Cells[0].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
-            if (e.Row.Cells[5].Text != "&nbsp;")
+            if (e.Row.Cells[6].Text != "&nbsp;")
             {
-                e.Row.Cells[5].Text = Convert.ToDateTime(e.Row.Cells[5].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
+                e.Row.Cells[6].Text = Convert.ToDateTime(e.Row.Cells[6].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
             }
         }
     }
@@ -120,7 +120,7 @@ public partial class ViewCLS : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials], [Status] FROM [CLSFU] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [Notes], [FU_Date], [Initials], [Status] FROM [CLSFU] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -182,6 +182,7 @@ public partial class ViewCLS : System.Web.UI.Page
         TextBox newPhone_NumberTextBox = (TextBox)dvCLS.FindControl("editPhone_Number");
         TextBox newEmailTextBox = (TextBox)dvCLS.FindControl("editEmail");
         TextBox newCLS_TryTextBox = (TextBox)dvCLS.FindControl("editCLS_Try");
+        TextBox newNotesTextBox = (TextBox)dvCLS.FindControl("editNotes");
         TextBox newFU_DateTextBox = (TextBox)dvCLS.FindControl("editFU_Date");
         TextBox newInitialsTextBox = (TextBox)dvCLS.FindControl("editInitials");
         DropDownList newStatusTextBox = (DropDownList)dvCLS.FindControl("editStatus");
@@ -191,12 +192,13 @@ public partial class ViewCLS : System.Web.UI.Page
         string newPhone_Number = newPhone_NumberTextBox.Text;
         string newEmail = newEmailTextBox.Text;
         string newCLS_Try = newCLS_TryTextBox.Text;
+        string newNotes = newNotesTextBox.Text;
         string newFU_Date = newFU_DateTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
         string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE CLSFU SET Appt_Date=@Appt_Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, CLS_Try=@CLS_Try, FU_Date=@FU_Date, Initials=@Initials, Status=@Status Where ID=@ID";
+        string query = "UPDATE CLSFU SET Appt_Date=@Appt_Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, Notes=@Notes , CLS_Try=@CLS_Try, FU_Date=@FU_Date, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -211,6 +213,8 @@ public partial class ViewCLS : System.Web.UI.Page
         cmd.Parameters["Email"].Value = newEmail;
         cmd.Parameters.Add("CLS_Try", SqlDbType.VarChar, 255);
         cmd.Parameters["CLS_Try"].Value = newCLS_Try;
+        cmd.Parameters.Add("Notes", SqlDbType.VarChar, 255);
+        cmd.Parameters["Notes"].Value = newNotes;
         cmd.Parameters.Add("FU_Date", SqlDbType.VarChar, 255);
         cmd.Parameters["FU_Date"].Value = newFU_Date;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
@@ -238,7 +242,7 @@ public partial class ViewCLS : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [FU_Date], [Initials] FROM [CLSFU] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [Notes], [FU_Date], [Initials] FROM [CLSFU] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {

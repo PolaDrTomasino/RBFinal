@@ -368,7 +368,7 @@
                                         <div class="forum-icon">
                                             <i class="fa fa-dot-circle-o"></i>
                                         </div>
-                                        <a href="ViewCLS.aspx" class="forum-item-title" style="font-size: 1.2vw">View Contact Lens Trials</a>
+                                        <a href="ViewCLS.aspx" class="forum-item-title" style="font-size: 1.2vw">View Contact Lens Follow ups</a>
                                         <div class="forum-sub-title">Here we can see patients trying CLS and needs follow up</div>
                                     </div>
                                     <div class="col-md-3 forum-info">

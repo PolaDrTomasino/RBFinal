@@ -44,7 +44,7 @@ public partial class ViewRef : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials], [Status] FROM[Referral] Where [Status] != 'Done (Closed)'", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID],[Date], [PatientName], [PhoneNumber], [Email], [RefDate], [DrName], [DrPrName], [DrPhone], [DrFax], [DateDone], [Initials], [Status] FROM[Referral] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewRef.DataSource = Dt;
@@ -56,7 +56,7 @@ public partial class ViewRef : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         connection();
-        string query = "select *  from [Referral] where Patient_Name like'" + TextBox1.Text + "%'";
+        string query = "select *  from [Referral] where PatientName like'" + TextBox1.Text + "%'";
         SqlCommand com = new SqlCommand(query, mycon);
 
         SqlDataReader dr;
@@ -108,7 +108,7 @@ public partial class ViewRef : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials], [Status] FROM [Referral] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [PatientName], [PhoneNumber], [Email], [RefDate], [DrName], [DrPrName], [DrPhone], [DrFax], [DateDone], [Initials], [Status] FROM [Referral] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -166,42 +166,58 @@ public partial class ViewRef : System.Web.UI.Page
     {
         int ID = (int)dvRef.DataKey.Value;
         TextBox newDateTextBox = (TextBox)dvRef.FindControl("editDate");
-        TextBox newPatient_NameTextBox = (TextBox)dvRef.FindControl("editPatient_Name");
-        TextBox newPhone_NumberTextBox = (TextBox)dvRef.FindControl("editPhone_Number");
+        TextBox newPatientNameTextBox = (TextBox)dvRef.FindControl("editPatientName");
+        TextBox newPhoneNumberTextBox = (TextBox)dvRef.FindControl("editPhoneNumber");
         TextBox newEmailTextBox = (TextBox)dvRef.FindControl("editEmail");
-        TextBox newRFRTextBox = (TextBox)dvRef.FindControl("editRFR");
         TextBox newRefDateTextBox = (TextBox)dvRef.FindControl("editRefDate");
+        TextBox newDrNameTextBox = (TextBox)dvRef.FindControl("editDrName");
+        TextBox newDrPrNameTextBox = (TextBox)dvRef.FindControl("editDrPrName");
+        TextBox newDrPhoneTextBox = (TextBox)dvRef.FindControl("editDrPhone");
+        TextBox newDrFaxTextBox = (TextBox)dvRef.FindControl("editDrFax");
+        TextBox newDateDoneTextBox = (TextBox)dvRef.FindControl("editDateDone");
         TextBox newInitialsTextBox = (TextBox)dvRef.FindControl("editInitials");
         DropDownList newStatusTextBox = (DropDownList)dvRef.FindControl("editStatus");
 
         string newDate = newDateTextBox.Text;
-        string newPatient_Name = newPatient_NameTextBox.Text;
-        string newPhone_Number = newPhone_NumberTextBox.Text;
+        string newPatientName = newPatientNameTextBox.Text;
+        string newPhoneNumber = newPhoneNumberTextBox.Text;
         string newEmail = newEmailTextBox.Text;
-        string newRFR = newRFRTextBox.Text;
         string newRefDate = newRefDateTextBox.Text;
+        string newDrName = newDrNameTextBox.Text;
+        string newDrPrName = newDrPrNameTextBox.Text;
+        string newDrPhone = newDrPhoneTextBox.Text;
+        string newDrFax = newDrFaxTextBox.Text;
+        string newDateDone = newDateDoneTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
         string newStatus = newStatusTextBox.SelectedValue;
 
 
         connection();
-        string query = "UPDATE Referral SET Date=@Date, Patient_Name=@Patient_Name, Phone_Number=@Phone_Number, Email=@Email, RFR=@RFR, RefDate=@RefDate, Initials=@Initials, Status=@Status Where ID=@ID";
+        string query = "UPDATE Referral SET Date=@Date, PatientName=@PatientName, PhoneNumber=@PhoneNumber, Email=@Email, RefDate=@RefDate, DrName=@DrName, DrPrName=@DrPrName, DrPhone=@DrPhone, DrFax=@DrFax, DateDone=@DateDone, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
         cmd.Parameters["ID"].Value = ID;
         cmd.Parameters.Add("Date", SqlDbType.VarChar, 255);
         cmd.Parameters["Date"].Value = newDate;
-        cmd.Parameters.Add("Patient_Name", SqlDbType.VarChar, 255);
-        cmd.Parameters["Patient_Name"].Value = newPatient_Name;
-        cmd.Parameters.Add("Phone_Number", SqlDbType.VarChar, 255);
-        cmd.Parameters["Phone_Number"].Value = newPhone_Number;
+        cmd.Parameters.Add("PatientName", SqlDbType.VarChar, 255);
+        cmd.Parameters["PatientName"].Value = newPatientName;
+        cmd.Parameters.Add("PhoneNumber", SqlDbType.VarChar, 255);
+        cmd.Parameters["PhoneNumber"].Value = newPhoneNumber;
         cmd.Parameters.Add("Email", SqlDbType.VarChar, 255);
         cmd.Parameters["Email"].Value = newEmail;
-        cmd.Parameters.Add("RFR", SqlDbType.VarChar, 255);
-        cmd.Parameters["RFR"].Value = newRFR;
         cmd.Parameters.Add("RefDate", SqlDbType.VarChar, 255);
         cmd.Parameters["RefDate"].Value = newRefDate;
+        cmd.Parameters.Add("DrName", SqlDbType.VarChar, 255);
+        cmd.Parameters["DrName"].Value = newDrName;
+        cmd.Parameters.Add("DrPrName", SqlDbType.VarChar, 255);
+        cmd.Parameters["DrPrName"].Value = newDrPrName;
+        cmd.Parameters.Add("DrPhone", SqlDbType.VarChar, 255);
+        cmd.Parameters["DrPhone"].Value = newDrPhone;
+        cmd.Parameters.Add("DrFax", SqlDbType.VarChar, 255);
+        cmd.Parameters["DrFax"].Value = newDrFax;
+        cmd.Parameters.Add("DateDone", SqlDbType.VarChar, 255);
+        cmd.Parameters["DateDone"].Value = newDateDone;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
         cmd.Parameters["Initials"].Value = newInitials;
         cmd.Parameters.Add("Status", SqlDbType.VarChar, 255);
@@ -227,7 +243,7 @@ public partial class ViewRef : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select[ID],[Date], [Patient_Name], [Phone_Number], [Email], [RFR], [RefDate], [Initials], [Status] FROM[Referral] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select[ID],[Date], [PatientName], [PhoneNumber], [Email], [RefDate], [Initials], [Status] FROM[Referral] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -251,9 +267,9 @@ public partial class ViewRef : System.Web.UI.Page
         {
             e.Row.Cells[0].Text = Convert.ToDateTime(e.Row.Cells[0].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
 
-            if (e.Row.Cells[5].Text != "&nbsp;")
+            if (e.Row.Cells[4].Text != "&nbsp;")
             {
-                e.Row.Cells[5].Text = Convert.ToDateTime(e.Row.Cells[5].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
+                e.Row.Cells[4].Text = Convert.ToDateTime(e.Row.Cells[4].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
             }
         }
     }
