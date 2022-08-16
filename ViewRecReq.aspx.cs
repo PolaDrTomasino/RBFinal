@@ -241,6 +241,8 @@ public partial class ViewRecReq : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewRecReq.DataSource = dt;
                         GridViewRecReq.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewRecReq.DataBind();
                     }
                 }

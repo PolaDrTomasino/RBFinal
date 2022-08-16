@@ -254,6 +254,8 @@ public partial class ViewRef : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewRef.DataSource = dt;
                         GridViewRef.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewRef.DataBind();
                     }
                 }

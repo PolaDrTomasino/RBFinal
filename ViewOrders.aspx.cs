@@ -317,6 +317,8 @@ public partial class ViewOrders : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewOrders.DataSource = dt;
                         GridViewOrders.DataKeyNames = new string[] { "OrderID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewOrders.DataBind();
                     }
                 }

@@ -240,6 +240,8 @@ public partial class ViewptCancelled : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewptCancelled.DataSource = dt;
                         GridViewptCancelled.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewptCancelled.DataBind();
                     }
                 }

@@ -238,6 +238,8 @@ public partial class ViewRx : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewPB.DataSource = dt;
                         GridViewPB.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewPB.DataBind();
                     }
                 }

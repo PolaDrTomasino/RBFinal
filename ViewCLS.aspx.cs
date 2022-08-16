@@ -53,7 +53,30 @@ public partial class ViewCLS : System.Web.UI.Page
         GridViewCLS.DataBind();
         return Dt;
     }
-
+    protected void Archive_Click(object sender, EventArgs e)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [Notes], [FU_Date], [Initials] FROM [CLSFU] Where [Status] = 'Done (Closed)'"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridViewCLS.DataSource = dt;
+                        GridViewCLS.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
+                        GridViewCLS.DataBind();
+                    }
+                }
+            }
+        }
+    }
     protected void GridViewCLS_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
@@ -236,28 +259,6 @@ public partial class ViewCLS : System.Web.UI.Page
         DisplayRecord();
         dvCLS.Visible = false;
         GridViewCLS.Visible = true;
-    }
-    protected void Archive_Click(object sender, EventArgs e)
-    {
-        string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
-        using (SqlConnection con = new SqlConnection(constr))
-        {
-            using (SqlCommand cmd = new SqlCommand("select [ID], [Appt_Date], [Patient_Name], [Phone_Number], [Email], [CLS_Try], [Notes], [FU_Date], [Initials] FROM [CLSFU] Where [Status] = 'Done (Closed)'"))
-            {
-                using (SqlDataAdapter sda = new SqlDataAdapter())
-                {
-                    cmd.Connection = con;
-                    sda.SelectCommand = cmd;
-                    using (DataTable dt = new DataTable())
-                    {
-                        sda.Fill(dt);
-                        GridViewCLS.DataSource = dt;
-                        GridViewCLS.DataKeyNames = new string[] { "ID" };
-                        GridViewCLS.DataBind();
-                    }
-                }
-            }
-        }
     }
 
     protected void GridViewCLS_Sorting(object sender, GridViewSortEventArgs e)

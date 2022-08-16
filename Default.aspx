@@ -442,7 +442,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-wpforms"></i>
+                                            <i class="fa fa-files-o"></i>
                                         </div>
                                         <a href="ViewMedRecords.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Requests for Medical Records</a>
                                         <div class="forum-sub-title">Here we can see patients who Request a release of Medical Records</div>
@@ -461,7 +461,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="forum-icon">
-                                            <i class="fa fa-wpforms"></i>
+                                            <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
                                         </div>
                                         <a href="ViewPhoneBook.aspx" class="forum-item-title"  style="font-size: 1.2vw">View Phone Calls Received</a>
                                         <div class="forum-sub-title">Here we can see patients who called and left a message</div>

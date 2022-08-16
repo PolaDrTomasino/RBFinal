@@ -251,6 +251,8 @@ public partial class ViewMedRecords : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewMedRecords.DataSource = dt;
                         GridViewMedRecords.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewMedRecords.DataBind();
                     }
                 }

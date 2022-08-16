@@ -234,6 +234,8 @@ public partial class ViewTrials : System.Web.UI.Page
                         sda.Fill(dt);
                         GridViewTrials.DataSource = dt;
                         GridViewTrials.DataKeyNames = new string[] { "ID" };
+                        ViewState["dirState"] = dt;
+                        ViewState["sortdr"] = "Asc";
                         GridViewTrials.DataBind();
                     }
                 }
