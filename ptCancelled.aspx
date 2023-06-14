@@ -96,6 +96,22 @@
             </div>
             <div class="form-group">
                 <div class="row">
+                    <label class="col-md-3 control-label">Service Type:</label>
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-table"></i></span>
+                            <asp:DropDownList ID="txtServType" runat="server" class="form-control"  Style="margin-bottom: 0px; margin-left: 0px;" Width="245px">
+                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem>Routine Exam</asp:ListItem>
+                                <asp:ListItem>Medical</asp:ListItem>
+                                <asp:ListItem>Iwellness/VF</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
                     <label class="col-md-3 control-label">New Appointmnent Date:</label>
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">

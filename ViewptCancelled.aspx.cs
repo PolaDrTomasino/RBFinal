@@ -46,7 +46,7 @@ public partial class ViewptCancelled : System.Web.UI.Page
     public DataTable DisplayRecord()
     {
         connection();
-        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [PatientName], [PhoneNumber], [Email], [ReasonForCancel], [NewDate], [Initials] FROM [ptCancelled] Where [Status] != 'Done (Closed)'", mycon);
+        SqlDataAdapter Adp = new SqlDataAdapter("select [ID], [Date], [PatientName], [PhoneNumber], [Email], [ReasonForCancel], [ServType], [NewDate], [Initials] FROM [ptCancelled] Where [Status] != 'Done (Closed)'", mycon);
         DataTable Dt = new DataTable();
         Adp.Fill(Dt);
         GridViewptCancelled.DataSource = Dt;
@@ -110,7 +110,7 @@ public partial class ViewptCancelled : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [PatientName], [PhoneNumber], [Email], [ReasonForCancel], [NewDate], [Initials], [Status] FROM [ptCancelled] Where ID=@ID"))
+            using (SqlCommand cmd = new SqlCommand("select [ID],[Date], [PatientName], [PhoneNumber], [Email], [ReasonForCancel], [ServType], [NewDate], [Initials], [Status] FROM [ptCancelled] Where ID=@ID"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -172,6 +172,7 @@ public partial class ViewptCancelled : System.Web.UI.Page
         TextBox newPhoneNumberTextBox = (TextBox)dvCan.FindControl("editPhoneNumber");
         TextBox newEmailTextBox = (TextBox)dvCan.FindControl("editEmail");
         TextBox newReasonForCancelTextBox = (TextBox)dvCan.FindControl("editReasonForCancel");
+        DropDownList newServTypeTextBox = (DropDownList)dvCan.FindControl("editServType");
         TextBox newNewDateTextBox = (TextBox)dvCan.FindControl("editNewDate");
         TextBox newInitialsTextBox = (TextBox)dvCan.FindControl("editInitials");
         DropDownList newStatusTextBox = (DropDownList)dvCan.FindControl("editStatus");
@@ -182,12 +183,13 @@ public partial class ViewptCancelled : System.Web.UI.Page
         string newPhoneNumber = newPhoneNumberTextBox.Text;
         string newEmail = newEmailTextBox.Text;
         string newReasonForCancel = newReasonForCancelTextBox.Text;
+        string newServType = newServTypeTextBox.SelectedValue;
         string newNewDate = newNewDateTextBox.Text;
         string newInitials = newInitialsTextBox.Text;
         string newStatus = newStatusTextBox.SelectedValue;
 
         connection();
-        string query = "UPDATE ptCancelled SET Date=@Date, PatientName=@PatientName, PhoneNumber=@PhoneNumber, Email=@Email, ReasonForCancel=@ReasonForCancel, NewDate=@NewDate, Initials=@Initials, Status=@Status Where ID=@ID";
+        string query = "UPDATE ptCancelled SET Date=@Date, PatientName=@PatientName, PhoneNumber=@PhoneNumber, Email=@Email, ReasonForCancel=@ReasonForCancel, ServType=@ServType, NewDate=@NewDate, Initials=@Initials, Status=@Status Where ID=@ID";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.Add("ID", SqlDbType.Int);
@@ -202,6 +204,8 @@ public partial class ViewptCancelled : System.Web.UI.Page
         cmd.Parameters["Email"].Value = newEmail;
         cmd.Parameters.Add("ReasonForCancel", SqlDbType.VarChar, 255);
         cmd.Parameters["ReasonForCancel"].Value = newReasonForCancel;
+        cmd.Parameters.Add("ServType", SqlDbType.VarChar, 255);
+        cmd.Parameters["ServType"].Value = newServType;
         cmd.Parameters.Add("NewDate", SqlDbType.VarChar, 255);
         cmd.Parameters["NewDate"].Value = newNewDate;
         cmd.Parameters.Add("Initials", SqlDbType.VarChar, 255);
@@ -229,7 +233,7 @@ public partial class ViewptCancelled : System.Web.UI.Page
         string constr = ConfigurationManager.ConnectionStrings["mycon"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [PatientName], [PhoneNumber], [Email], [ReasonForCancel], [NewDate], [Initials] FROM [ptCancelled] Where [Status] = 'Done (Closed)'"))
+            using (SqlCommand cmd = new SqlCommand("select [ID], [Date], [PatientName], [PhoneNumber], [Email], [ReasonForCancel], [ServType], [NewDate], [Initials] FROM [ptCancelled] Where [Status] = 'Done (Closed)'"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -255,9 +259,9 @@ public partial class ViewptCancelled : System.Web.UI.Page
         {
             e.Row.Cells[0].Text = Convert.ToDateTime(e.Row.Cells[0].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
             
-            if (e.Row.Cells[5].Text != "&nbsp;")
+            if (e.Row.Cells[6].Text != "&nbsp;")
             {
-                e.Row.Cells[5].Text = Convert.ToDateTime(e.Row.Cells[5].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
+                e.Row.Cells[6].Text = Convert.ToDateTime(e.Row.Cells[6].Text.Replace("T", " ")).ToString("MM/dd/yyyy");
             }
         }
     }

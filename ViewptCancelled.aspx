@@ -84,6 +84,7 @@
                                                 <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber"/>
                                                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"/>
                                                 <asp:BoundField DataField="ReasonForCancel" HeaderText="Cancellation Reason" SortExpression="ReasonForCancel"/>
+                                                <asp:BoundField DataField="ServType" HeaderText="Service Type" SortExpression="ServType"/>
                                                 <asp:BoundField DataField="NewDate" HeaderText="New Date" SortExpression="NewDate"/>
                                                 <asp:BoundField DataField="Initials" HeaderText="Initials" SortExpression="Initials"/>
                                                 <asp:ButtonField CommandName="Select" Text="Select" ControlStyle-CssClass="btn btn-info" ControlStyle-BorderColor="YellowGreen" />
@@ -132,6 +133,19 @@
                                                     </EditItemTemplate>
                                                     <ItemTemplate>
                                                         <asp:Label ID="ReasonForCancelLabel" runat="server" Text='<%# Bind("ReasonForCancel") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Service Type" SortExpression="Status">
+                                                    <EditItemTemplate>
+                                                        <asp:DropDownList ID="editServType" Text='<%# Bind("ServType") %>' runat="server" class="form-control">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>Routine Exam</asp:ListItem>
+                                                            <asp:ListItem>Medical</asp:ListItem>
+                                                            <asp:ListItem>Iwellness/VF</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </EditItemTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="ServTypeLabel" runat="server" Text='<%# Bind("ServType") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="New Date" SortExpression="New_Date">

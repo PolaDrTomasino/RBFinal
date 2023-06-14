@@ -88,6 +88,7 @@
                             <asp:DropDownList ID="txtSupAmt" runat="server" class="form-control" Width="245px">
                                 <asp:ListItem></asp:ListItem>
                                 <asp:ListItem>RGP</asp:ListItem>
+                                <asp:ListItem>OrthoK Lenses</asp:ListItem>
                                 <asp:ListItem>1 Month</asp:ListItem>
                                 <asp:ListItem>3 Months</asp:ListItem>
                                 <asp:ListItem>6 Months</asp:ListItem>

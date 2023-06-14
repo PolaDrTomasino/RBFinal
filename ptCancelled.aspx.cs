@@ -28,13 +28,14 @@ public partial class ptCancelled : System.Web.UI.Page
 
 
         connection();
-        string query = "INSERT INTO [dbo].[ptCancelled] (Date, PatientName, PhoneNumber, Email, ReasonForCancel, NewDate, Initials, Status) Values ( @Date, @PatientName, @PhoneNumber, @Email, @ReasonForCancel, @NewDate, @Initials, @Status) ";
+        string query = "INSERT INTO [dbo].[ptCancelled] (Date, PatientName, PhoneNumber, Email, ReasonForCancel, ServType, NewDate, Initials, Status) Values ( @Date, @PatientName, @PhoneNumber, @Email, @ReasonForCancel, @ServType , @NewDate, @Initials, @Status) ";
         SqlCommand cmd = new SqlCommand(query, mycon);
 
         cmd.Parameters.AddWithValue("@Date", txtDate.Text);
         cmd.Parameters.AddWithValue("@PatientName", txtPatientName.Text);
         cmd.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
         cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+        cmd.Parameters.AddWithValue("@ServType", txtServType.Text);
         cmd.Parameters.AddWithValue("@ReasonForCancel", txtReasonForCancel.Text);
         cmd.Parameters.AddWithValue("@NewDate", txtNewDate.Text);
         cmd.Parameters.AddWithValue("@Initials", txtInitials.Text);

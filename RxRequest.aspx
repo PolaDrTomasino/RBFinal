@@ -53,7 +53,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-							<asp:TextBox ID="txtDate" type="date" runat="server" class="form-control" placeholder="MM/DD/YYYY" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+							<asp:TextBox ID="txtDate" type="date" required="" runat="server" class="form-control" placeholder="MM/DD/YYYY" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>

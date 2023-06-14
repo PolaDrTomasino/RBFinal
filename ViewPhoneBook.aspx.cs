@@ -98,6 +98,11 @@ public partial class ViewRx : System.Web.UI.Page
     }
     protected void GridViewPB_SelectedIndexChanged(object sender, EventArgs e)
     {
+        int index = GridViewPB.SelectedRow.RowIndex;
+        string name = GridViewPB.SelectedRow.Cells[0].Text;
+        string country = GridViewPB.SelectedRow.Cells[1].Text;
+        string message = "Row Index: " + index + "\\nName: " + name + "\\nCountry: " + country;
+        
         BindDetails();
     }
     private void BindDetails()
@@ -252,6 +257,11 @@ public partial class ViewRx : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Cells[2].Text = Convert.ToDateTime(e.Row.Cells[2].Text.Replace("T", " ")).ToString("MM/dd/yyyy hh:ss tt");
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridViewPB, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
+            }
         }
     }
 

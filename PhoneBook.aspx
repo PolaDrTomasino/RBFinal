@@ -53,12 +53,10 @@
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
                             <asp:DropDownList ID="txtMSGFor" runat="server" class="form-control" Width="245px">
                                 <asp:ListItem Text="Dr T." Value="susan@drtomasino.com"></asp:ListItem>
-                                <asp:ListItem Text="Mary" Value="Mary@drtomasino.com"></asp:ListItem>
-                                <asp:ListItem Text="Jennifer" Value="Jennifer@drtomasino.com"></asp:ListItem>
                                 <asp:ListItem Text="Pola" Value="pola@drtomasino.com"></asp:ListItem>
-                                <asp:ListItem Text="Rachel" Value="Rachel@drtomasino.com"></asp:ListItem>
-                                <asp:ListItem Text="Alexis" Value="Alexis@drtomasino.com"></asp:ListItem>
                                 <asp:ListItem Text="Melissa" Value="Melissa@drtomasino.com"></asp:ListItem>
+                                <asp:ListItem Text="Mariana" Value="Mariana@drtomasino.com"></asp:ListItem>
+                                <asp:ListItem Text="Marie" Value="marie@drtomasino.com"></asp:ListItem>
                             </asp:DropDownList>
 
                         </div>
@@ -71,7 +69,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <asp:TextBox ID="txtCaller_Name" required="" runat="server" autocomplete="off" class="form-control" placeholder="Enter Patient Name" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtCaller_Name" required="" runat="server" autocomplete="off" class="form-control" placeholder="Enter Caller's Name" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -82,7 +80,7 @@
                     <div class="col-md-6 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
-                            <asp:TextBox ID="txtDateTime" type="datetime-local" runat="server" class="form-control" placeholder="Enter Date/Time" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
+                            <asp:TextBox ID="txtDateTime" required="" type="datetime-local" runat="server" class="form-control" placeholder="Enter Date/Time" Style="margin-bottom: 0px; margin-left: 0px;" Width="245px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
